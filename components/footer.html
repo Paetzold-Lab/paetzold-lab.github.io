@@ -15,12 +15,12 @@
     </p>
   </div>
 
-  <div id="legal-notice-popup" class="legal-popup">
-    <div class="legal-popup-backdrop"></div>
-    <div class="legal-popup-content" role="dialog" aria-modal="true">
-      <button class="legal-popup-close" aria-label="Close">&times;</button>
+  <div id="legal-notice-popup" class="legal-popup" aria-hidden="true" inert>
+    <button type="button" class="legal-popup-backdrop" tabindex="-1" aria-label="Close legal notice"></button>
+    <div class="legal-popup-content" role="dialog" aria-modal="true" aria-labelledby="legal-notice-title">
+      <button type="button" class="legal-popup-close" aria-label="Close legal notice">&times;</button>
 
-      <h2>Legal Notice</h2>
+      <h2 id="legal-notice-title">Legal Notice</h2>
 
       <div class="legal-section">
         <h3>Paetzold Lab</h3>
@@ -32,7 +32,7 @@
       <div class="legal-section">
         <h3>Responsible for Content</h3>
         <p>Dr.&nbsp;Johannes&nbsp;C.&nbsp;Paetzold</p>
-        <p>(Maintained by Matt Li)</p>
+        <p>(Maintained by Chenjun Li)</p>
       </div>
 
 
@@ -72,11 +72,35 @@
   if (!open || !popup) return;
   const closeBtn=popup.querySelector('.legal-popup-close');
   const backdrop=popup.querySelector('.legal-popup-backdrop');
-  const show=()=>{popup.classList.add('active');document.body.style.overflow='hidden'};
-  const hide=()=>{popup.classList.remove('active');document.body.style.overflow=''};
+  let previousFocus=null;
+  const show=()=>{
+    previousFocus=document.activeElement;
+    popup.removeAttribute('inert');
+    popup.classList.add('active');
+    popup.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    closeBtn?.focus();
+  };
+  const hide=()=>{
+    popup.classList.remove('active');
+    popup.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    previousFocus?.focus?.();
+    popup.setAttribute('inert','');
+  };
   open.addEventListener('click',e=>{e.preventDefault();show()});
   closeBtn?.addEventListener('click',hide);
   backdrop?.addEventListener('click',hide);
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&popup.classList.contains('active'))hide()});
+  document.addEventListener('keydown',e=>{
+    if(!popup.classList.contains('active')) return;
+    if(e.key==='Escape') { hide(); return; }
+    if(e.key!=='Tab') return;
+    const focusable=[...popup.querySelectorAll('a[href],button:not([disabled])')].filter(element=>element.tabIndex>=0&&element.offsetParent!==null);
+    if(!focusable.length) return;
+    const first=focusable[0];
+    const last=focusable[focusable.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+  });
 })();
 </script>

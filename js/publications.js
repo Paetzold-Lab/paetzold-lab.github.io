@@ -20,7 +20,7 @@ const LAB_MEMBER_ALIASES = {
   "Roel van Herten": ["Rudolf van Herten", "R van Herten", "R. van Herten", "R v Herten", "RLM van Herten"],
   "Lucas Stoffl": ["L Stoffl"]
 };
-const DATA_VERSION = window.PaetzoldSite?.componentVersion || "20260616a";
+const DATA_VERSION = window.PaetzoldSite?.componentVersion || "20260717f";
 
 function siteAssetPath(path) {
   if (window.PaetzoldSite?.assetPath) return window.PaetzoldSite.assetPath(path);

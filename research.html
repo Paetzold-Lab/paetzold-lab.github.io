@@ -23,18 +23,18 @@
   <meta name="twitter:description" content="Recent and representative publications from Paetzold Lab in medical imaging, topology, graph learning, generative AI, and vision-language models." />
   <meta name="twitter:image" content="https://paetzold-lab.github.io/images/team/paetzold-lab-group-2026.jpg" />
 
-  <link rel="stylesheet" href="css/style.css?v=20260616a">
-  <link rel="stylesheet" href="css/research.css?v=20260616a">
-  <script src="js/components.js?v=20260616a" defer></script>
-  <script src="js/main.js?v=20260616a" defer></script>
-  <script type="module" src="js/publications.js?v=20260616a" defer></script>
+  <link rel="stylesheet" href="css/style.css?v=20260717f">
+  <link rel="stylesheet" href="css/research.css?v=20260717f">
+  <script src="js/components.js?v=20260717f" defer></script>
+  <script src="js/main.js?v=20260717f" defer></script>
+  <script type="module" src="js/publications.js?v=20260717f" defer></script>
 </head>
 <body>
   <!-- Component placeholders -->
   <div id="header-placeholder"></div>
   <div id="search-overlay-placeholder"></div>
       
-  <main class="research-page">
+  <main class="research-page" id="main-content">
     <section class="publications" id="publications">
       <header class="publications-head">
         <p class="section-kicker">Research</p>
@@ -72,6 +72,7 @@
           <button data-filter="gnn">GNN</button>
           <button data-filter="generative">Generative AI</button>
           <button data-filter="topology">Topology</button>
+          <button data-filter="uncertainty">Uncertainty</button>
         </div>
         <div class="pub-member-filters" aria-label="Filter publications by lab member"></div>
         <div class="pub-update-meta" id="pub-update-meta" aria-live="polite"></div>
@@ -82,11 +83,11 @@
       </div>
 
       <div class="pagination">
-        <button class="pagination-btn prev" disabled>
+        <button class="pagination-btn prev" aria-label="Previous publications page" disabled>
           <span class="arrow">←</span>
         </button>
         <div class="page-numbers"></div>
-        <button class="pagination-btn next">
+        <button class="pagination-btn next" aria-label="Next publications page">
           <span class="arrow">→</span>
         </button>
       </div>

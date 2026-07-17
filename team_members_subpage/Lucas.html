@@ -24,16 +24,16 @@
   <meta name="twitter:image" content="https://paetzold-lab.github.io/images/portrait/Lucas.jpg" />
 
   <!-- Main CSS (reuse same style) -->
-  <link rel="stylesheet" href="../css/style.css?v=20260615l" />
-  <script src="../js/components.js?v=20260615l" defer></script>
-  <script src="../js/main.js?v=20260615l" defer></script>
+  <link rel="stylesheet" href="../css/style.css?v=20260717f" />
+  <script src="../js/components.js?v=20260717f" defer></script>
+  <script src="../js/main.js?v=20260717f" defer></script>
 </head>
 <body>
   <!-- Component placeholders -->
   <div id="header-placeholder"></div>
   <div id="search-overlay-placeholder"></div>
 
-  <main class="profile-page">
+  <main class="profile-page" id="main-content">
     <div class="profile-container">
       <div class="profile-image">
         <img src="../images/portrait/Lucas.jpg" alt="Dr. Lucas Stoffl" loading="eager" fetchpriority="high" decoding="async" />
@@ -61,7 +61,22 @@
           </a>
         </div>
         
-        <div class="profile-bio"></div>
+        <div class="profile-bio">
+          <h2>Selected Publications</h2>
+          <ul>
+            <li><a href="../research.html?q=VERITAS">VERITAS: Verifiable Epistemic Reasoning for Image-Derived Hypothesis Testing</a></li>
+            <li><a href="../research.html?q=A%20Multimodal%203D%20Foundation%20Model">A Multimodal 3D Foundation Model for Light Sheet Fluorescence Microscopy</a></li>
+            <li><a href="../research.html?q=Must3r">MUST3R: Multi-view Network for Stereo 3D Reconstruction</a></li>
+          </ul>
+
+          <h2>Research Interests</h2>
+          <ul>
+            <li>Agentic AI for medicine</li>
+            <li>Computer vision and clinical decision support</li>
+            <li>Trustworthy and interpretable AI</li>
+            <li>3D reconstruction and foundation models</li>
+          </ul>
+        </div>
       </div>
     </div>
   </main>

@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-06-15T17:43:03+00:00",
+  "generated_at": "2026-07-17T18:34:04+00:00",
   "summary": {
-    "total": 190,
+    "total": 189,
     "missing_year": 0,
     "missing_venue": 0,
     "missing_categories": 0,
     "missing_source_members": 0,
     "broken_thumbnails": 0,
     "default_thumbnails": 0,
-    "openalex_matched": 123,
-    "openalex_unmatched": 33,
+    "openalex_matched": 121,
+    "openalex_unmatched": 32,
     "chenjun_policy_violations": 0,
     "duplicate_title_groups": 0
   },

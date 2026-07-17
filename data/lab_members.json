@@ -18,6 +18,7 @@
     "detection": "Detection",
     "registration": "Registration",
     "classification": "Classification",
+    "uncertainty": "Uncertainty",
     "other": "Research"
   },
   "members": [

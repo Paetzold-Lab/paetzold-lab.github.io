@@ -1,8 +1,9 @@
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <header class="header">
   <div class="header-inner">
     <a class="logo" id="nav-logo" href="index.html">Paetzold Lab</a>
 
-    <nav class="top-nav">
+    <nav class="top-nav" aria-label="Primary navigation">
       <ul>
         <li><a id="nav-home"    href="index.html">Home</a></li>
         <li><a id="nav-research" href="research.html">Research</a></li>
@@ -16,9 +17,6 @@
     </div>
   </div>
 
-  <div class="progress-container">
-    <div class="progress-bar" id="progress-bar"></div>
-  </div>
 </header>
 
 <script>
@@ -36,7 +34,21 @@
       'pi.html'      : 'nav-team'
     };
     const activeLink = document.getElementById(isInSubdirectory ? 'nav-team' : map[file]);
-    if (activeLink) activeLink.classList.add('active');
+    if (activeLink) {
+      activeLink.classList.add('active');
+      activeLink.setAttribute('aria-current', 'page');
+      requestAnimationFrame(() => {
+        const nav = activeLink.closest('.top-nav');
+        if (nav && nav.scrollWidth > nav.clientWidth) {
+          const navRect = nav.getBoundingClientRect();
+          const linkRect = activeLink.getBoundingClientRect();
+          const isClipped = linkRect.left < navRect.left || linkRect.right > navRect.right;
+          if (isClipped) {
+            nav.scrollLeft += linkRect.left - navRect.left - (navRect.width - linkRect.width) / 2;
+          }
+        }
+      });
+    }
 
     const hrefs = {
       'nav-logo': 'index.html',

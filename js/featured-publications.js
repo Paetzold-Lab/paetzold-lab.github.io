@@ -18,6 +18,7 @@ const CATEGORY_NAMES = {
   detection: "Detection",
   registration: "Registration",
   classification: "Classification",
+  uncertainty: "Uncertainty",
   other: "Research"
 };
 
@@ -83,7 +84,13 @@ const HERO_TEASERS = {
   auto_6295fd2b61: "Synthetic OCTA data teaches VLMs clinical reasoning."
 };
 
-const DATA_VERSION = window.PaetzoldSite?.componentVersion || "20260616a";
+const DATA_VERSION = window.PaetzoldSite?.componentVersion || "20260717f";
+const LAB_INTRO_SLIDE = {
+  title: "Machine learning for medical imaging, biology, and trustworthy AI.",
+  summary: "Paetzold Lab builds interpretable computational systems that connect geometric learning, multimodal data, and clinical translation.",
+  image: "./images/team/paetzold-lab-group-2026.jpg",
+  image2x: "./images/team/paetzold-lab-group-2026@2x.jpg"
+};
 
 function escapeHTML(value) {
   return String(value ?? "").replace(/[&<>"']/g, char => ({
@@ -306,8 +313,9 @@ function ensurePaperZoomModal() {
     modal.id = "paper-zoom-modal";
     modal.className = "paper-zoom-modal";
     modal.setAttribute("aria-hidden", "true");
+    modal.setAttribute("inert", "");
     modal.innerHTML = `
-      <button type="button" class="paper-zoom-backdrop" aria-label="Close preview"></button>
+      <button type="button" class="paper-zoom-backdrop" tabindex="-1" aria-label="Close preview"></button>
       <div class="paper-zoom-dialog" role="dialog" aria-modal="true" aria-labelledby="paper-zoom-title">
         <button type="button" class="paper-zoom-close" aria-label="Close preview">&times;</button>
         <div class="paper-zoom-image-wrap">
@@ -322,7 +330,23 @@ function ensurePaperZoomModal() {
     modal.querySelector(".paper-zoom-backdrop")?.addEventListener("click", closePaperZoom);
     modal.querySelector(".paper-zoom-close")?.addEventListener("click", closePaperZoom);
     document.addEventListener("keydown", event => {
-      if (event.key === "Escape" && modal.classList.contains("is-open")) closePaperZoom();
+      if (!modal.classList.contains("is-open")) return;
+      if (event.key === "Escape") {
+        closePaperZoom();
+        return;
+      }
+      if (event.key !== "Tab") return;
+      const focusable = [...modal.querySelectorAll("button:not([disabled]), a[href]")].filter(element => element.tabIndex >= 0 && element.offsetParent !== null);
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     });
     modal.dataset.bound = "true";
   }
@@ -340,7 +364,7 @@ function openPaperZoom(src, title) {
     dialog?.classList.remove("is-wide", "is-tall");
     img.onload = () => {
       const ratio = (img.naturalWidth || 1) / (img.naturalHeight || 1);
-      dialog?.classList.toggle("is-wide", ratio > 1.8);
+      dialog?.classList.toggle("is-wide", ratio >= 0.85);
       dialog?.classList.toggle("is-tall", ratio < 0.85);
     };
     img.src = src || "./images/publications/default.png";
@@ -348,6 +372,7 @@ function openPaperZoom(src, title) {
   }
   if (caption) caption.textContent = title || "";
   modal.classList.add("is-open");
+  modal.removeAttribute("inert");
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("paper-zoom-open");
   modal.querySelector(".paper-zoom-close")?.focus();
@@ -360,6 +385,7 @@ function closePaperZoom() {
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("paper-zoom-open");
   modal.previousFocus?.focus?.();
+  modal.setAttribute("inert", "");
 }
 
 function bindPaperCollageZoom(scope = document) {
@@ -383,13 +409,37 @@ function renderHeroPublications(pubs) {
   const heroPubs = selectHeroPublications(pubs);
   if (!heroPubs.length) return;
 
-  wrap.innerHTML = heroPubs.map((pub, index) => {
+  const labIntroSlide = `
+      <div class="carousel-slide paper-slide lab-intro-slide active" aria-hidden="false">
+        <div class="paper-bg lab-intro-bg">
+          <figure class="lab-intro-photo">
+            <img
+              src="${escapeHTML(versionedImage(LAB_INTRO_SLIDE.image))}"
+              srcset="${escapeHTML(versionedImage(LAB_INTRO_SLIDE.image))} 1200w, ${escapeHTML(versionedImage(LAB_INTRO_SLIDE.image2x))} 2400w"
+              sizes="(max-width: 768px) 92vw, 720px"
+              alt="Paetzold Lab group photo"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async">
+          </figure>
+        </div>
+        <div class="slide-content paper-slide-content lab-intro-content">
+          <h1>${escapeHTML(LAB_INTRO_SLIDE.title)}</h1>
+          <p class="hero-paper-summary">${escapeHTML(LAB_INTRO_SLIDE.summary)}</p>
+          <div class="lab-intro-actions">
+            <a href="research.html" class="hero-btn">Explore research</a>
+            <a href="team.html" class="hero-btn secondary">Meet the team</a>
+          </div>
+        </div>
+      </div>`;
+
+  const paperSlides = heroPubs.map((pub, index) => {
     const categories = visibleCategories(pub, 2);
     const summary = heroTeaser(pub);
     const venue = formatVenue(pub.venue);
     const collageItems = heroCollageItems(pub);
     return `
-      <div class="carousel-slide paper-slide">
+      <div class="carousel-slide paper-slide" aria-hidden="true" inert>
         <div class="paper-bg">
           <div class="paper-collage" data-paper-id="${escapeHTML(pub.id || "")}" data-image-count="${collageItems.length}" aria-label="Featured research image collage for ${escapeHTML(pub.title || "paper")}">
             ${collageItems.map((item, imageIndex) => `
@@ -412,8 +462,11 @@ function renderHeroPublications(pubs) {
       </div>`;
   }).join("");
 
-  indicators.innerHTML = heroPubs
-    .map((pub, index) => `<button type="button" class="dot ${index === 0 ? "active" : ""}" aria-label="Go to featured research ${index + 1}: ${escapeHTML(pub.title || "paper")}" aria-current="${index === 0 ? "true" : "false"}"></button>`)
+  wrap.innerHTML = labIntroSlide + paperSlides;
+
+  const indicatorLabels = ["Paetzold Lab overview", ...heroPubs.map(pub => pub.title || "paper")];
+  indicators.innerHTML = indicatorLabels
+    .map((label, index) => `<button type="button" class="dot ${index === 0 ? "active" : ""}" aria-label="Go to slide ${index + 1}: ${escapeHTML(label)}" aria-current="${index === 0 ? "true" : "false"}"></button>`)
     .join("");
 
   window.initializeCarousel?.();

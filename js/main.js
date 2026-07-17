@@ -77,14 +77,6 @@ function highlightTerm(value, term) {
 }
 
 function initializeHeader() {
-  const bar = document.getElementById("progress-bar");
-  if (bar && !isReducedMotion()) {
-    const d = 1300 + Math.random() * 400;
-    bar.style.width = 0;
-    bar.style.transition = `width ${d}ms cubic-bezier(0.4,0,0.2,1)`;
-    bar.offsetHeight;
-    requestAnimationFrame(() => (bar.style.width = "100%"));
-  }
   document
     .querySelector(".search-btn")
     ?.addEventListener("click", () => {
@@ -98,6 +90,7 @@ function initializeHeader() {
 
 function openOverlay(overlay) {
   overlay.previousFocus = document.activeElement;
+  overlay.removeAttribute("inert");
   overlay.classList.add("active");
   overlay.setAttribute("aria-hidden", "false");
   document.body.classList.add("overlay-open");
@@ -109,6 +102,7 @@ function closeOverlay(overlay) {
   overlay.setAttribute("aria-hidden", "true");
   document.body.classList.remove("overlay-open");
   overlay.previousFocus?.focus?.();
+  overlay.setAttribute("inert", "");
 }
 
 function initializeUI() {
@@ -117,9 +111,29 @@ function initializeUI() {
   });
 
   document.addEventListener("keydown", e => {
-    if (e.key !== "Escape") return;
     const activeOverlay = document.querySelector(".overlay.active");
-    if (activeOverlay) closeOverlay(activeOverlay);
+    if (!activeOverlay) return;
+    if (e.key === "Escape") {
+      closeOverlay(activeOverlay);
+      return;
+    }
+    if (e.key !== "Tab") return;
+    const focusable = [...activeOverlay.querySelectorAll(
+      'a[href], button:not([disabled]), input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )].filter(element => element.tabIndex >= 0 && !element.hasAttribute("inert") && element.offsetParent !== null);
+    if (!focusable.length) {
+      e.preventDefault();
+      return;
+    }
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
   });
 
   if (!("IntersectionObserver" in window) || isReducedMotion()) {
@@ -307,6 +321,7 @@ function initializeCarousel() {
       const active = i === idx;
       slide.classList.toggle("active", active);
       slide.setAttribute("aria-hidden", active ? "false" : "true");
+      slide.toggleAttribute("inert", !active);
     });
     dots.forEach((d, i) => {
       const active = i === idx;
@@ -362,6 +377,11 @@ function initializeCarousel() {
       }
     }, { passive: true });
 
+    carousel.addEventListener("touchcancel", () => {
+      tracking = false;
+      startTimer();
+    }, { passive: true });
+
     carousel.addEventListener("pointerdown", event => {
       if (event.pointerType !== "mouse" || event.button !== 0) return;
       startX = event.clientX;
@@ -380,6 +400,11 @@ function initializeCarousel() {
       } else {
         startTimer();
       }
+    });
+
+    carousel.addEventListener("pointercancel", () => {
+      tracking = false;
+      startTimer();
     });
 
     carousel.dataset.swipeBound = "true";

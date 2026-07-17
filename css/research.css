@@ -113,6 +113,7 @@
 
 .pub-filters button,
 .pub-member-filters button {
+  min-height: 44px;
   padding: 0.55rem 0.85rem;
   border: 1px solid var(--color-border);
   background: #fff;
@@ -205,8 +206,8 @@
   background: white;
   border: 1px solid var(--color-border);
   border-radius: var(--border-radius-md);
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -544,8 +545,8 @@
 
 .page-numbers button,
 .page-numbers span {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -619,8 +620,8 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: var(--border-radius-md);
   background: rgba(255, 255, 255, 0.88);
   border: 1px solid var(--color-border);
@@ -765,6 +766,7 @@
   .pub-member-filters button {
     flex: 0 0 auto;
     min-width: 0;
+    min-height: 44px;
     padding: 0.62rem 0.85rem;
   }
   .member-filter-label {
@@ -819,8 +821,8 @@
     order: 2;
   }
   .page-numbers button,
-  .page-numbers span { width: 32px; height: 32px; font-size: 0.9rem; }
-  .collab-wrapper { padding: 0 30px; }
-  .scroll-btn { width: 30px; height: 30px; padding: 0.5rem; }
+  .page-numbers span { width: 44px; height: 44px; font-size: 0.9rem; }
+  .collab-wrapper { padding: 0 48px; }
+  .scroll-btn { width: 44px; height: 44px; padding: 0.65rem; }
   .collab-item { width: 260px; padding: 1.5rem; min-width: 260px; }
 }

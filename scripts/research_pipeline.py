@@ -200,10 +200,63 @@ CATEGORY_THEME_COLORS: Dict[str, Tuple[str, str]] = {
     "detection": ("#111111", "#f2f2f2"),
     "registration": ("#111111", "#f2f2f2"),
     "classification": ("#111111", "#f2f2f2"),
+    "uncertainty": ("#111111", "#f2f2f2"),
     "other": ("#111111", "#f2f2f2"),
 }
 
+MANUAL_EXCLUDED_PUBLICATION_IDS = {
+    "auto_000625d71a",  # Superseded by the revised TG-OT title for arXiv:2412.17100.
+    "pub017",  # Duplicate VesselGraph record; keep auto_e213107bcf with newer citations.
+    "pub102",  # Conference abstract duplicated by the final 2024 Eye article (pub045).
+}
+
 MANUAL_METADATA_OVERRIDES: Dict[str, Dict[str, Any]] = {
+    "auto_4c6619da6f": {
+        "year": 2026,
+        "venue": "Transactions on Machine Learning Research (TMLR)",
+        "url": "https://openreview.net/forum?id=zw5EuUnBny",
+        "pdf_link": "https://openreview.net/pdf?id=zw5EuUnBny",
+        "summary": (
+            "Models joint aleatoric and epistemic uncertainty with a scalable low-rank covariance "
+            "approximation for high-dimensional vision outputs."
+        ),
+        "llm_tags": [
+            "uncertainty quantification",
+            "aleatoric uncertainty",
+            "epistemic uncertainty",
+            "output correlations",
+            "low-rank covariance",
+        ],
+        "source_members": ["Johannes C. Paetzold", "Laurin Lux"],
+        "metadata_verified": {
+            "source": "manual",
+            "status": "matched",
+            "note": "Verified from the accepted TMLR record on OpenReview",
+        },
+    },
+    "auto_d0e46b0862": {
+        "year": 2024,
+        "venue": "arXiv",
+        "url": "https://arxiv.org/abs/2412.17100",
+        "pdf_link": "https://arxiv.org/pdf/2412.17100",
+        "summary": (
+            "Registers coronary CT angiography with intravascular ultrasound using topology-aware "
+            "feature detection and optimal transport, without requiring prior segmentation."
+        ),
+        "llm_tags": [
+            "CCTA-IVUS registration",
+            "optimal transport",
+            "topology-guided learning",
+            "multimodal image fusion",
+            "coronary imaging",
+        ],
+        "source_members": ["Johannes C. Paetzold", "Roel van Herten"],
+        "metadata_verified": {
+            "source": "manual",
+            "status": "matched",
+            "note": "Verified from arXiv v2 metadata dated June 2026",
+        },
+    },
     "auto_ebdd832b58": {
         "url": "https://arxiv.org/abs/2605.06903",
         "pdf_link": "https://arxiv.org/pdf/2605.06903",
@@ -248,6 +301,36 @@ MANUAL_METADATA_OVERRIDES: Dict[str, Dict[str, Any]] = {
     "pub038": {
         "thumbnail": "images/publications/manual_added/quality_estimation_segmentation_ensembles_figure1.jpg",
         "thumbnail_source": "manual-crop",
+    },
+    "pub030": {
+        "pdf_link": "https://arxiv.org/pdf/2208.10992",
+        "thumbnail": "images/publications/manual_added/structural_feature_autoencoder_pipeline.jpg",
+        "thumbnail_source": "manual-pdf-crop",
+    },
+    "pub039": {
+        "pdf_link": "https://arxiv.org/pdf/2112.13054",
+        "thumbnail": "images/publications/manual_added/brats_2021_unet_architecture.jpg",
+        "thumbnail_source": "manual-pdf-crop",
+    },
+    "pub104": {
+        "thumbnail": "images/publications/manual_added/whole_brain_vasculature_dissertation_card.jpg",
+        "thumbnail_source": "manual-card",
+    },
+    "auto_82bffbbf12": {
+        "thumbnail": "images/publications/manual_added/segmentation_metrics_expert_rating.jpg",
+        "thumbnail_source": "manual-pdf-crop",
+    },
+    "auto_02f80253af": {
+        "thumbnail": "images/publications/manual_added/nanocarrier_whole_body_analysis.jpg",
+        "thumbnail_source": "manual-figure-crop",
+    },
+    "auto_170175955e": {
+        "thumbnail": "images/publications/manual_added/fets_2024_federated_learning_process.jpg",
+        "thumbnail_source": "manual-pdf-crop",
+    },
+    "auto_b7647988ae": {
+        "thumbnail": "images/publications/manual_added/coronary_plaque_fancnn_method.jpg",
+        "thumbnail_source": "manual-pdf-crop",
     },
     "auto_74ca8cdcb0": {
         "url": "https://arxiv.org/abs/2604.12144",
@@ -523,6 +606,8 @@ DEPRIORITIZED_FEATURED_IDS = {
 }
 
 MANUAL_CATEGORY_OVERRIDES: Dict[str, List[str]] = {
+    "auto_4c6619da6f": ["uncertainty"],
+    "auto_d0e46b0862": ["ct", "registration", "topology"],
     "auto_482c89c131": ["microscopy", "segmentation", "classification", "reconstruction"],
     # Laurin Lux / Alexander Berger lab-facing papers.
     "auto_09034b913d": ["segmentation"],
@@ -531,7 +616,7 @@ MANUAL_CATEGORY_OVERRIDES: Dict[str, List[str]] = {
     "pub055": ["topology", "segmentation"],
     "pub088": ["microscopy", "gnn", "classification"],
     "pub099": ["gnn", "microscopy", "classification"],
-    "pub114": ["other"],
+    "pub114": ["uncertainty"],
     "auto_46ecb6ea36": ["mri"],
     "auto_6bda5dfce7": ["mri"],
     "auto_3a39f23842": ["mri"],
@@ -551,7 +636,7 @@ MANUAL_CATEGORY_OVERRIDES: Dict[str, List[str]] = {
 }
 
 MANUAL_REPRESENTATIVE_INCLUDES: Dict[str, List[str]] = {
-    "Laurin Lux": ["auto_09034b913d", "pub055", "pub088"],
+    "Laurin Lux": ["auto_4c6619da6f", "auto_09034b913d", "pub055", "pub088"],
 }
 
 MANUAL_REPRESENTATIVE_EXCLUDES: Dict[str, List[str]] = {
@@ -1011,6 +1096,8 @@ def canonical_duplicate_key(title: str) -> str:
 
 
 def is_excludable_publication(pub: Dict[str, Any]) -> bool:
+    if trim(pub.get("id")) in MANUAL_EXCLUDED_PUBLICATION_IDS:
+        return True
     title_key = normalize_title(trim(pub.get("title")))
     if not title_key:
         return True

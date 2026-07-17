@@ -1,8 +1,8 @@
 {
-  "last_updated": "2026-06-15T17:43:03+00:00",
+  "last_updated": "2026-07-17T17:24:00+00:00",
   "author": {
     "name": "Johannes C. Paetzold",
-    "affiliation": "Imperial College London",
+    "affiliation": "Weill Cornell Medicine and Cornell Tech",
     "interests": [
       "Machine Learning",
       "Geometric Deep Learning",
@@ -28,6 +28,7 @@
     "detection": "Detection",
     "registration": "Registration",
     "classification": "Classification",
+    "uncertainty": "Uncertainty",
     "other": "Research"
   },
   "publications": [
@@ -43,7 +44,7 @@
       "summary": "",
       "url": "https://www.nature.com/articles/s41592-020-0792-1",
       "scholar_link": "/scholar?hl=en&cites=6119225247391437016,10746172399246019807,5699954493115985367,6133801038298067141,10611529803718330026,17522700883482523229",
-      "citations": 416,
+      "citations": 420,
       "pdf_link": "",
       "categories": [
         "microscopy",
@@ -85,7 +86,7 @@
       "summary": "",
       "url": "https://openaccess.thecvf.com/content/CVPR2021/papers/Shit_clDice_-_A_Novel_Topology-Preserving_Loss_Function_for_Tubular_Structure_CVPR_2021_paper.pdf",
       "scholar_link": "/scholar?hl=en&cites=17149814151594930474,11561599168494704613,13174810049061567829,16632085098506993449,10817242860175646475",
-      "citations": 627,
+      "citations": 662,
       "pdf_link": "https://pure.tue.nl/ws/files/371891115/clDice_-_a_Novel_Topology-Preserving_Loss_Function_for_Tubular_Structure_Segmentation.pdf",
       "categories": [
         "topology",
@@ -133,7 +134,7 @@
       "summary": "",
       "url": "https://www.nature.com/articles/s41597-021-00946-3",
       "scholar_link": "/scholar?hl=en&cites=16424824752438866090,5310378280287170908,2923815062559667367",
-      "citations": 210,
+      "citations": 213,
       "pdf_link": "https://www.nature.com/articles/s41597-021-00946-3.pdf",
       "categories": [
         "mri",
@@ -168,7 +169,7 @@
       "summary": "",
       "url": "https://link.springer.com/chapter/10.1007/978-3-030-32251-9_87",
       "scholar_link": "https://link.springer.com/chapter/10.1007/978-3-030-32251-9_87",
-      "citations": 142,
+      "citations": 144,
       "pdf_link": "",
       "categories": [
         "mri",
@@ -282,7 +283,7 @@
       "summary": "A comprehensive representation of an image requires understanding objects and their mutual relationship, especially in image-to-graph generation, e.g., road network extraction, blood-vessel network extraction, or scene graph generation. Traditionally, image-to-graph generation is addressed with a two-stage approach consisting of object detection followed by a separate relation prediction, which prevents simultaneous object-relation interaction. This work proposes a unified one-stage transformer-",
       "url": "https://link.springer.com/chapter/10.1007/978-3-031-19836-6_24",
       "scholar_link": "/scholar?hl=en&cites=16116173940654779023",
-      "citations": 117,
+      "citations": 122,
       "pdf_link": "https://link.springer.com/content/pdf/10.1007/978-3-031-19836-6_24.pdf",
       "categories": [
         "gnn",
@@ -326,7 +327,7 @@
       "summary": "",
       "url": "https://proceedings.mlr.press/v202/stucki23a",
       "scholar_link": "/scholar?hl=en&cites=15109376508076966914,10163770910035407110",
-      "citations": 103,
+      "citations": 106,
       "pdf_link": "",
       "categories": [
         "topology",
@@ -361,7 +362,7 @@
       "summary": "We estimate CO 2 emissions from the Nile Delta region of Egypt, using over five years of column-averaged CO 2 dry air mole fraction (XCO 2) data from the NASA's OCO-2 satellite. The Nile Delta has significant anthropogenic emissions of CO 2 from urban areas and irrigated farming. It is surrounded by the Sahara desert and the Mediterranean Sea, minimizing the confounding influence of CO 2 sources in surrounding areas.",
       "url": "https://doi.org/10.1088/1748-9326/ab9cfe",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:hqOjcs7Dif8C",
-      "citations": 60,
+      "citations": 61,
       "pdf_link": "",
       "categories": [
         "other"
@@ -406,7 +407,7 @@
       "summary": "Graph Neural Networks (GNNs) have established themselves as state-of-the-art for many machine learning applications such as the analysis of social and medical networks. Several among these datasets contain privacy-sensitive data. Machine learning with differential privacy is a promising technique to allow deriving insight from sensitive data while offering formal guarantees of privacy protection.",
       "url": "https://ieeexplore.ieee.org/abstract/document/9980390/",
       "scholar_link": "/scholar?hl=en&cites=9603293110171264030,12712994124958958466",
-      "citations": 70,
+      "citations": 72,
       "pdf_link": "https://ieeexplore.ieee.org/ielx7/34/4359286/09980390.pdf",
       "categories": [
         "gnn",
@@ -437,50 +438,6 @@
       }
     },
     {
-      "id": "pub017",
-      "title": "Whole brain vessel graphs: A dataset and benchmark for graph learning and neuroscience",
-      "authors": "Johannes C Paetzold and Julian McGinnis and Suprosanna Shit and Ivan Ezhov and Paul Büschl and Chinmay Prabhakar and Anjany Sekuboyina and Mihail Todorov and Georgios Kaissis and Ali Ertürk and Stephan Günnemann",
-      "year": 2021,
-      "venue": "Zurich Open Repository and Archive (University of Zurich)",
-      "venue_tag": "ZURICH OPEN REPOSITORY AND ARCHIVE (UNIVERSITY OF ZURICH)",
-      "doi": "10.48550/arxiv.2108.13233",
-      "abstract": "Biological neural networks define the brain function and intelligence of humans and other mammals, and form ultra-large, spatial, structured graphs. Their neuronal organization is closely interconnected with the spatial organization of the brain's microvasculature, which supplies oxygen to the neurons and builds a complementary spatial graph. This vasculature (or the vessel structure) plays an important role in neuroscience; for example, the organization of (and changes to) vessel structure can represent early signs of various pathologies, e.g. Alzheimer's disease or stroke. Recently, advances in tissue clearing have enabled whole brain imaging and segmentation of the entirety of the mouse brain's vasculature.  Building on these advances in imaging, we are presenting an extendable dataset of whole-brain vessel graphs based on specific imaging protocols. Specifically, we extract vascular graphs using a refined graph extraction scheme leveraging the volume rendering engine Voreen and provide them in an accessible and adaptable form through the OGB and PyTorch Geometric dataloaders. Moreover, we benchmark numerous state-of-the-art graph learning algorithms on the biologically relevant tasks of vessel prediction and vessel classification using the introduced vessel graph dataset.  Our work paves a path towards advancing graph learning research into the field of neuroscience. Complementarily, the presented dataset raises challenging graph learning research questions for the machine learning community, in terms of incorporating biological priors into learning algorithms, or in scaling these algorithms to handle sparse,spatial graphs …",
-      "url": "https://openreview.net/forum?id=jpwGODt2Av",
-      "scholar_link": "/scholar?hl=en&cites=9586798430584881548,15347679667236637325,123798595203799053",
-      "citations": 42,
-      "pdf_link": "https://openreview.net/pdf?id=jpwGODt2Av",
-      "categories": [
-        "microscopy",
-        "gnn",
-        "segmentation",
-        "classification"
-      ],
-      "primary_category": "microscopy",
-      "thumbnail": "images/publications/thumbnails/auto/whole_brain_vessel_graphs_a_dataset_and_benchmark_for_graph_learning_a_image.jpg",
-      "featured": false,
-      "featuredOrder": 999,
-      "source_members": [
-        "Johannes C. Paetzold"
-      ],
-      "metadata_verified": {
-        "source": "openalex",
-        "status": "matched",
-        "score": 0.965,
-        "openalex_id": "https://openalex.org/W3198186818",
-        "matched_title": "Whole Brain Vessel Graphs: A Dataset and Benchmark for Graph Learning and Neuroscience (VesselGraph)",
-        "at": "2026-06-14T20:11:56+00:00"
-      },
-      "pdf_local_path": "data/cache/pdfs/whole_brain_vessel_graphs_a_dataset_and_benchmark_for_graph_learning_a_caf83bf019.pdf",
-      "thumbnail_source": "pdf",
-      "summary": "Biological neural networks define the brain function and intelligence of humans and other mammals, and form ultra-large, spatial, structured graphs. Their neuronal organization is closely interconnected with the spatial organization of the brain's microvasculature, which supplies oxygen to the neurons and builds a complementary spatial graph. This vasculature (or the vessel structure) plays an important role in neuroscience; for example, the organization of (and changes to) vessel structure can",
-      "auto_enriched": {
-        "at": "2026-06-14T21:15:23+00:00",
-        "llm": false,
-        "model": "",
-        "pdf_downloaded": true
-      }
-    },
-    {
       "id": "pub020",
       "title": "SoK: Differential privacy on graph-structured data",
       "authors": "Tamara T Mueller and Dmitrii Usynin and Johannes C Paetzold and Daniel Rueckert and Georgios Kaissis",
@@ -492,7 +449,7 @@
       "summary": "In this work, we study the applications of differential privacy (DP) in the context of graph-structured data. We discuss the formulations of DP applicable to the publication of graphs and their associated statistics as well as machine learning on graph-based data, including graph neural networks (GNNs). The formulation of DP in the context of graph-structured data is difficult, as individual data points are interconnected (often non-linearly or sparsely).",
       "url": "https://arxiv.org/abs/2203.09205",
       "scholar_link": "/scholar?hl=en&cites=9788841028506383538",
-      "citations": 47,
+      "citations": 48,
       "pdf_link": "https://arxiv.org/pdf/2203.09205",
       "categories": [
         "gnn"
@@ -534,7 +491,7 @@
       "summary": "Optical coherence tomography angiography (OCTA) is a non-invasive imaging modality that can acquire high-resolution volumes of the retinal vasculature and aid the diagnosis of ocular, neurological and cardiac diseases. Segmenting the visible blood vessels is a common first step when extracting quantitative biomarkers from these images. Classical segmentation algorithms based on thresholding are strongly affected by image artifacts and limited signal-to-noise ratio.",
       "url": "https://ieeexplore.ieee.org/abstract/document/10400503/",
       "scholar_link": "/scholar?hl=en&cites=15798049750933099252,10006511146387669543",
-      "citations": 66,
+      "citations": 68,
       "pdf_link": "https://ieeexplore.ieee.org/ielx7/42/4359023/10400503.pdf",
       "categories": [
         "microscopy",
@@ -578,7 +535,7 @@
       "summary": "The Circle of Willis (CoW) is an important network of arteries connecting major circulations of the brain. Its vascular architecture is believed to affect the risk, severity, and clinical outcome of serious neuro-vascular diseases. However, characterizing the highly variable CoW anatomy is still a manual and time-consuming expert task.",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10793481/",
       "scholar_link": "/scholar?hl=en&cites=4228616984879154769",
-      "citations": 84,
+      "citations": 90,
       "pdf_link": "",
       "categories": [
         "mri",
@@ -622,7 +579,7 @@
       "summary": "Modeling of brain tumor dynamics has the potential to advance therapeutic planning. Current modeling approaches resort to numerical solvers that simulate the tumor progression according to a given differential equation. Using highly-efficient numerical solvers, a single forward simulation takes up to a few minutes of compute.",
       "url": "https://ieeexplore.ieee.org/abstract/document/9656125/",
       "scholar_link": "/scholar?hl=en&cites=9197399204901403365,17051017873468874561",
-      "citations": 37,
+      "citations": 40,
       "pdf_link": "",
       "categories": [
         "other"
@@ -794,13 +751,13 @@
       "url": "https://link.springer.com/chapter/10.1007/978-3-031-33842-7_2",
       "scholar_link": "/scholar?hl=en&cites=85876104182314169",
       "citations": 35,
-      "pdf_link": "https://link.springer.com/content/pdf/10.1007/978-3-031-33842-7_2.pdf",
+      "pdf_link": "https://arxiv.org/pdf/2208.10992",
       "categories": [
         "reconstruction",
         "detection"
       ],
       "primary_category": "detection",
-      "thumbnail": "images/publications/thumbnails/auto/unsupervised_anomaly_localization_with_structural_feature_autoencoders_image.jpg",
+      "thumbnail": "images/publications/manual_added/structural_feature_autoencoder_pipeline.jpg",
       "featured": false,
       "featuredOrder": 999,
       "source_members": [
@@ -816,7 +773,7 @@
         "at": "2026-06-14T20:12:01+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/unsupervised_anomaly_localization_with_structural_feature_autoencoders_c5f4c45202.pdf",
-      "thumbnail_source": "pdf",
+      "thumbnail_source": "manual-pdf-crop",
       "auto_enriched": {
         "at": "2026-06-14T21:15:29+00:00",
         "llm": false,
@@ -919,7 +876,7 @@
       "summary": "The skeleton of a digital image is a compact representation of its topology, geometry, and scale. It has utility in many computer vision applications, such as image description, segmentation, and registration. However, skeletonization has only seen limited use in contemporary deep learning solutions.",
       "url": "http://openaccess.thecvf.com/content/ICCV2023/html/Menten_A_Skeletonization_Algorithm_for_Gradient-Based_Optimization_ICCV_2023_paper.html",
       "scholar_link": "/scholar?hl=en&cites=10424980767667442046",
-      "citations": 38,
+      "citations": 40,
       "pdf_link": "https://openaccess.thecvf.com/content/ICCV2023/papers/Menten_A_Skeletonization_Algorithm_for_Gradient-Based_Optimization_ICCV_2023_paper.pdf",
       "categories": [
         "mri",
@@ -1140,13 +1097,13 @@
       ],
       "primary_category": "classification",
       "thumbnail": "images/publications/manual_added/quality_estimation_segmentation_ensembles_figure1.jpg",
-      "thumbnail_source": "manual-crop",
       "featured": false,
       "featuredOrder": 999,
       "source_members": [
         "Johannes C. Paetzold"
       ],
       "source": "google_scholar",
+      "thumbnail_source": "manual-crop",
       "metadata_verified": {
         "source": "openalex",
         "status": "matched",
@@ -1168,14 +1125,14 @@
       "summary": "Brain tumor segmentation from multiple Magnetic Resonance Imaging (MRI) modalities is a challenging task in medical image computation. The main challenges lie in the generalizability to a variety of scanners and imaging protocols. In this paper, we explore strategies to increase model robustness without increasing inference time.",
       "url": "https://link.springer.com/chapter/10.1007/978-3-031-09002-8_17",
       "scholar_link": "/scholar?hl=en&cites=15649403381621132226",
-      "citations": 18,
-      "pdf_link": "https://link.springer.com/content/pdf/10.1007/978-3-031-09002-8_17.pdf",
+      "citations": 19,
+      "pdf_link": "https://arxiv.org/pdf/2112.13054",
       "categories": [
         "mri",
         "segmentation"
       ],
       "primary_category": "mri",
-      "thumbnail": "images/publications/thumbnails/auto/generalized_wasserstein_dice_loss_test_time_augmentation_and_transform_image.jpg",
+      "thumbnail": "images/publications/manual_added/brats_2021_unet_architecture.jpg",
       "featured": false,
       "featuredOrder": 999,
       "source_members": [
@@ -1191,7 +1148,7 @@
         "at": "2026-06-14T20:12:07+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/generalized_wasserstein_dice_loss_test_time_augmentation_and_transform_24e4994568.pdf",
-      "thumbnail_source": "pdf",
+      "thumbnail_source": "manual-pdf-crop",
       "auto_enriched": {
         "at": "2026-06-14T21:15:37+00:00",
         "llm": false,
@@ -1336,7 +1293,7 @@
       "summary": "This paper presents FedPIDAvg, the winning submission to the Federated Tumor Segmentation Challenge 2022 (FETS22). Inspired by FedCostWAvg, our winning contribution to FETS21, we contribute an improved aggregation strategy for federated and collaborative learning. FedCostWAvg is a weighted averaging method that not only considers the number of training samples of each cluster but also the size of the drop of the respective cost function in the last federated round.",
       "url": "https://link.springer.com/chapter/10.1007/978-3-031-44153-0_20",
       "scholar_link": "/scholar?hl=en&cites=12394746102201168524",
-      "citations": 17,
+      "citations": 18,
       "pdf_link": "https://link.springer.com/content/pdf/10.1007/978-3-031-44153-0_20.pdf",
       "categories": [
         "segmentation"
@@ -1630,7 +1587,7 @@
       "summary": "",
       "url": "https://openreview.net/forum?id=Q0zmmNNePz",
       "scholar_link": "/scholar?hl=en&cites=6484828534471745661",
-      "citations": 18,
+      "citations": 19,
       "pdf_link": "",
       "categories": [
         "topology",
@@ -1672,7 +1629,7 @@
       "summary": "To generate sagittal T1-weighted fast spin echo (T1w FSE) and short tau inversion recovery (STIR) images from sagittal T2-weighted (T2w) FSE and axial T1w gradient echo Dixon technique (T1w-Dixon) sequences.This retrospective study used three existing datasets: “Study of Health in Pomerania” (SHIP, 3142 subjects, 1.5 Tesla), “German National Cohort” (NAKO, 2000 subjects, 3 Tesla), and an internal dataset (157 patients 1.5/3 Tesla). We generated synthetic sagittal T1w FSE and STIR images from sag",
       "url": "https://link.springer.com/article/10.1007/s00330-024-11047-1",
       "scholar_link": "/scholar?hl=en&cites=18370876008374258760",
-      "citations": 14,
+      "citations": 15,
       "pdf_link": "https://link.springer.com/content/pdf/10.1007/s00330-024-11047-1.pdf",
       "categories": [
         "generative"
@@ -1921,7 +1878,7 @@
       "summary": "",
       "url": "https://link.springer.com/chapter/10.1007/978-3-031-72111-3_68",
       "scholar_link": "/scholar?hl=en&cites=15618692918927015539",
-      "citations": 24,
+      "citations": 27,
       "pdf_link": "",
       "categories": [
         "topology",
@@ -2337,7 +2294,7 @@
       "summary": "Topological correctness, i.e., the preservation of structural integrity and specific characteristics of shape, is a fundamental requirement for medical imaging tasks, such as neuron or vessel segmentation. Despite the recent surge in topology-aware methods addressing this challenge, their real-world applicability is hindered by flawed benchmarking practices. In this paper, we identify critical pitfalls in model evaluation that include inadequate connectivity choices, overlooked topological artif",
       "url": "https://arxiv.org/abs/2412.14619",
       "scholar_link": "/scholar?hl=en&cites=18394470719825634284",
-      "citations": 10,
+      "citations": 11,
       "pdf_link": "https://arxiv.org/pdf/2412.14619",
       "categories": [
         "topology",
@@ -2368,7 +2325,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": true
-      }
+      },
+      "representative": true,
+      "representative_for": [
+        "Alexander Berger"
+      ]
     },
     {
       "id": "pub079",
@@ -2549,7 +2510,7 @@
       "summary": "",
       "url": "https://arxiv.org/abs/2502.16697",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:Mojj43d5GZwC",
-      "citations": 3,
+      "citations": 4,
       "pdf_link": "",
       "categories": [
         "microscopy",
@@ -2574,10 +2535,7 @@
         "matched_title": "Interpretable Retinal Disease Prediction Using Biology-Informed Heterogeneous Graph Representations",
         "at": "2026-06-14T20:12:30+00:00"
       },
-      "representative": true,
-      "representative_for": [
-        "Laurin Lux"
-      ]
+      "representative": false
     },
     {
       "id": "pub091",
@@ -2591,7 +2549,7 @@
       "summary": "Recent innovations in light sheet microscopy, paired with developments in tissue clearing techniques, enable the 3D imaging of large mammalian tissues with cellular resolution. Combined with the progress in large-scale data analysis, driven by deep learning, these innovations empower researchers to rapidly investigate the morphological and functional properties of diverse biological samples. Segmentation, a crucial preliminary step in the analysis process, can be automated using domain-specific",
       "url": "https://arxiv.org/abs/2501.03880",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:5ugPr518TE4C",
-      "citations": 1,
+      "citations": 2,
       "pdf_link": "https://arxiv.org/pdf/2501.03880",
       "categories": [
         "microscopy",
@@ -2960,48 +2918,6 @@
       }
     },
     {
-      "id": "pub102",
-      "title": "Retinal Vasculature of Different Diameters and Plexuses Exhibit Distinct Vulnerability to Varying Stages of Diabetic Retinopathy",
-      "authors": "Alaa E Fayed and Martin Joseph Menten and Linus Kreitner and Johannes CC Paetzold and Daniel Rueckert and Sherry M Bassily and Ahmed M Hagag and Sobha Sivaprasad",
-      "year": 2023,
-      "venue": "Eye",
-      "venue_tag": "EYE",
-      "doi": "10.1038/s41433-024-03021-4",
-      "abstract": "Purpose: We studied the impact of different stages of diabetic retinopathy (DR) on the vessel densities (VD) of different-sized vessels in the retinal superficial & deep vascular complexes (SVC and DVC) using optical coherence tomography angiography (OCTA) and analyzed the images via deep learning.Methods: In this retrospective, cross-sectional study, 854 eyes of 854 subjects were divided into 5 groups: healthy controls (555 eyes), diabetics with no DR (90 eyes), early DR (mild and moderate non-proliferative diabetic retinopathy (NPDR))(96 eyes), late DR (severe NPDR)(42 eyes) and proliferative DR (PDR)(71 eyes). Only dry maculae were included. OCTA imaging was done using the RTVue Avanti device (Optovue Inc, USA) and the machine-segmented 3x3 mm 2 macular SVC & DVC scans were obtained. VD measurements were extracted using a two-step pipeline. We employed a nnU-Net neural network combined with transfer learning from artificial vessel images to segment the vasculature in fine detail (Fig. 1). The radius of each vessel was determined using the Voreen software. VD for each plexus was calculated and stratified by vessel diameter (< 10μm, 10-20μm,> 20μm). Non-parametric tests were used to assess the differences in VD between groups. P-values were adjusted for multiple comparisons.Results: Overall VD measurements were statistically significantly different between the groups in both the SVC & DVC with a progressively decreasing trend with increasing DR severity (p< 0.001 in both). The largest percentage difference between the healthy and no DR groups was in the< 10μm vessels of the SVC (13.9% lower in …",
-      "summary": "Purpose: We studied the impact of different stages of diabetic retinopathy (DR) on the vessel densities (VD) of different-sized vessels in the retinal superficial & deep vascular complexes (SVC and DVC) using optical coherence tomography angiography (OCTA) and analyzed the images via deep learning.Methods: In this retrospective, cross-sectional study, 854 eyes of 854 subjects were divided into 5 groups: healthy controls (555 eyes), diabetics with no DR (90 eyes), early DR (mild and moderate non-",
-      "url": "https://iovs.arvojournals.org/article.aspx?articleid=2790690",
-      "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&cstart=100&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:D03iK_w7-QYC",
-      "citations": 0,
-      "pdf_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11156674/pdf/41433_2024_Article_3021.pdf",
-      "categories": [
-        "microscopy",
-        "segmentation"
-      ],
-      "primary_category": "microscopy",
-      "thumbnail": "images/publications/thumbnails/auto/retinal_vasculature_of_different_diameters_and_plexuses_exhibit_distin_card.jpg",
-      "featured": false,
-      "featuredOrder": 999,
-      "source_members": [
-        "Johannes C. Paetzold"
-      ],
-      "source": "google_scholar",
-      "metadata_verified": {
-        "source": "openalex",
-        "status": "matched",
-        "score": 0.946,
-        "openalex_id": "https://openalex.org/W4393031632",
-        "matched_title": "Retinal vasculature of different diameters and plexuses exhibit distinct vulnerability in varying severity of diabetic retinopathy",
-        "at": "2026-06-14T20:12:37+00:00"
-      },
-      "thumbnail_source": "generated-card",
-      "auto_enriched": {
-        "at": "2026-06-14T21:16:44+00:00",
-        "llm": false,
-        "model": "",
-        "pdf_downloaded": false
-      }
-    },
-    {
       "id": "pub104",
       "title": "Whole Brain Vasculature Analysis Using Advanced Learning Models",
       "authors": "Johannes Christian Paetzold",
@@ -3021,7 +2937,7 @@
         "segmentation"
       ],
       "primary_category": "microscopy",
-      "thumbnail": "images/publications/thumbnails/auto/whole_brain_vasculature_analysis_using_advanced_learning_models_image.jpg",
+      "thumbnail": "images/publications/manual_added/whole_brain_vasculature_dissertation_card.jpg",
       "featured": false,
       "featuredOrder": 999,
       "source_members": [
@@ -3034,7 +2950,7 @@
         "note": "Verified from mediaTUM citation metadata"
       },
       "pdf_local_path": "data/cache/pdfs/whole_brain_vasculature_analysis_using_advanced_learning_models_f1aefecc78.pdf",
-      "thumbnail_source": "pdf",
+      "thumbnail_source": "manual-card",
       "auto_enriched": {
         "at": "2026-06-14T21:16:44+00:00",
         "llm": false,
@@ -3219,9 +3135,9 @@
       "citations": 0,
       "pdf_link": "https://openreview.net/pdf?id=Ilteh48w7m",
       "categories": [
-        "other"
+        "uncertainty"
       ],
-      "primary_category": "other",
+      "primary_category": "uncertainty",
       "thumbnail": "images/publications/thumbnails/auto/structured_joint_aleatoric_and_epistemic_uncertainty_for_high_dimensio_card.jpg",
       "featured": false,
       "featuredOrder": 999,
@@ -3276,8 +3192,7 @@
       "source": "google_scholar",
       "representative": true,
       "representative_for": [
-        "Chenjun Li",
-        "Alexander Berger"
+        "Chenjun Li"
       ],
       "metadata_verified": {
         "source": "",
@@ -3306,7 +3221,7 @@
       "summary": "The liver tumor segmentation benchmark (lits)",
       "url": "https://doi.org/10.1016/j.media.2022.102680",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:35N4QoGY0k4C",
-      "citations": 2172,
+      "citations": 2212,
       "pdf_link": "https://linkinghub.elsevier.com/science/article/pii/S1361841522003085/pdfft?md5=42606dbee21641af7f9e50655c0fdff2&pid=1-s2.0-S1361841522003085-main.pdf",
       "categories": [
         "segmentation"
@@ -3352,7 +3267,7 @@
       "summary": "Vertebral labelling and segmentation are two fundamental tasks in an automated spine processing pipeline. Reliable and accurate processing of spine images is expected to beneﬁt clinical decision support systems for diagnosis, surgery planning, and population-based analysis of spine and bone health. How- ever, designing automated algorithms for spine processing is challenging predominantly due to considerable variations in anatomy and acquisition protocols and due to a severe shortage of publicly",
       "url": "https://doi.org/10.1016/j.media.2021.102166",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:9ZlFYXVOiuMC",
-      "citations": 466,
+      "citations": 476,
       "pdf_link": "https://arxiv.org/pdf/2001.09193",
       "categories": [
         "ct",
@@ -3413,7 +3328,7 @@
       "summary": "Cellular and molecular probing of intact human organs",
       "url": "https://doi.org/10.1016/j.cell.2020.01.030",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:eQOLeE2rZwMC",
-      "citations": 343,
+      "citations": 350,
       "pdf_link": "",
       "categories": [
         "other"
@@ -3454,7 +3369,7 @@
       "summary": "Distinct molecular profiles of skull bone marrow in health and neurological disorders",
       "url": "https://doi.org/10.1016/j.cell.2023.07.009",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:_xSYboBqXhAC",
-      "citations": 187,
+      "citations": 198,
       "pdf_link": "",
       "categories": [
         "other"
@@ -3497,7 +3412,7 @@
       "summary": "Spatial proteomics in three-dimensional intact specimens",
       "url": "https://doi.org/10.1016/j.cell.2022.11.021",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:g5m5HwL7SMYC",
-      "citations": 139,
+      "citations": 145,
       "pdf_link": "",
       "categories": [
         "other"
@@ -3538,7 +3453,7 @@
       "summary": "Nature Biotechnology | Volume 42 | April 2024 | 617–627 617 nature biotechnology https://doi.org/10.1038/s41587-023-01846-0 Article Whole-body cellular mapping in mouse using standard IgG antibodies Hongcheng Mai1,2,3,4,14, Jie Luo1,2,4,14, Luciano Hoeher1, Rami Al-Maskari1,5, Izabela Horvath 1,5, Ying Chen1,2,6, Florian Kofler7,8,9,10, Marie Piraud7, Johannes C. Paetzold1,11, Jennifer Modamio1, Mihail Todorov1,2,12, Markus Elsner 1, Farida Hellal1,2,12 & Ali Ertürk 1,2,4,12,13 Whole-body imagin",
       "url": "https://doi.org/10.1038/s41587-023-01846-0",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:f2IySw72cVMC",
-      "citations": 126,
+      "citations": 132,
       "pdf_link": "https://www.nature.com/articles/s41587-023-01846-0.pdf",
       "categories": [
         "other"
@@ -3580,7 +3495,7 @@
       "summary": "Metrics optimized in complex machine learning tasks are often selected in an ad-hoc man- ner. It is unknown how they align with human expert perception. We explore the cor- relations between established quantitative segmentation quality metrics and qualitative evaluations by professionally trained human raters.",
       "url": "https://doi.org/10.59275/j.melba.2023-dg1f",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:Zph67rFs4hoC",
-      "citations": 89,
+      "citations": 92,
       "pdf_link": "https://www.melba-journal.org/pdf/2023:002.pdf",
       "categories": [
         "mri",
@@ -3588,7 +3503,7 @@
         "segmentation"
       ],
       "primary_category": "segmentation",
-      "thumbnail": "images/publications/thumbnails/auto/are_we_using_appropriate_segmentation_metrics_identifying_correlates_o_image.jpg",
+      "thumbnail": "images/publications/manual_added/segmentation_metrics_expert_rating.jpg",
       "featured": false,
       "featuredOrder": 999,
       "source_members": [
@@ -3604,7 +3519,7 @@
         "at": "2026-06-14T20:12:49+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/are_we_using_appropriate_segmentation_metrics_identifying_correlates_o_dce65cba01.pdf",
-      "thumbnail_source": "pdf",
+      "thumbnail_source": "manual-pdf-crop",
       "auto_enriched": {
         "at": "2026-06-14T21:16:53+00:00",
         "llm": false,
@@ -3669,7 +3584,7 @@
       "summary": "Cities represent a large and concentrated por- tion of global greenhouse gas emissions, including methane. Quantifying methane emissions from urban areas is difﬁcult, and inventories made using bottom-up accounting",
       "url": "https://doi.org/10.5194/acp-21-13131-2021",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:L8Ckcad2t8MC",
-      "citations": 58,
+      "citations": 60,
       "pdf_link": "https://acp.copernicus.org/articles/21/13131/2021/acp-21-13131-2021.pdf",
       "categories": [
         "spectroscopy"
@@ -3711,13 +3626,13 @@
       "summary": "Nature Biotechnology | Volume 43 | December 2025 | 2009–2022 2009 nature biotechnology https://doi.org/10.1038/s41587-024-02528-1 Article Nanocarrier imaging at single-cell resolution across entire mouse bodies with deep learning Efficient and accurate nanocarrier development for targeted drug delivery is hindered by a lack of methods to analyze its cell-level biodistribution across whole organisms. Here we present Single Cell Precision Nanocarrier Identification (SCP-Nano), an integrated experi",
       "url": "https://doi.org/10.1038/s41587-024-02528-1",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:bnK-pcrLprsC",
-      "citations": 46,
+      "citations": 49,
       "pdf_link": "https://www.nature.com/articles/s41587-024-02528-1.pdf",
       "categories": [
         "detection"
       ],
       "primary_category": "detection",
-      "thumbnail": "images/publications/thumbnails/auto/nanocarrier_imaging_at_single_cell_resolution_across_entire_mouse_bodi_image.jpg",
+      "thumbnail": "images/publications/manual_added/nanocarrier_whole_body_analysis.jpg",
       "featured": false,
       "featuredOrder": 999,
       "source_members": [
@@ -3733,7 +3648,7 @@
         "at": "2026-06-14T20:12:51+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/nanocarrier_imaging_at_single_cell_resolution_across_entire_mouse_bodi_bd38b7f177.pdf",
-      "thumbnail_source": "pdf",
+      "thumbnail_source": "manual-figure-crop",
       "auto_enriched": {
         "at": "2026-06-14T21:16:55+00:00",
         "llm": false,
@@ -3753,7 +3668,7 @@
       "summary": "Nature Methods | Volume 21 | July 2024 | 1306–1315 1306 nature methods Article https://doi.org/10.1038/s41592-024-02245-2 Virtual reality-empowered deep-learning analysis of brain cells Doris Kaltenecker1,2,3,4,16, Rami Al-Maskari4,5,6,7,16, Moritz Negwer5,16, Luciano Hoeher5, Florian Kofler6,7,8,9, Shan Zhao4,5, Mihail Todorov 4,5, Zhouyi Rong4,5, Johannes Christian Paetzold5,7,10, Benedikt Wiestler 8, Marie Piraud 9, Daniel Rueckert 10, Julia Geppert1,2,3, Pauline Morigny1,2,3, Maria Rohm 1,2,",
       "url": "https://doi.org/10.1038/s41592-024-02245-2",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:geHnlv5EZngC",
-      "citations": 42,
+      "citations": 43,
       "pdf_link": "https://www.nature.com/articles/s41592-024-02245-2.pdf",
       "categories": [
         "microscopy",
@@ -3796,7 +3711,7 @@
       "summary": "Learn-Morph-Infer: a new way of solving the inverse problem for brain tumor modeling",
       "url": "https://doi.org/10.1016/j.media.2022.102672",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:mB3voiENLucC",
-      "citations": 39,
+      "citations": 41,
       "pdf_link": "",
       "categories": [
         "other"
@@ -3876,7 +3791,7 @@
       "summary": "Uncertainty in medical image segmentation tasks, especially inter-rater variability, arising from differences in interpretations and annotations by various experts, presents a significant challenge in achieving consistent and reliable image segmentation. This variability not only reflects the inherent complexity and subjec- tive nature of medical image interpretation but also directly impacts the development and evaluation of automated segmentation algorithms. Accurately modeling and quantifying",
       "url": "http://arxiv.org/abs/2405.18435",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:8AbLer7MMksC",
-      "citations": 21,
+      "citations": 25,
       "pdf_link": "https://arxiv.org/pdf/2405.18435",
       "categories": [
         "mri",
@@ -3920,7 +3835,7 @@
       "summary": "Article https://doi.org/10.1038/s41467-025-60466-1 Towards fair decentralized benchmarking of healthcare AI algorithms with the Federated Tumor Segmentation (FeTS) challenge A list of authors and their afﬁliations appears at the end of the paper Computational competitions are the standard for benchmarking medical image analysis algorithms, but they typically use small curated test datasets acquired at a few centers, leaving a gap to the reality of diverse multicentric patient data. To this end,",
       "url": "https://doi.org/10.1038/s41467-025-60466-1",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:WqliGbK-hY8C",
-      "citations": 19,
+      "citations": 23,
       "pdf_link": "https://www.nature.com/articles/s41467-025-60466-1.pdf",
       "categories": [
         "segmentation"
@@ -3962,7 +3877,7 @@
       "summary": "Objectives To present a publicly available deep learning-based torso segmentation model that provides comprehensive voxel-wise coverage, including delineations that extend to the boundaries of anatomical compartments. Materials and",
       "url": "https://doi.org/10.1007/s00330-025-12035-9",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:PR6Y55bgFSsC",
-      "citations": 16,
+      "citations": 25,
       "pdf_link": "https://link.springer.com/content/pdf/10.1007/s00330-025-12035-9.pdf",
       "categories": [
         "mri",
@@ -4005,7 +3920,7 @@
       "summary": "npj | digital medicine Article Published in partnership with Seoul National University Bundang Hospital https://doi.org/10.1038/s41746-025-01893-8 Specialized curricula for training vision language models in retinal image analysis Check for updates Robbie Holland1 , Thomas R. P. Taylor2, Christopher Holmes3, Sophie Riedl4,5, Julia Mai4,5, Maria Patsiamanidi2, Dimitra Mitsopoulou2, Paul Hager5, Philip Müller5, Johannes C.",
       "url": "https://doi.org/10.1038/s41746-025-01893-8",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:ye4kPcJQO24C",
-      "citations": 13,
+      "citations": 14,
       "pdf_link": "https://www.nature.com/articles/s41746-025-01893-8.pdf",
       "categories": [
         "microscopy",
@@ -4048,7 +3963,7 @@
       "summary": "Physical models in the form of partial differential equations serve as important pri- ors for many under-constrained problems. One such application is tumor treatment planning, which relies on accurately estimating the spatial distribution of tumor cells within a patient’s anatomy. While medical imaging can detect the bulk of a tumor, it cannot capture the full extent of its spread, as low-concentration tumor cells often remain undetectable, particularly in glioblastoma, the most common pri- mar",
       "url": "http://arxiv.org/abs/2409.20409",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:BrmTIyaxlBUC",
-      "citations": 12,
+      "citations": 13,
       "pdf_link": "https://arxiv.org/pdf/2409.20409",
       "categories": [
         "detection"
@@ -4090,7 +4005,7 @@
       "summary": "Topology optimization in medical image segmentation with fast χ euler characteristic",
       "url": "https://doi.org/10.1109/tmi.2025.3589495",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:LjlpjdlvIbIC",
-      "citations": 11,
+      "citations": 13,
       "pdf_link": "",
       "categories": [
         "topology",
@@ -4216,7 +4131,7 @@
       "summary": "From pixels to histopathology: A graph-based framework for interpretable whole slide image analysis",
       "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:JoZmwDi-zQgC",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:JoZmwDi-zQgC",
-      "citations": 6,
+      "citations": 7,
       "pdf_link": "",
       "categories": [
         "histology",
@@ -4348,7 +4263,7 @@
         "segmentation"
       ],
       "primary_category": "segmentation",
-      "thumbnail": "images/publications/thumbnails/auto/the_miccai_federated_tumor_segmentation_fets_challenge_2024_efficient__image.jpg",
+      "thumbnail": "images/publications/manual_added/fets_2024_federated_learning_process.jpg",
       "featured": false,
       "featuredOrder": 999,
       "source_members": [
@@ -4364,7 +4279,7 @@
         "at": "2026-06-14T20:13:03+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/the_miccai_federated_tumor_segmentation_fets_challenge_2024_efficient__857bc807fc.pdf",
-      "thumbnail_source": "pdf",
+      "thumbnail_source": "manual-pdf-crop",
       "auto_enriched": {
         "at": "2026-06-14T21:17:11+00:00",
         "llm": false,
@@ -4467,7 +4382,7 @@
       "summary": "Thoracolumbar stump ribs are one of the essential indicators of thoracolum- bar transitional vertebrae or enumeration anomalies. While some studies manually assess these anomalies and describe the ribs qualitatively, this study aims to automatize thoracolumbar stump rib detection and analyze their morphology quantitatively. To this end, we train a high-resolution deep-learning model for rib segmentation and show significant improvements compared to existing models (Dice score 0.997 vs.",
       "url": "http://arxiv.org/abs/2505.05004",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:dTyEYWd-f8wC",
-      "citations": 2,
+      "citations": 3,
       "pdf_link": "https://arxiv.org/pdf/2505.05004",
       "categories": [
         "ct",
@@ -4549,7 +4464,7 @@
       "summary": "A deep-learning framework reveals whole-body perturbations at cell level",
       "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:tzM49s52ZIMC",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:tzM49s52ZIMC",
-      "citations": 1,
+      "citations": 2,
       "pdf_link": "",
       "categories": [
         "other"
@@ -4678,7 +4593,7 @@
       "summary": "Physics-informed neural networks for myocardial perfusion MRI quantification",
       "url": "https://doi.org/10.1016/j.media.2022.102399",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=CFNgI7QAAAAJ&pagesize=100&citation_for_view=CFNgI7QAAAAJ:u-x6o8ySG0sC",
-      "citations": 115,
+      "citations": 116,
       "pdf_link": "",
       "categories": [
         "mri"
@@ -4732,7 +4647,7 @@
         "classification"
       ],
       "primary_category": "classification",
-      "thumbnail": "images/publications/thumbnails/auto/automatic_coronary_artery_plaque_quantification_and_cad_rads_predictio_image.jpg",
+      "thumbnail": "images/publications/manual_added/coronary_plaque_fancnn_method.jpg",
       "featured": false,
       "featuredOrder": 999,
       "source_members": [
@@ -4758,7 +4673,7 @@
         "matched_title": "Automatic Coronary Artery Plaque Quantification and CAD-RADS Prediction Using Mesh Priors",
         "at": "2026-06-14T20:13:10+00:00"
       },
-      "thumbnail_source": "pdf"
+      "thumbnail_source": "manual-pdf-crop"
     },
     {
       "id": "auto_6b55bd037e",
@@ -4772,7 +4687,7 @@
       "summary": "Deformable image registration is a crucial component in the analysis of motion in time series. In medical data, the deformation fields are often predictable to a certain degree: the muscles and other tissues causing the motion-of-interest form shapes that may be used as a geometric prior. Using an Implicit Neural Representation to parameterize a deforma- tion field allows the coordinate space to be chosen arbitrarily.",
       "url": "https://pure.amsterdamumc.nl/en/publications/f857a38d-e1d9-423b-aa34-e0520be8e095",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=CFNgI7QAAAAJ&pagesize=100&citation_for_view=CFNgI7QAAAAJ:9yKSN-GCB0IC",
-      "citations": 23,
+      "citations": 24,
       "pdf_link": "https://proceedings.mlr.press/v227/harten24a/harten24a.pdf",
       "categories": [
         "mri",
@@ -4860,7 +4775,7 @@
       "summary": "Coronary CT angiography (CCTA) offers an efﬁcient and reliable tool for the non-invasive assess- ment of suspected coronary artery disease through the analysis of coronary artery plaque and stenosis. How- ever, the detailed manual analysis of CCTA is a bur- densome task requiring highly skilled experts. Recent advances in artiﬁcial intelligence (AI) have made sig- niﬁcant progress toward a more comprehensive au- tomated analysis of CCTA images, offering potential improvements in terms of speed,",
       "url": "https://doi.org/10.1007/s12471-024-01901-8",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=CFNgI7QAAAAJ&pagesize=100&citation_for_view=CFNgI7QAAAAJ:YsMSGLbcyi4C",
-      "citations": 17,
+      "citations": 18,
       "pdf_link": "https://link.springer.com/content/pdf/10.1007/s12471-024-01901-8.pdf",
       "categories": [
         "ct"
@@ -5144,46 +5059,6 @@
       }
     },
     {
-      "id": "auto_000625d71a",
-      "title": "Classifier-guided registration of coronary CT angiography and intravascular ultrasound",
-      "authors": "RLM van Herten, JP Henriques, RN Planken, J Daemen, EMJ Hartman, ...",
-      "year": 2024,
-      "venue": "arXiv preprint arXiv:2412.17100",
-      "venue_tag": "ARXIV PREPRINT ARXIV:2412.17100",
-      "doi": null,
-      "abstract": "",
-      "summary": "Classifier-guided registration of coronary CT angiography and intravascular ultrasound",
-      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CFNgI7QAAAAJ&pagesize=100&citation_for_view=CFNgI7QAAAAJ:eQOLeE2rZwMC",
-      "scholar_link": "/citations?view_op=view_citation&hl=en&user=CFNgI7QAAAAJ&pagesize=100&citation_for_view=CFNgI7QAAAAJ:eQOLeE2rZwMC",
-      "citations": 1,
-      "pdf_link": "",
-      "categories": [
-        "ct",
-        "ultrasound",
-        "registration"
-      ],
-      "primary_category": "ct",
-      "thumbnail": "images/publications/thumbnails/auto/classifier_guided_registration_of_coronary_ct_angiography_and_intravas_card.jpg",
-      "featured": false,
-      "featuredOrder": 999,
-      "source_members": [
-        "Roel van Herten"
-      ],
-      "source": "google_scholar",
-      "metadata_verified": {
-        "source": "",
-        "status": "unmatched",
-        "at": "2026-06-14T20:13:18+00:00"
-      },
-      "thumbnail_source": "generated-card",
-      "auto_enriched": {
-        "at": "2026-06-14T21:17:27+00:00",
-        "llm": false,
-        "model": "",
-        "pdf_downloaded": false
-      }
-    },
-    {
       "id": "auto_482c89c131",
       "title": "A Multimodal 3D Foundation Model for Light Sheet Fluorescence Microscopy Enables Few-Shot Segmentation, Classification, and Deblurring",
       "authors": "A Scheinfeld, H Zhang, S Mu, RLM van Herten, L Stoffl, A Erturk, Z Wu, ...",
@@ -5272,7 +5147,7 @@
       },
       "promotion_rank": 3,
       "featured_reason": "Promoted: Roel van Herten MIDL",
-      "thumbnail_source": "pdf",
+      "thumbnail_source": "manual-pdf-crop",
       "auto_enriched": {
         "at": "2026-06-14T21:17:29+00:00",
         "llm": false,
@@ -5462,7 +5337,7 @@
       "summary": "DUSt3R introduced a novel paradigm in geometric com- puter vision by proposing a model that can provide dense and unconstrained Stereo 3D Reconstruction of arbitrary image collections with no prior information about camera calibration nor viewpoint poses. Under the hood, however, DUSt3R processes image pairs, regressing local 3D recon- structions that need to be aligned in a global coordinate system. The number of pairs, growing quadratically, is an inherent limitation that becomes especially co",
       "url": "https://doi.org/10.1109/cvpr52734.2025.00106",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=phXULXIAAAAJ&pagesize=100&citation_for_view=phXULXIAAAAJ:WF5omc3nYNoC",
-      "citations": 122,
+      "citations": 134,
       "pdf_link": "https://openaccess.thecvf.com/content/CVPR2025/papers/Cabon_MUSt3R_Multi-view_Network_for_Stereo_3D_Reconstruction_CVPR_2025_paper.pdf",
       "categories": [
         "reconstruction"
@@ -5508,7 +5383,7 @@
       "summary": "Could ChatGPT get an engineering degree? Evaluating higher education vulnerability to AI assistants",
       "url": "https://doi.org/10.1073/pnas.2414955121",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=phXULXIAAAAJ&pagesize=100&citation_for_view=phXULXIAAAAJ:Y0pCki6q_DkC",
-      "citations": 65,
+      "citations": 72,
       "pdf_link": "",
       "categories": [
         "other"
@@ -5640,7 +5515,7 @@
       "summary": "On the use of deep recurrent neural networks for detecting audio spoofing attacks",
       "url": "https://doi.org/10.1109/ijcnn.2017.7966294",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=phXULXIAAAAJ&pagesize=100&citation_for_view=phXULXIAAAAJ:u5HHmVD_uO8C",
-      "citations": 27,
+      "citations": 28,
       "pdf_link": "",
       "categories": [
         "detection"
@@ -5681,7 +5556,7 @@
       "summary": "Elucidating the hierarchical nature of behavior with masked autoencoders",
       "url": "https://doi.org/10.1101/2024.08.06.606796",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=phXULXIAAAAJ&pagesize=100&citation_for_view=phXULXIAAAAJ:W7OEmFMy1HYC",
-      "citations": 19,
+      "citations": 21,
       "pdf_link": "https://www.biorxiv.org/content/biorxiv/early/2024/08/08/2024.08.06.606796.full.pdf",
       "categories": [
         "other"
@@ -5842,7 +5717,7 @@
       "summary": "This paper presents a comprehensive review of the NTIRE 2025 Challenge on Single-Image Efficient Super-Resolution ∗B. Ren (bin.ren@unitn.it, University of Pisa & University of Trento, Italy), H. Guo (cshguo@gmail.com, Tsinghua University), L.",
       "url": "https://doi.org/10.1109/cvprw67362.2025.00095",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=BFxNMooAAAAJ&pagesize=100&citation_for_view=BFxNMooAAAAJ:2osOgNQ5qMEC",
-      "citations": 42,
+      "citations": 43,
       "pdf_link": "https://openaccess.thecvf.com/content/CVPR2025W/NTIRE/papers/Ren_The_Tenth_NTIRE_2025_Efficient_Super-Resolution_Challenge_Report_CVPRW_2025_paper.pdf",
       "categories": [
         "reconstruction"
@@ -5888,7 +5763,7 @@
       "summary": "In this study, we developed an Evidence-based Ensemble Neural Network, namely EVENet, for anatomical brain parcellation using diffusion MRI. The key innovation of EVENet is the design of an evidential deep learning framework to quantify predictive uncertainty at each voxel during a single inference. To do so, we design an evidence-based ensemble learning framework for uncertainty-aware parcellation to leverage the multiple dMRI parameters derived from diffusion MRI.",
       "url": "https://doi.org/10.1016/j.compmedimag.2024.102489",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=BFxNMooAAAAJ&pagesize=100&citation_for_view=BFxNMooAAAAJ:d1gkVwhDpl0C",
-      "citations": 10,
+      "citations": 11,
       "pdf_link": "https://arxiv.org/pdf/2409.07020",
       "categories": [
         "mri",
@@ -6342,7 +6217,7 @@
       "summary": "nature communications Article https://doi.org/10.1038/s41467-022-32417-7 A mid-infrared lab-on-a-chip for dynamic reaction monitoring Borislav Hinkov 1 , Florian Pilat1, Laurin Lux2, Patricia L. Souza 1,3, Mauro David 1, Andreas Schwaighofer 2, Daniela Ristanić1, Benedikt Schwarz 1, Hermann Detz 1,4, Aaron M. Andrews 1, Bernhard Lendl 2 & Gottfried Strasser 1 Mid-infrared spectroscopy is a sensitive and selective technique for probing molecules in the gas or liquid phase.",
       "url": "https://doi.org/10.1038/s41467-022-32417-7",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=5OIAaZcAAAAJ&pagesize=100&citation_for_view=5OIAaZcAAAAJ:YsMSGLbcyi4C",
-      "citations": 111,
+      "citations": 114,
       "pdf_link": "https://www.nature.com/articles/s41467-022-32417-7.pdf",
       "categories": [
         "spectroscopy"
@@ -6428,7 +6303,7 @@
       "summary": "pH titration of β-lactoglobulin monitored by laser-based Mid-IR transmission spectroscopy coupled to chemometric analysis",
       "url": "https://doi.org/10.1016/j.saa.2019.117636",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=5OIAaZcAAAAJ&pagesize=100&citation_for_view=5OIAaZcAAAAJ:u5HHmVD_uO8C",
-      "citations": 26,
+      "citations": 28,
       "pdf_link": "",
       "categories": [
         "spectroscopy"
@@ -6470,7 +6345,7 @@
       "summary": "In-line ultrasound-enhanced Raman spectroscopy allows for highly sensitive analysis with improved selectivity in suspensions",
       "url": "https://doi.org/10.1021/acs.analchem.9b01105",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=5OIAaZcAAAAJ&pagesize=100&citation_for_view=5OIAaZcAAAAJ:u-x6o8ySG0sC",
-      "citations": 24,
+      "citations": 25,
       "pdf_link": "",
       "categories": [
         "spectroscopy"
@@ -6552,7 +6427,7 @@
       "summary": "A learnable prior improves inverse tumor growth modeling",
       "url": "https://doi.org/10.1109/tmi.2024.3494022",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=5OIAaZcAAAAJ&pagesize=100&citation_for_view=5OIAaZcAAAAJ:Zph67rFs4hoC",
-      "citations": 15,
+      "citations": 16,
       "pdf_link": "",
       "categories": [
         "mri"
@@ -7307,7 +7182,7 @@
       "summary": "MAdam: Metric-Aware Multi-Objective Adam",
       "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&cstart=100&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:35r97b3x0nAC",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&cstart=100&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:35r97b3x0nAC",
-      "citations": 0,
+      "citations": 1,
       "pdf_link": "",
       "categories": [
         "other"
@@ -7439,7 +7314,7 @@
       "summary": "BackSplit: The Importance of Sub-dividing the Background in Biomedical Lesion Segmentation",
       "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&cstart=100&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:dQ2og3OwTAUC",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&cstart=100&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:dQ2og3OwTAUC",
-      "citations": 0,
+      "citations": 1,
       "pdf_link": "",
       "categories": [
         "segmentation"
@@ -7895,11 +7770,110 @@
         "model": "",
         "pdf_downloaded": false
       }
+    },
+    {
+      "id": "auto_4c6619da6f",
+      "title": "It depends: Incorporating correlations for joint aleatoric and epistemic uncertainties of high-dimensional output spaces",
+      "authors": "LF Feiner, M Nickel, MJ Menten, L Lux, R Braren, D Rueckert, G Kaissis, ...",
+      "year": 2026,
+      "venue": "Transactions on Machine Learning Research (TMLR)",
+      "venue_tag": "TRANSACTIONS ON MACHINE LEARNING RESEARCH (TMLR)",
+      "doi": null,
+      "abstract": "",
+      "summary": "Models joint aleatoric and epistemic uncertainty with a scalable low-rank covariance approximation for high-dimensional vision outputs.",
+      "url": "https://openreview.net/forum?id=zw5EuUnBny",
+      "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&cstart=100&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:-_dYPAW6P2MC",
+      "citations": 0,
+      "pdf_link": "https://openreview.net/pdf?id=zw5EuUnBny",
+      "categories": [
+        "uncertainty"
+      ],
+      "primary_category": "uncertainty",
+      "thumbnail": "images/publications/thumbnails/auto/it_depends_incorporating_correlations_for_joint_aleatoric_and_epistemi_card.jpg",
+      "featured": false,
+      "featuredOrder": 999,
+      "source_members": [
+        "Johannes C. Paetzold",
+        "Laurin Lux"
+      ],
+      "source": "google_scholar",
+      "llm_tags": [
+        "uncertainty quantification",
+        "aleatoric uncertainty",
+        "epistemic uncertainty",
+        "output correlations",
+        "low-rank covariance"
+      ],
+      "metadata_verified": {
+        "source": "manual",
+        "status": "matched",
+        "note": "Verified from the accepted TMLR record on OpenReview"
+      },
+      "representative": true,
+      "representative_for": [
+        "Laurin Lux"
+      ],
+      "thumbnail_source": "generated-card",
+      "auto_enriched": {
+        "at": "2026-07-17T16:09:54+00:00",
+        "llm": false,
+        "model": "",
+        "pdf_downloaded": false
+      }
+    },
+    {
+      "id": "auto_d0e46b0862",
+      "title": "TG-OT: Topology-guided CCTA-IVUS registration via optimal transport matching",
+      "authors": "RLM van Herten, JP Henriques, RN Planken, J Daemen, EMJ Hartman, ...",
+      "year": 2024,
+      "venue": "arXiv",
+      "venue_tag": "ARXIV",
+      "doi": null,
+      "abstract": "Registering coronary CT angiography (CCTA) and intravas- cular ultrasound (IVUS) enables comprehensive coronary analysis that neither modality can provide alone, yet their fusion remains challeng- ing due to differences in imaging geometry, resolution, and artifact pro- files. Existing",
+      "summary": "Registers coronary CT angiography with intravascular ultrasound using topology-aware feature detection and optimal transport, without requiring prior segmentation.",
+      "url": "https://arxiv.org/abs/2412.17100",
+      "scholar_link": "/citations?view_op=view_citation&hl=en&user=CFNgI7QAAAAJ&pagesize=100&citation_for_view=CFNgI7QAAAAJ:eQOLeE2rZwMC",
+      "citations": 1,
+      "pdf_link": "https://arxiv.org/pdf/2412.17100",
+      "categories": [
+        "ct",
+        "registration",
+        "topology"
+      ],
+      "primary_category": "topology",
+      "thumbnail": "images/publications/thumbnails/auto/tg_ot_topology_guided_ccta_ivus_registration_via_optimal_transport_mat_image.jpg",
+      "featured": false,
+      "featuredOrder": 999,
+      "source_members": [
+        "Johannes C. Paetzold",
+        "Roel van Herten"
+      ],
+      "source": "google_scholar",
+      "llm_tags": [
+        "CCTA-IVUS registration",
+        "optimal transport",
+        "topology-guided learning",
+        "multimodal image fusion",
+        "coronary imaging"
+      ],
+      "metadata_verified": {
+        "source": "manual",
+        "status": "matched",
+        "note": "Verified from arXiv v2 metadata dated June 2026"
+      },
+      "pdf_local_path": "data/cache/pdfs/tg_ot_topology_guided_ccta_ivus_registration_via_optimal_transport_mat_a0d1409e7f.pdf",
+      "thumbnail_source": "pdf",
+      "auto_enriched": {
+        "at": "2026-07-17T16:09:55+00:00",
+        "llm": false,
+        "model": "",
+        "pdf_downloaded": true
+      }
     }
   ],
   "automation": {
     "pipeline": "scripts/research_pipeline.py",
-    "updated_at": "2026-06-15T17:43:03+00:00",
+    "updated_at": "2026-07-17T17:24:00+00:00",
     "members_config": "data/lab_members.json"
   }
 }
