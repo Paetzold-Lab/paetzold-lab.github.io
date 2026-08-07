@@ -2,7 +2,7 @@
    Loaded first (classic script, defer) so components.js, main.js,
    featured-publications.js and the publications module can all reuse them. */
 
-const SITE_VERSION = "20260807a";
+const SITE_VERSION = "20260807b";
 
 const SITE_SCRIPT_URL = document.currentScript?.src
   ? new URL(document.currentScript.src, document.baseURI)

@@ -815,6 +815,8 @@ body.overlay-open {
   line-height: 1.08;
   margin-bottom: 0.9rem;
   max-width: 560px;
+  /* Even out the lines so headings never end on a one-word last line. */
+  text-wrap: balance;
 }
 
 .lab-intro-bg {
@@ -959,7 +961,9 @@ body.overlay-open {
 }
 
 .lab-intro-content .hero-paper-summary {
-  max-width: 440px;
+  /* Wraps to 3 lines well under this; the slack keeps the line-clamp from
+     biting if the font falls back to a slightly wider face. */
+  max-width: 470px;
   -webkit-line-clamp: 3;
   line-clamp: 3;
 }
@@ -967,7 +971,8 @@ body.overlay-open {
 .lab-intro-content,
 .lab-intro-content h1,
 .lab-intro-content h2 {
-  max-width: 440px;
+  /* 440px forced the headline onto four lines with "AI." stranded alone. */
+  max-width: 480px;
 }
 
 .lab-intro-content h1,
