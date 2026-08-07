@@ -405,7 +405,9 @@ function initializeContactForm() {
       email: field("email", "email"),
       message: field("message", "message"),
       website: String(formData.get("website") || ""),
-      elapsed: Date.now() - openedAt
+      elapsed: Date.now() - openedAt,
+      // Three pages carry this form; knowing which one helps triage the reply.
+      page: window.location.href.slice(0, 500)
     };
 
     fetch(CONTACT_ENDPOINT, {
