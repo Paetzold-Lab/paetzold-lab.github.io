@@ -56,10 +56,10 @@ async function fetchPublications() {
       ...p,
       thumbnail: publicationImage(p),
       links: {
-        pdf: normalizeLink(p.pdf_link),
-        scholar: normalizeLink(p.url) || scholarURL(p.scholar_link),
-        doi: doiURL(p.doi),
-        demo: normalizeLink(p.demo_url)
+        pdf: safeURL(p.pdf_link),
+        scholar: safeURL(p.url) || safeURL(scholarURL(p.scholar_link)),
+        doi: safeURL(doiURL(p.doi)),
+        demo: safeURL(p.demo_url)
       }
     }));
   } catch {

@@ -304,7 +304,7 @@ function renderHeroPublications(pubs) {
     const categories = visibleCategories(pub, 2);
     const summary = heroTeaser(pub);
     const venue = formatVenue(pub.venue);
-    const demo = normalizeLink(pub.demo_url);
+    const demo = safeURL(pub.demo_url);
     const collageItems = heroCollageItems(pub);
     return `
       <div class="carousel-slide paper-slide" aria-hidden="true" inert>
@@ -386,7 +386,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   wrap.innerHTML = pubs
     .map(p => {
-      const url = normalizeLink(p.url) || scholarURL(p.scholar_link) || normalizeLink(p.pdf_link) || "#";
+      const url = safeURL(p.url) || safeURL(scholarURL(p.scholar_link)) || safeURL(p.pdf_link) || "#";
       const thumbnail = publicationImage(p);
       const members = displayMembers(p, 3);
       const venue = formatVenue(p.venue);

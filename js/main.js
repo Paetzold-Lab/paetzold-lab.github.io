@@ -367,9 +367,25 @@ function initializeCarousel() {
   update();
 }
 
+const CONTACT_ENDPOINT =
+  "https://script.google.com/macros/s/AKfycbyEveVuAWICqewCw5FF8JnuQQwP8KEIFYgAmZShgnKzlTsIOBjRD3PSHilzQ12rxy1j/exec";
+const CONTACT_FIELD_LIMITS = { name: 120, email: 200, message: 4000 };
+
 function initializeContactForm() {
   const form = document.getElementById("contact-form");
   if (!form) return;
+
+  // Bots fill every input they find. A hidden field that must stay empty, plus a
+  // minimum time-on-form, filters the low-effort ones before they reach the sheet.
+  // The Apps Script re-checks both; this half only saves the round trip.
+  const trap = document.createElement("div");
+  trap.className = "form-trap";
+  trap.setAttribute("aria-hidden", "true");
+  trap.innerHTML =
+    '<label for="contact-website">Leave this field empty</label>' +
+    '<input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off">';
+  form.appendChild(trap);
+  const openedAt = Date.now();
 
   form.addEventListener("submit", e => {
     e.preventDefault();
@@ -380,21 +396,24 @@ function initializeContactForm() {
     btn.disabled = true;
 
     const formData = new FormData(form);
+    const field = (key, fallbackId) =>
+      String(formData.get(key) ?? document.getElementById(fallbackId)?.value ?? "")
+        .trim()
+        .slice(0, CONTACT_FIELD_LIMITS[key]);
     const data = {
-      name: formData.get("name") || document.getElementById("name")?.value || "",
-      email: formData.get("email") || document.getElementById("email")?.value || "",
-      message: formData.get("message") || document.getElementById("message")?.value || ""
+      name: field("name", "name"),
+      email: field("email", "email"),
+      message: field("message", "message"),
+      website: String(formData.get("website") || ""),
+      elapsed: Date.now() - openedAt
     };
 
-    fetch(
-      "https://script.google.com/macros/s/AKfycbyEveVuAWICqewCw5FF8JnuQQwP8KEIFYgAmZShgnKzlTsIOBjRD3PSHilzQ12rxy1j/exec",
-      {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" },
-        mode: "no-cors"
-      }
-    )
+    fetch(CONTACT_ENDPOINT, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: { "Content-Type": "application/json" },
+      mode: "no-cors"
+    })
       .then(() => {
         btn.classList.add("success");
         btn.innerHTML = "Sent Successfully";

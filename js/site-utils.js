@@ -2,7 +2,7 @@
    Loaded first (classic script, defer) so components.js, main.js,
    featured-publications.js and the publications module can all reuse them. */
 
-const SITE_VERSION = "20260807b";
+const SITE_VERSION = "20260807c";
 
 const SITE_SCRIPT_URL = document.currentScript?.src
   ? new URL(document.currentScript.src, document.baseURI)
@@ -67,6 +67,27 @@ function ellipsis(value, limit) {
 function normalizeLink(value) {
   const link = String(value ?? "").trim();
   return link || null;
+}
+
+/* Publication metadata is partly scraped from Scholar/arXiv, so treat any link
+   built from it as untrusted: escaping alone does not stop a `javascript:` href.
+   Returns null for anything that is not http(s), mailto, or a relative path. */
+function safeURL(value) {
+  const link = normalizeLink(value);
+  if (!link) return null;
+  // Browsers strip tabs, newlines and control characters before resolving a URL, so
+  // the scheme must be read from the stripped form or "java<TAB>script:" slips through.
+  const probe = link.replace(/[\u0000-\u0020\u007f]+/g, "");
+  if (/^[a-z][a-z0-9+.-]*:/i.test(probe) || probe.startsWith("//")) {
+    // Allowlist rather than blocklist, so anything exotic fails closed.
+    try {
+      const { protocol } = new URL(probe, window.location.href);
+      return ["http:", "https:", "mailto:"].includes(protocol) ? link : null;
+    } catch {
+      return null;
+    }
+  }
+  return link; // relative path within the site
 }
 
 /* Scholar records are stored as site-relative paths ("/citations?..."). */
@@ -135,7 +156,7 @@ async function loadPublicationData() {
 }
 
 function publicationImage(pub) {
-  return normalizeLink(pub?.thumbnail) || DEFAULT_PUBLICATION_IMAGE;
+  return safeURL(pub?.thumbnail) || DEFAULT_PUBLICATION_IMAGE;
 }
 
 /* Primary category first, deduplicated, capped at `limit`. */

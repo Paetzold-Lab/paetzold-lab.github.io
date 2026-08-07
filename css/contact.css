@@ -64,6 +64,16 @@
   width: 100%;
 }
 
+/* Spam honeypot: positioned off-screen rather than display:none, because some
+   bots skip hidden inputs. aria-hidden + tabindex="-1" keep it away from real users. */
+.form-trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .form-group {
   position: relative;
   margin-bottom: 2rem;
