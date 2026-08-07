@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initializeUI();
   initializeCarousel();
-  initializeCardScrolling();
   initializeContactForm();
   initializeGallery();
   initializeCollaboratorScrolling();
@@ -20,45 +19,6 @@ const SEARCH_PAGES = [
 ];
 const MAX_SEARCH_RESULTS = 12;
 let searchIndexPromise = null;
-
-function siteAssetPath(path) {
-  if (window.PaetzoldSite?.assetPath) return window.PaetzoldSite.assetPath(path);
-  const isSubpage = window.location.pathname.includes("/team_members_subpage/");
-  return `${isSubpage ? "../" : "./"}${String(path || "").replace(/^\.?\//, "")}`;
-}
-
-function versionedSiteAssetURL(path) {
-  const url = new URL(siteAssetPath(path), window.location.href);
-  const version = window.PaetzoldSite?.componentVersion;
-  if (version) url.searchParams.set("v", version);
-  return url.href;
-}
-
-function isReducedMotion() {
-  return window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
-}
-
-function debounce(fn, wait = 120) {
-  let timer;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => fn(...args), wait);
-  };
-}
-
-function escapeHTML(value) {
-  return String(value ?? "").replace(/[&<>"']/g, char => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    "\"": "&quot;",
-    "'": "&#39;"
-  })[char]);
-}
-
-function escapeRegExp(value) {
-  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
 
 function highlightTerm(value, term) {
   const text = String(value ?? "");
@@ -136,40 +96,20 @@ function initializeUI() {
     }
   });
 
-  if (!("IntersectionObserver" in window) || isReducedMotion()) {
-    document.querySelectorAll(".pub-card").forEach(c => {
-      c.style.opacity = 1;
-      c.style.transform = "none";
-    });
-    return;
-  }
-
   const title = document.querySelector(".typing-title");
-  if (title) {
-    const titleObserver = new IntersectionObserver(
-      entries => {
-        entries.forEach(en => {
-          if (en.isIntersecting) {
-            en.target.classList.add("animate");
-            titleObserver.unobserve(en.target);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-    titleObserver.observe(title);
-  }
+  if (!title || !("IntersectionObserver" in window) || isReducedMotion()) return;
 
-  const observer = new IntersectionObserver(
-    es => es.forEach(e => e.isIntersecting && ((e.target.style.opacity = 1), (e.target.style.transform = "translateY(0)"))),
-    { threshold: 0.1 }
+  const titleObserver = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("animate");
+        titleObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.5 }
   );
-
-  document.querySelectorAll(".pub-card").forEach(c => {
-    c.style.opacity = 0;
-    c.style.transform = "translateY(20px)";
-    observer.observe(c);
-  });
+  titleObserver.observe(title);
 }
 
 function initializeSearch() {
@@ -244,7 +184,7 @@ async function buildSearchIndex() {
     await Promise.all(
       SEARCH_PAGES.map(async page => {
         try {
-          const r = await fetch(versionedSiteAssetURL(page));
+          const r = await fetch(versionedAssetURL(page));
           if (!r.ok) return null;
           const html = await r.text();
           const doc = new DOMParser().parseFromString(html, "text/html");
@@ -262,25 +202,22 @@ async function buildSearchIndex() {
 
   let publicationIndex = [];
   try {
-    const r = await fetch(versionedSiteAssetURL("data/publications.json"));
-    if (r.ok) {
-      const data = await r.json();
-      publicationIndex = (data.publications || []).map(p => normalizeSearchEntry({
-        title: p.title,
-        url: `${siteAssetPath("research.html")}?q=${encodeURIComponent(p.title || "")}`,
-        content: [
-          p.title,
-          p.authors,
-          p.venue,
-          p.year,
-          p.summary,
-          p.abstract,
-          (p.source_members || []).join(" "),
-          (p.categories || []).join(" "),
-          (p.llm_tags || []).join(" ")
-        ].filter(Boolean).join(" ")
-      }));
-    }
+    const { publications } = await loadPublicationData();
+    publicationIndex = publications.map(p => normalizeSearchEntry({
+      title: p.title,
+      url: `${siteAssetPath("research.html")}?q=${encodeURIComponent(p.title || "")}`,
+      content: [
+        p.title,
+        p.authors,
+        p.venue,
+        p.year,
+        p.summary,
+        p.abstract,
+        (p.source_members || []).join(" "),
+        (p.categories || []).join(" "),
+        (p.llm_tags || []).join(" ")
+      ].filter(Boolean).join(" ")
+    }));
   } catch {
     publicationIndex = [];
   }
@@ -427,31 +364,7 @@ function initializeCarousel() {
     wrap.dataset.visibilityBound = "true";
   }
 
-  document.querySelectorAll(".video-bg video").forEach(v => (v.playbackRate = 0.7));
   update();
-}
-
-function initializeCardScrolling() {
-  const setup = (row, l, r, w) => {
-    const wrap = document.getElementById(row);
-    const left = document.getElementById(l);
-    const right = document.getElementById(r);
-    if (!wrap || !left || !right) return;
-
-    let off = 0;
-    left.addEventListener("click", () => {
-      off = Math.min(off + w, 0);
-      wrap.style.transform = `translateX(${off}px)`;
-    });
-    right.addEventListener("click", () => {
-      const max = wrap.scrollWidth - wrap.clientWidth;
-      off = Math.max(off - w, -max);
-      wrap.style.transform = `translateX(${off}px)`;
-    });
-  };
-
-  setup("team-scroll", "team-left", "team-right", 190);
-  setup("research-scroll", "research-left", "research-right", 190);
 }
 
 function initializeContactForm() {

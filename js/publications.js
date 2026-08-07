@@ -1,5 +1,4 @@
 const ITEMS_PER_PAGE = 5;
-const PI_NAME = "Johannes C. Paetzold";
 const LAB_MEMBERS = [
   "Adina Scheinfeld",
   "Alexander Berger",
@@ -20,43 +19,9 @@ const LAB_MEMBER_ALIASES = {
   "Roel van Herten": ["Rudolf van Herten", "R van Herten", "R. van Herten", "R v Herten", "RLM van Herten"],
   "Lucas Stoffl": ["L Stoffl"]
 };
-const DATA_VERSION = window.PaetzoldSite?.componentVersion || "20260717f";
-
-function siteAssetPath(path) {
-  if (window.PaetzoldSite?.assetPath) return window.PaetzoldSite.assetPath(path);
-  return `./${String(path || "").replace(/^\.?\//, "")}`;
-}
 
 function normalizeAuthorName(str) {
   return str.toLowerCase().replace(/\./g, "").replace(/\s+/g, " ").trim();
-}
-
-function escapeHTML(value) {
-  return String(value ?? "").replace(/[&<>"']/g, char => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    "\"": "&quot;",
-    "'": "&#39;"
-  })[char]);
-}
-
-function escapeClassName(value) {
-  return String(value ?? "").trim().toLowerCase().replace(/[^a-z0-9_-]/g, "-");
-}
-
-function compareMemberNames(a, b) {
-  return String(a || "").localeCompare(String(b || ""), undefined, { sensitivity: "base" });
-}
-
-function normalizeLink(value) {
-  const link = String(value ?? "").trim();
-  return link || null;
-}
-
-function doiURL(value) {
-  const doi = String(value ?? "").trim().replace(/^https?:\/\/(dx\.)?doi\.org\//i, "");
-  return doi ? `https://doi.org/${doi}` : null;
 }
 
 function updateSortDirectionControl(button) {
@@ -81,26 +46,20 @@ let searchQuery = "";
 
 async function fetchPublications() {
   try {
-    const url = new URL(siteAssetPath("data/publications.json"), window.location.href);
-    url.searchParams.set("v", DATA_VERSION);
-    const r = await fetch(url.href);
-    if (!r.ok) throw new Error(r.status);
-    const data = await r.json();
-    publicationMeta = {
-      lastUpdated: data.last_updated || "",
-      automation: data.automation || null
-    };
-    if (data.categories) {
+    const data = await loadPublicationData();
+    publicationMeta = { lastUpdated: data.lastUpdated, automation: data.automation };
+    if (Object.keys(data.categories).length) {
       categories = data.categories;
       updateFilterButtons(Object.keys(categories));
     }
-    return (data.publications || []).map(p => ({
+    return data.publications.map(p => ({
       ...p,
-      thumbnail: normalizeLink(p.thumbnail) || "./images/publications/default.png",
+      thumbnail: publicationImage(p),
       links: {
         pdf: normalizeLink(p.pdf_link),
-        scholar: normalizeLink(p.url || p.scholar_link),
-        doi: doiURL(p.doi)
+        scholar: normalizeLink(p.url) || scholarURL(p.scholar_link),
+        doi: doiURL(p.doi),
+        demo: normalizeLink(p.demo_url)
       }
     }));
   } catch {
@@ -295,7 +254,7 @@ function getFilteredPublications() {
         String(p.venue || "").toLowerCase().includes(q) ||
         String(p.doi || "").toLowerCase().includes(q) ||
         (p.source_members || []).join(" ").toLowerCase().includes(q) ||
-        (p.categories || []).map(prettyCat).join(" ").toLowerCase().includes(q) ||
+        (p.categories || []).map(categoryLabel).join(" ").toLowerCase().includes(q) ||
         (p.llm_tags || []).join(" ").toLowerCase().includes(q)
     );
   }
@@ -310,35 +269,6 @@ function getFilteredPublications() {
     });
   }
   return sortPublications(filtered);
-}
-
-function ellipsis(value, limit) {
-  const text = String(value || "").replace(/\s+/g, " ").trim();
-  if (!text || text.length <= limit) return text;
-  const cut = text.slice(0, limit - 1);
-  const boundary = Math.max(cut.lastIndexOf(" "), cut.lastIndexOf(";"), cut.lastIndexOf(","));
-  return `${cut.slice(0, boundary > limit * 0.62 ? boundary : limit - 1).trim()}...`;
-}
-
-function formatVenue(value) {
-  const text = String(value || "").replace(/\u00a0/g, " ").replace(/\s+/g, " ").trim();
-  if (!text) return "";
-
-  const compactVenues = [
-    [/medical imaging with deep learning|MIDL/i, "Medical Imaging with Deep Learning (MIDL)"],
-    [/medical image computing and computer-assisted|MICCAI/i, "MICCAI"],
-    [/machine learning in medical imaging|MLMI/i, "MLMI"],
-    [/information processing in medical imaging|IPMI/i, "IPMI"],
-    [/computer vision and pattern recognition|CVPR/i, "CVPR"],
-    [/international conference on computer vision|ICCV/i, "ICCV"],
-    [/winter conference on applications of computer vision|WACV/i, "WACV"],
-    [/learning representations|ICLR/i, "ICLR"],
-    [/neural information processing systems|NeurIPS/i, "NeurIPS"],
-    [/international symposium on biomedical image processing|ISBI/i, "ISBI"]
-  ];
-
-  const match = compactVenues.find(([pattern]) => pattern.test(text));
-  return match ? match[1] : text;
 }
 
 function highlightAuthors(str) {
@@ -411,25 +341,9 @@ function sortPublications(arr) {
   });
 }
 
-function prettyCat(id) {
-  if (categories[id]) return categories[id];
-  if (/^[a-z]{2,4}$/.test(id)) return id.toUpperCase(); // e.g., mri -> MRI, ct -> CT
-  return id
-    .split(/[-_]/)
-    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
-}
-
 function badges(cats) {
   if (!cats?.length) return '<span class="pub-category-badge other">Research</span>';
-  return cats.map(c => `<span class="pub-category-badge ${escapeClassName(c)}">${escapeHTML(prettyCat(c))}</span>`).join("");
-}
-
-function visibleCategories(pub, limit = 4) {
-  const categories = pub.categories?.length ? pub.categories : ["other"];
-  const primary = pub.primary_category || categories[0];
-  const ordered = [primary, ...categories].filter(Boolean);
-  return ordered.filter((value, index, array) => array.indexOf(value) === index).slice(0, limit);
+  return cats.map(c => `<span class="pub-category-badge ${escapeClassName(c)}">${escapeHTML(categoryLabel(c))}</span>`).join("");
 }
 
 function tags(tagsList) {
@@ -440,17 +354,8 @@ function tags(tagsList) {
     </div>`;
 }
 
-function displayLabMembers(pub, limit = 4) {
-  const members = (pub.source_members || []).filter(Boolean);
-  const nonPi = members.filter(member => member !== PI_NAME).sort(compareMemberNames);
-  const ordered = nonPi.length ? nonPi : [...members].sort(compareMemberNames);
-  const shown = ordered.slice(0, limit);
-  const hidden = Math.max(0, ordered.length - shown.length);
-  return { shown, hidden };
-}
-
 function labMemberRow(pub) {
-  const members = displayLabMembers(pub, 4);
+  const members = displayMembers(pub, 4);
   if (!members.shown.length) return "";
   return `
     <div class="pub-lab-row">
@@ -466,13 +371,13 @@ function renderPublication(p, index = 0) {
   const title = escapeHTML(p.title);
   const venue = escapeHTML(formatVenue(p.venue));
   const fullVenue = escapeHTML(p.venue || formatVenue(p.venue));
-  const thumbnail = escapeHTML((p.thumbnail || "./images/publications/default.png").trim());
+  const thumbnail = escapeHTML(publicationImage(p).trim());
   const imageLoading = index === 0 ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
   const doi = p.links.doi && p.links.doi !== p.links.scholar ? p.links.doi : "";
   const citationLabel = p.citations ? `${p.citations} citation${+p.citations === 1 ? "" : "s"}` : "";
   return `
     <article class="pub-item" data-categories="${escapeHTML(p.categories?.join(" ") || "other")}">
-      <div class="pub-thumb"><img src="${thumbnail}" alt="${title}" ${imageLoading} decoding="async" onerror="this.onerror=null;this.src='./images/publications/default.png';"></div>
+      <div class="pub-thumb"><img src="${thumbnail}" alt="${title}" ${imageLoading} decoding="async" onerror="this.onerror=null;this.src='${DEFAULT_PUBLICATION_IMAGE}';"></div>
       <div class="pub-content">
         <div class="pub-topline">
           <div class="pub-categories">${badges(visibleCategories(p, 3))}</div>
@@ -490,6 +395,7 @@ function renderPublication(p, index = 0) {
         ${tags(p.llm_tags)}
         ${summary ? `<p class="abstract">${escapeHTML(summary)}</p>` : ""}
         <div class="pub-links">
+          ${p.links.demo ? `<a href="${escapeHTML(p.links.demo)}" class="btn-link demo" target="_blank" rel="noopener" aria-label="Open live demo for ${title}">Demo</a>` : ""}
           ${p.links.pdf ? `<a href="${escapeHTML(p.links.pdf)}" class="btn-link pdf" target="_blank" rel="noopener" aria-label="Open PDF for ${title}">PDF</a>` : ""}
           ${doi ? `<a href="${escapeHTML(doi)}" class="btn-link doi" target="_blank" rel="noopener" aria-label="Open DOI for ${title}">DOI</a>` : ""}
           ${p.links.scholar ? `<a href="${escapeHTML(p.links.scholar)}" class="btn-link link" target="_blank" rel="noopener" aria-label="Open Scholar record for ${title}">Scholar</a>` : ""}

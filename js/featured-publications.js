@@ -1,31 +1,3 @@
-// Local fallback / legacy names. Prefer dynamic names from publications.json when available.
-const CATEGORY_NAMES = {
-  "medical-imaging": "Medical Imaging",
-  gnn: "GNN",
-  vlm: "VLM",
-  generative: "Generative AI",
-  topology: "Topology",
-  microscopy: "Microscopy",
-  spectroscopy: "Spectroscopy",
-  mri: "MRI",
-  ct: "CT",
-  pet: "PET",
-  "x-ray": "X-ray",
-  ultrasound: "Ultrasound",
-  histology: "Histology",
-  segmentation: "Segmentation",
-  reconstruction: "Reconstruction",
-  detection: "Detection",
-  registration: "Registration",
-  classification: "Classification",
-  uncertainty: "Uncertainty",
-  other: "Research"
-};
-
-// Will be populated from publications.json (data.categories) for single source of truth.
-let CATEGORY_MAP_FROM_DATA = {};
-
-const PI_NAME = "Johannes C. Paetzold";
 const HERO_PUBLICATION_IDS = [
   "auto_482c89c131", // Adina Scheinfeld: LSFM foundation model
   "auto_09034b913d", // Laurin Lux / Alexander Berger: MIDL
@@ -84,51 +56,15 @@ const HERO_TEASERS = {
   auto_6295fd2b61: "Synthetic OCTA data teaches VLMs clinical reasoning."
 };
 
-const DATA_VERSION = window.PaetzoldSite?.componentVersion || "20260717f";
 const LAB_INTRO_SLIDE = {
-  title: "Machine learning for medical imaging, biology, and trustworthy AI.",
-  summary: "Paetzold Lab builds interpretable computational systems that connect geometric learning, multimodal data, and clinical translation.",
+  title: "Machine learning for medical imaging, biology, and explainable AI.",
+  summary: "The Paetzold Lab builds interpretable AI systems that connect geometric learning, generative models, multimodal data, and clinical translation.",
   image: "./images/team/paetzold-lab-group-2026.jpg",
   image2x: "./images/team/paetzold-lab-group-2026@2x.jpg"
 };
 
-function escapeHTML(value) {
-  return String(value ?? "").replace(/[&<>"']/g, char => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    "\"": "&quot;",
-    "'": "&#39;"
-  })[char]);
-}
-
-function escapeClassName(value) {
-  return String(value ?? "").trim().toLowerCase().replace(/[^a-z0-9_-]/g, "-");
-}
-
-function compareMemberNames(a, b) {
-  return String(a || "").localeCompare(String(b || ""), undefined, { sensitivity: "base" });
-}
-
-function normalizeLink(value) {
-  const link = String(value ?? "").trim();
-  return link || null;
-}
-
-async function json(path) {
-  const url = window.PaetzoldSite?.assetPath
-    ? new URL(window.PaetzoldSite.assetPath(path), window.location.href)
-    : new URL(path, window.location.href);
-  url.searchParams.set("v", DATA_VERSION);
-  const r = await fetch(url.href);
-  if (!r.ok) throw new Error(r.status);
-  return r.json();
-}
-
 async function getFeaturedPublications() {
-  const data = await json("./data/publications.json");
-  if (data.categories) CATEGORY_MAP_FROM_DATA = data.categories;
-  const pubs = data.publications || [];
+  const { publications: pubs, categories } = await loadPublicationData();
   // 1. Explicit featured entries (preferred)
   const featured = pubs
     .filter(p => p.featured)
@@ -143,8 +79,8 @@ async function getFeaturedPublications() {
   if (manual.length) return manual;
 
   // 3. Category-based diverse selection (derive categories if top-level summary missing)
-  let categoryMap = data.categories;
-  if (!categoryMap) {
+  let categoryMap = categories;
+  if (!Object.keys(categoryMap).length) {
     categoryMap = {};
     pubs.forEach(p => (p.categories || []).forEach(c => (categoryMap[c] = c)));
   }
@@ -182,81 +118,12 @@ async function getFeaturedPublications() {
   return scored.slice(0, 6);
 }
 
-function catName(id) {
-  // Prefer names from data, then static map, then heuristic capitalization.
-  if (CATEGORY_MAP_FROM_DATA[id]) return CATEGORY_MAP_FROM_DATA[id];
-  if (CATEGORY_NAMES[id]) return CATEGORY_NAMES[id];
-  // Heuristic: if short (<=4) and all lowercase letters, uppercase it (e.g., mri -> MRI)
-  if (/^[a-z]{2,4}$/.test(id)) return id.toUpperCase();
-  // Replace hyphen groups with capitalized words.
-  return id
-    .split(/[-_]/)
-    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
-}
-
-function visibleCategories(pub, limit = 2) {
-  const categories = pub.categories?.length ? pub.categories : ["other"];
-  const primary = pub.primary_category || categories[0];
-  const ordered = [primary, ...categories].filter(Boolean);
-  return ordered.filter((value, index, array) => array.indexOf(value) === index).slice(0, limit);
-}
-
-function displayMembers(pub, limit = 3) {
-  const members = (pub.source_members || []).filter(Boolean);
-  const nonPi = members.filter(member => member !== PI_NAME).sort(compareMemberNames);
-  const ordered = nonPi.length ? nonPi : [...members].sort(compareMemberNames);
-  const shown = ordered.slice(0, limit);
-  const hidden = Math.max(0, ordered.length - shown.length);
-  return { shown, hidden };
-}
-
-function truncate(value, limit) {
-  const text = String(value || "").replace(/\s+/g, " ").trim();
-  return text.length > limit ? `${text.slice(0, limit - 1).trim()}...` : text;
-}
-
-function formatVenue(value) {
-  const text = String(value || "").replace(/\u00a0/g, " ").replace(/\s+/g, " ").trim();
-  if (!text) return "";
-
-  const compactVenues = [
-    [/medical imaging with deep learning|MIDL/i, "Medical Imaging with Deep Learning (MIDL)"],
-    [/medical image computing and computer-assisted|MICCAI/i, "MICCAI"],
-    [/machine learning in medical imaging|MLMI/i, "MLMI"],
-    [/information processing in medical imaging|IPMI/i, "IPMI"],
-    [/computer vision and pattern recognition|CVPR/i, "CVPR"],
-    [/international conference on computer vision|ICCV/i, "ICCV"],
-    [/winter conference on applications of computer vision|WACV/i, "WACV"],
-    [/learning representations|ICLR/i, "ICLR"],
-    [/neural information processing systems|NeurIPS/i, "NeurIPS"],
-    [/international symposium on biomedical image processing|ISBI/i, "ISBI"]
-  ];
-
-  const match = compactVenues.find(([pattern]) => pattern.test(text));
-  return match ? match[1] : text;
-}
-
 function heroTeaser(pub) {
-  const teaser = HERO_TEASERS[pub?.id];
-  if (teaser) return teaser;
-  return truncate(pub?.summary || pub?.abstract || "", 88);
+  return HERO_TEASERS[pub?.id] || ellipsis(pub?.summary || pub?.abstract || "", 88);
 }
 
 function publicationSearchUrl(pub) {
   return `research.html?q=${encodeURIComponent(pub.title || "")}`;
-}
-
-function publicationImage(pub) {
-  return normalizeLink(pub?.thumbnail) || "./images/publications/default.png";
-}
-
-function versionedImage(src) {
-  const link = normalizeLink(src);
-  if (!link || /^(?:https?:|data:|blob:)/i.test(link)) return link;
-  const url = new URL(link, window.location.href);
-  url.searchParams.set("v", DATA_VERSION);
-  return url.href;
 }
 
 function heroImageAttrs(slideIndex, imageIndex) {
@@ -319,7 +186,7 @@ function ensurePaperZoomModal() {
       <div class="paper-zoom-dialog" role="dialog" aria-modal="true" aria-labelledby="paper-zoom-title">
         <button type="button" class="paper-zoom-close" aria-label="Close preview">&times;</button>
         <div class="paper-zoom-image-wrap">
-          <img src="./images/publications/default.png" alt="">
+          <img src="${DEFAULT_PUBLICATION_IMAGE}" alt="">
         </div>
         <p class="paper-zoom-caption" id="paper-zoom-title"></p>
       </div>`;
@@ -367,7 +234,7 @@ function openPaperZoom(src, title) {
       dialog?.classList.toggle("is-wide", ratio >= 0.85);
       dialog?.classList.toggle("is-tall", ratio < 0.85);
     };
-    img.src = src || "./images/publications/default.png";
+    img.src = src || DEFAULT_PUBLICATION_IMAGE;
     img.alt = title || "Featured research figure";
   }
   if (caption) caption.textContent = title || "";
@@ -437,14 +304,15 @@ function renderHeroPublications(pubs) {
     const categories = visibleCategories(pub, 2);
     const summary = heroTeaser(pub);
     const venue = formatVenue(pub.venue);
+    const demo = normalizeLink(pub.demo_url);
     const collageItems = heroCollageItems(pub);
     return `
       <div class="carousel-slide paper-slide" aria-hidden="true" inert>
         <div class="paper-bg">
           <div class="paper-collage" data-paper-id="${escapeHTML(pub.id || "")}" data-image-count="${collageItems.length}" aria-label="Featured research image collage for ${escapeHTML(pub.title || "paper")}">
             ${collageItems.map((item, imageIndex) => `
-              <button type="button" class="paper-collage-frame ${item.className}" style="--paper-image:url('${escapeHTML(item.src)}');--paper-image-position:${escapeHTML(item.position)}" data-zoom-src="${escapeHTML(item.src)}" data-zoom-title="${escapeHTML(item.title)}" aria-label="Preview ${escapeHTML(item.ariaLabel)}">
-                <img src="${escapeHTML(item.src)}" alt="${escapeHTML(item.ariaLabel)}" ${heroImageAttrs(index, imageIndex)} onerror="this.onerror=null;this.src='./images/publications/default.png';">
+              <button type="button" class="paper-collage-frame ${item.className}" style="--paper-image-position:${escapeHTML(item.position)}" data-zoom-src="${escapeHTML(item.src)}" data-zoom-title="${escapeHTML(item.title)}" aria-label="Preview ${escapeHTML(item.ariaLabel)}">
+                <img src="${escapeHTML(item.src)}" alt="" ${heroImageAttrs(index, imageIndex)} onerror="this.onerror=null;this.src='${DEFAULT_PUBLICATION_IMAGE}';">
               </button>`).join("")}
           </div>
         </div>
@@ -452,12 +320,15 @@ function renderHeroPublications(pubs) {
           <div class="hero-paper-kicker">
             <span>Featured research</span>
             ${pub.year ? `<span>${escapeHTML(pub.year)}</span>` : ""}
-            ${categories.map(c => `<span>${escapeHTML(catName(c))}</span>`).join("")}
+            ${categories.map(c => `<span>${escapeHTML(categoryLabel(c))}</span>`).join("")}
           </div>
           <h2>${escapeHTML(pub.title)}</h2>
           ${summary ? `<p class="hero-paper-summary">${escapeHTML(summary)}</p>` : ""}
           ${venue ? `<div class="hero-paper-venue" title="${escapeHTML(pub.venue || venue)}">${escapeHTML(venue)}</div>` : ""}
-          <a href="${escapeHTML(publicationSearchUrl(pub))}" class="hero-btn">View paper</a>
+          <div class="hero-paper-actions">
+            <a href="${escapeHTML(publicationSearchUrl(pub))}" class="hero-btn">View paper</a>
+            ${demo ? `<a href="${escapeHTML(demo)}" class="hero-btn secondary" target="_blank" rel="noopener">Live demo</a>` : ""}
+          </div>
         </div>
       </div>`;
   }).join("");
@@ -515,21 +386,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   wrap.innerHTML = pubs
     .map(p => {
-      const url =
-        normalizeLink(p.url || p.scholar_link || p.links?.scholar || p.links?.pdf) || "#";
-      const thumbnail = normalizeLink(p.thumbnail) || "./images/publications/default.png";
+      const url = normalizeLink(p.url) || scholarURL(p.scholar_link) || normalizeLink(p.pdf_link) || "#";
+      const thumbnail = publicationImage(p);
       const members = displayMembers(p, 3);
       const venue = formatVenue(p.venue);
       return `
         <article class="pub-card">
           <a href="${escapeHTML(url)}" target="_blank" rel="noopener" class="pub-card-link">
               <div class="pub-card-image">
-              <img src="${escapeHTML(thumbnail)}" alt="${escapeHTML(p.title)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='./images/publications/default.png';">
+              <img src="${escapeHTML(thumbnail)}" alt="${escapeHTML(p.title)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${DEFAULT_PUBLICATION_IMAGE}';">
             </div>
             <div class="pub-card-content">
               <div class="pub-card-meta">
-                ${visibleCategories(p)
-                  .map(c => `<span class="pub-card-badge ${escapeClassName(c)}">${escapeHTML(catName(c))}</span>`)
+                ${visibleCategories(p, 2)
+                  .map(c => `<span class="pub-card-badge ${escapeClassName(c)}">${escapeHTML(categoryLabel(c))}</span>`)
                   .join("")}
                 <span class="pub-card-badge year">${escapeHTML(p.year || "")}</span>
               </div>
@@ -548,7 +418,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   scrollSetup(wrap, left, right);
 
-  const reducedMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
+  const reducedMotion = isReducedMotion();
   wrap.querySelectorAll(".pub-card").forEach((card, i) => {
     if (reducedMotion) {
       card.style.opacity = 1;

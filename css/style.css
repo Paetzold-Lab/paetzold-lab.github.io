@@ -330,48 +330,6 @@ body.overlay-open {
   backdrop-filter: blur(8px);
 }
 
-.overlay-content {
-  position: absolute;
-  top: var(--header-height);
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  max-width: var(--max-width-content);
-  display: flex;
-  justify-content: space-between;
-  padding: var(--spacing-md);
-  color: #fff;
-  opacity: 0;
-  transition: opacity var(--transition-slow);
-}
-
-.overlay.active .overlay-content {
-  opacity: 1;
-}
-
-.overlay-left, .overlay-right {
-  width: 45%;
-}
-
-.overlay-left h3, .overlay-right h3 {
-  margin-bottom: var(--spacing-sm);
-  font-size: var(--font-size-large);
-}
-
-.overlay-left ul li, .overlay-right ul li {
-  margin: var(--spacing-xs) 0;
-}
-
-.overlay-left ul li a, .overlay-right ul li a {
-  color: #fff;
-  text-decoration: none;
-  transition: opacity var(--transition-medium);
-}
-
-.overlay-left ul li a:hover, .overlay-right ul li a:hover {
-  opacity: 0.8;
-}
-
 .search-content {
   position: absolute;
   top: 100px;
@@ -521,22 +479,6 @@ body.overlay-open {
     linear-gradient(0deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.02) 42%);
 }
 
-.video-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.video-bg video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: saturate(0.9) contrast(1.04) brightness(0.92);
-}
-
 .paper-hero {
   background: #0f0f0f;
 }
@@ -577,14 +519,6 @@ body.overlay-open {
   isolation: isolate;
 }
 
-.paper-collage::before {
-  display: none;
-}
-
-.paper-collage::after {
-  display: none;
-}
-
 .paper-collage-frame {
   position: relative;
   z-index: 2;
@@ -607,10 +541,6 @@ body.overlay-open {
     border-color 0.42s ease,
     opacity 0.3s ease,
     filter 0.3s ease;
-}
-
-.paper-collage-frame::before {
-  display: none;
 }
 
 .paper-collage-frame img {
@@ -1045,7 +975,8 @@ body.overlay-open {
   font-size: 2.28rem;
 }
 
-.lab-intro-actions {
+.lab-intro-actions,
+.hero-paper-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.7rem;
@@ -1126,14 +1057,13 @@ body.overlay-open {
 
 .hero-btn {
   background: rgba(255, 255, 255, 0.94);
-  color: #fff;
+  color: #111;
   border: 1px solid rgba(255, 255, 255, 0.86);
   padding: 0.82rem 1.05rem;
   border-radius: var(--border-radius-md);
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
-  color: #111;
   font-size: 0.98rem;
   font-weight: 700;
   transition: background var(--transition-medium), transform var(--transition-medium), box-shadow var(--transition-medium);
@@ -1145,12 +1075,6 @@ body.overlay-open {
   transform: translateY(-2px);
   color: #111;
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
-}
-
-.hero-btn-container {
-  display: inline-block;
-  padding: 0;
-  margin-top: var(--spacing-sm);
 }
 
 .carousel-indicators {
@@ -1276,17 +1200,6 @@ body.overlay-open {
   overflow: hidden;
 }
 
-.row-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: var(--spacing-sm);
-}
-
-.row-header h2 {
-  font-size: var(--font-size-xl);
-}
-
 .small-card {
   height: 400px;
   flex: 0 0 auto;
@@ -1380,15 +1293,6 @@ body.overlay-open {
 
 @keyframes spin {
   to { transform: rotate(360deg); }
-}
-
-.component-placeholder {
-  padding: var(--spacing-md);
-  background: #f0f0f0;
-  border: 1px dashed #ccc;
-  margin: var(--spacing-sm) 0;
-  text-align: center;
-  color: #666;
 }
 
 .gallery-overflow-container {
@@ -2305,12 +2209,6 @@ body.overlay-open {
     height: 100%;
     min-height: 0;
   }
-  .paper-collage::before {
-    inset: 8% 3% 8% 8%;
-  }
-  .paper-collage::after {
-    inset: clamp(0.5rem, 1.4vw, 0.8rem);
-  }
   .paper-collage-frame img {
     padding: 0.22rem;
   }
@@ -2430,8 +2328,6 @@ body.overlay-open {
     width: 32px;
   }
   .hero-btn { font-size: 1rem; }
-  .overlay-content { flex-direction: column; gap: var(--spacing-md); }
-  .overlay-left, .overlay-right { width: 100%; }
   .profile-container, .team-grid { gap: var(--spacing-md); }
   .team-section h2 { font-size: 1.9rem; margin-bottom: 2rem; }
   .pub-featured { gap: var(--spacing-sm); }

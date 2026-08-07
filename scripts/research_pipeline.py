@@ -260,6 +260,7 @@ MANUAL_METADATA_OVERRIDES: Dict[str, Dict[str, Any]] = {
     "auto_ebdd832b58": {
         "url": "https://arxiv.org/abs/2605.06903",
         "pdf_link": "https://arxiv.org/pdf/2605.06903",
+        "demo_url": "https://anon-review-meld-2026-meld.static.hf.space/index.html",
         "thumbnail": "images/publications/hero/auto_ebdd832b58-primary.jpg",
         "thumbnail_source": "manual-crop",
         "llm_tags": [

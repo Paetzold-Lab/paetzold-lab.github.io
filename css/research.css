@@ -372,6 +372,7 @@
   transition: all 0.2s;
 }
 
+.btn-link.demo,
 .btn-link.pdf,
 .btn-link.code {
   background-color: var(--color-primary);

@@ -6,7 +6,6 @@
 ├── components/             # Reusable HTML components
 │   ├── footer.html
 │   ├── header.html
-│   ├── research-overlay.html
 │   └── search-overlay.html
 ├── css/                    # Stylesheets by section
 │   ├── contact.css         # Contact page
@@ -24,11 +23,12 @@
 │   ├── research_show/      # Research images
 │   └── team/               # Team photos
 ├── js/                     # JavaScript files
+│   ├── site-utils.js       # Shared helpers; must load first on every page
 │   ├── components.js       # Component loader
-│   ├── featured-publications.js
-│   ├── main.js             # Core functionality
-│   └── publications.js     # Publication handling
-├── videos/                 # Video assets
+│   ├── featured-publications.js  # Homepage hero + featured cards
+│   ├── main.js             # Header, search, carousel, gallery, contact form
+│   └── publications.js     # Research page list (ES module)
+├── scripts/                # Publication data pipeline
 └── *.html                  # Main pages
 ```
 
@@ -44,6 +44,15 @@
    <div id="footer-placeholder"></div>
    ```
 3. Publications are loaded from `data/publications.json`
+4. Scripts load in order: `site-utils.js` → `components.js` → `main.js` → page script.
+   `site-utils.js` owns `SITE_VERSION`, path/version helpers, and the shared
+   publication helpers (`loadPublicationData`, `formatVenue`, `categoryLabel`, ...).
+
+### Cache busting
+
+Static assets are referenced as `?v=<token>`. When shipping CSS/JS changes, bump
+`SITE_VERSION` in `js/site-utils.js` and the matching `?v=` token in every HTML page
+(they must stay in sync).
 
 ## Development
 
@@ -97,9 +106,16 @@ The pipeline can:
 
 PDF caches and preview files are ignored by Git. Generated thumbnails under `images/publications/thumbnails/auto/` can be reviewed and committed when useful. Curated publication crops should live under `images/publications/manual_added/` and be pinned through `MANUAL_METADATA_OVERRIDES`.
 
+### Paper demos
+
+A publication can link to a live demo by setting `demo_url` on its record. Pin it in
+`MANUAL_METADATA_OVERRIDES` in `scripts/research_pipeline.py` so a data refresh keeps it.
+The homepage hero renders it as a "Live demo" button; the research list renders a "Demo" link.
+
 ## Deployment
 
-Compatible with any static site hosting service. Simply upload all files to your web server.
+Served by GitHub Pages from `main` at https://paetzold-lab.github.io/.
+Push to `main` and Pages rebuilds; `web/index.html` keeps the legacy `/web/` URL redirecting to the root.
 
 ## Credits
 
