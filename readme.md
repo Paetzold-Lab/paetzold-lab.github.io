@@ -20,7 +20,6 @@
 │   ├── logo/               # Lab logos
 │   ├── portrait/           # Team photos
 │   ├── publications/       # Publication thumbnails
-│   ├── research_show/      # Research images
 │   └── team/               # Team photos
 ├── js/                     # JavaScript files
 │   ├── site-utils.js       # Shared helpers; must load first on every page

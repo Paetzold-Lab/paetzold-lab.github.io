@@ -1194,6 +1194,27 @@ def apply_promotion_overrides(publications: List[Dict[str, Any]]) -> List[Dict[s
     return publications
 
 
+# Scholar/arXiv metadata still hands back http:// links for hosts that are
+# https-only in practice; upgrade the scheme only for hosts known to serve https.
+HTTPS_UPGRADE_HOSTS = {
+    "arxiv.org",
+    "www.arxiv.org",
+    "doi.org",
+    "dx.doi.org",
+    "openaccess.thecvf.com",
+    "proceedings.mlr.press",
+    "www.nature.com",
+}
+
+
+def upgrade_to_https(url: str) -> str:
+    link = trim(url)
+    if not link.lower().startswith("http://"):
+        return link
+    host = link[7:].split("/", 1)[0].split("?", 1)[0].lower()
+    return "https://" + link[7:] if host in HTTPS_UPGRADE_HOSTS else link
+
+
 def normalize_publication_records(
     publications: List[Dict[str, Any]],
     *,
@@ -1244,6 +1265,9 @@ def normalize_publication_records(
         venue = compact_venue(item.get("venue"))
         item["venue"] = venue
         item["venue_tag"] = venue.upper() if venue else None
+        for link_field in ("url", "pdf_link", "demo_url"):
+            if trim(item.get(link_field)):
+                item[link_field] = upgrade_to_https(item[link_field])
         if not trim(item.get("thumbnail")):
             item["thumbnail"] = DEFAULT_THUMBNAIL
         normalized.append(item)
