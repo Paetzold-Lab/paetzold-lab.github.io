@@ -1,18 +1,26 @@
 {
-  "generated_at": "2026-07-17T18:34:04+00:00",
+  "generated_at": "2026-08-27T04:43:47+00:00",
   "summary": {
-    "total": 189,
+    "total": 194,
     "missing_year": 0,
-    "missing_venue": 0,
+    "missing_venue": 1,
     "missing_categories": 0,
     "missing_source_members": 0,
     "broken_thumbnails": 0,
     "default_thumbnails": 0,
     "openalex_matched": 121,
-    "openalex_unmatched": 32,
+    "openalex_unmatched": 58,
     "chenjun_policy_violations": 0,
     "duplicate_title_groups": 0
   },
-  "issues": [],
+  "issues": [
+    {
+      "id": "auto_35469e6f7a",
+      "title": "Prior-informed deep learning for the analysis and fusion of cardiovascular imaging modalities",
+      "issues": [
+        "missing_venue"
+      ]
+    }
+  ],
   "duplicate_groups": []
 }

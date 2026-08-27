@@ -208,6 +208,10 @@ MANUAL_EXCLUDED_PUBLICATION_IDS = {
     "auto_000625d71a",  # Superseded by the revised TG-OT title for arXiv:2412.17100.
     "pub017",  # Duplicate VesselGraph record; keep auto_e213107bcf with newer citations.
     "pub102",  # Conference abstract duplicated by the final 2024 Eye article (pub045).
+    "auto_397902f83f",  # Old scrape of the retitled VERITAS arXiv:2604.12144; keep auto_74ca8cdcb0.
+    "auto_05d4dfd6d8",  # Scholar glitch: same Velzen et al. record as auto_d6ae06e2a1 with a stray suffix.
+    "auto_d2a5e42d61",  # IOVS conference abstract duplicated by the final 2024 Eye article (pub045).
+    "auto_b0816faad7",  # "CH4 & CO2" spacing variant of the AGU abstract kept as auto_f609163725.
 }
 
 MANUAL_METADATA_OVERRIDES: Dict[str, Dict[str, Any]] = {
@@ -334,6 +338,8 @@ MANUAL_METADATA_OVERRIDES: Dict[str, Dict[str, Any]] = {
         "thumbnail_source": "manual-pdf-crop",
     },
     "auto_74ca8cdcb0": {
+        # The paper was retitled on arXiv; keep this id so hero assets stay attached.
+        "title": "VERITAS: A Multi-Agent Co-Scientist for Verifiable Image-Derived Hypothesis Testing",
         "url": "https://arxiv.org/abs/2604.12144",
         "pdf_link": "https://arxiv.org/pdf/2604.12144",
         "thumbnail": "images/publications/hero/auto_74ca8cdcb0-primary.jpg",
@@ -348,7 +354,7 @@ MANUAL_METADATA_OVERRIDES: Dict[str, Dict[str, Any]] = {
         "metadata_verified": {
             "source": "manual",
             "status": "matched",
-            "note": "Promoted lab paper; arXiv metadata",
+            "note": "Promoted lab paper; title/metadata from the retitled arXiv:2604.12144 record",
         },
     },
     "auto_09034b913d": {
@@ -1109,6 +1115,10 @@ def is_excludable_publication(pub: Dict[str, Any]) -> bool:
     if title_key == "and segmentation of aneurysm":
         return True
     if re.match(r"^suprosanna shit .*are we using appropriate segmentation metrics", title_key):
+        return True
+    # Scholar sometimes repeats the whole title twice in one profile row.
+    words = title_key.split()
+    if len(words) >= 8 and len(words) % 2 == 0 and words[: len(words) // 2] == words[len(words) // 2:]:
         return True
     return False
 

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-17T17:24:00+00:00",
+  "last_updated": "2026-08-27T04:43:47+00:00",
   "author": {
     "name": "Johannes C. Paetzold",
     "affiliation": "Weill Cornell Medicine and Cornell Tech",
@@ -44,7 +44,7 @@
       "summary": "",
       "url": "https://www.nature.com/articles/s41592-020-0792-1",
       "scholar_link": "/scholar?hl=en&cites=6119225247391437016,10746172399246019807,5699954493115985367,6133801038298067141,10611529803718330026,17522700883482523229",
-      "citations": 420,
+      "citations": 425,
       "pdf_link": "",
       "categories": [
         "microscopy",
@@ -64,7 +64,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3012387312",
         "matched_title": "Machine learning analysis of whole mouse brain vasculature",
-        "at": "2026-06-14T20:11:48+00:00"
+        "at": "2026-08-27T04:31:13+00:00"
       },
       "llm_tags": [
         "whole-brain vasculature",
@@ -86,7 +86,7 @@
       "summary": "",
       "url": "https://openaccess.thecvf.com/content/CVPR2021/papers/Shit_clDice_-_A_Novel_Topology-Preserving_Loss_Function_for_Tubular_Structure_CVPR_2021_paper.pdf",
       "scholar_link": "/scholar?hl=en&cites=17149814151594930474,11561599168494704613,13174810049061567829,16632085098506993449,10817242860175646475",
-      "citations": 662,
+      "citations": 740,
       "pdf_link": "https://pure.tue.nl/ws/files/371891115/clDice_-_a_Novel_Topology-Preserving_Loss_Function_for_Tubular_Structure_Segmentation.pdf",
       "categories": [
         "topology",
@@ -110,7 +110,7 @@
         "score": 0.963,
         "openalex_id": "https://openalex.org/W3010789210",
         "matched_title": "clDice - a Novel Topology-Preserving Loss Function for Tubular Structure Segmentation",
-        "at": "2026-06-14T20:11:49+00:00"
+        "at": "2026-08-27T04:31:15+00:00"
       },
       "promotion_rank": 5,
       "featured_reason": "Promoted: clDice",
@@ -154,7 +154,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3131178947",
         "matched_title": "An automatic multi-tissue human fetal brain segmentation benchmark using the Fetal Tissue Annotation Dataset",
-        "at": "2026-06-14T20:11:50+00:00"
+        "at": "2026-08-27T04:31:17+00:00"
       }
     },
     {
@@ -189,7 +189,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W2979387929",
         "matched_title": "DiamondGAN: Unified Multi-modal Generative Adversarial Networks for MRI Sequences Synthesis",
-        "at": "2026-06-14T20:11:50+00:00"
+        "at": "2026-08-27T04:31:19+00:00"
       }
     },
     {
@@ -225,7 +225,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W2969051794",
         "matched_title": "Shape-Aware Complementary-Task Learning for Multi-organ Segmentation",
-        "at": "2026-06-14T20:11:51+00:00"
+        "at": "2026-08-27T04:31:21+00:00"
       }
     },
     {
@@ -260,7 +260,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3019025682",
         "matched_title": "Red-GAN: Attacking class imbalance via conditioned generation. Yet another medical imaging perspective",
-        "at": "2026-06-14T20:11:52+00:00"
+        "at": "2026-08-27T04:31:22+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/red_gan_attacking_class_imbalance_via_conditioned_generation_yet_anoth_a3346efd1d.pdf",
       "thumbnail_source": "pdf",
@@ -283,7 +283,7 @@
       "summary": "A comprehensive representation of an image requires understanding objects and their mutual relationship, especially in image-to-graph generation, e.g., road network extraction, blood-vessel network extraction, or scene graph generation. Traditionally, image-to-graph generation is addressed with a two-stage approach consisting of object detection followed by a separate relation prediction, which prevents simultaneous object-relation interaction. This work proposes a unified one-stage transformer-",
       "url": "https://link.springer.com/chapter/10.1007/978-3-031-19836-6_24",
       "scholar_link": "/scholar?hl=en&cites=16116173940654779023",
-      "citations": 122,
+      "citations": 125,
       "pdf_link": "https://link.springer.com/content/pdf/10.1007/978-3-031-19836-6_24.pdf",
       "categories": [
         "gnn",
@@ -303,8 +303,8 @@
         "status": "matched",
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4312587667",
-        "matched_title": "Relationformer: A Unified Framework for Image-to-Graph Generation",
-        "at": "2026-06-14T20:11:52+00:00"
+        "matched_title": "Relationformer: A Unified Framework for Image-to-Graph Generation",
+        "at": "2026-08-27T04:31:24+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/relationformer_a_unified_framework_for_image_to_graph_generation_f2a410e9af.pdf",
       "thumbnail_source": "pdf",
@@ -327,7 +327,7 @@
       "summary": "",
       "url": "https://proceedings.mlr.press/v202/stucki23a",
       "scholar_link": "/scholar?hl=en&cites=15109376508076966914,10163770910035407110",
-      "citations": 106,
+      "citations": 111,
       "pdf_link": "",
       "categories": [
         "topology",
@@ -347,7 +347,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4310426016",
         "matched_title": "Topologically faithful image segmentation via induced matching of persistence barcodes",
-        "at": "2026-06-14T20:11:53+00:00"
+        "at": "2026-08-27T04:31:26+00:00"
       }
     },
     {
@@ -382,10 +382,10 @@
       "metadata_verified": {
         "source": "openalex",
         "status": "matched",
-        "score": 0.974,
+        "score": 0.99,
         "openalex_id": "https://openalex.org/W3034483962",
-        "matched_title": "Anthropogenic CO<sub>2</sub> emissions assessment of Nile Delta using XCO<sub>2</sub> and SIF data from OCO-2 satellite",
-        "at": "2026-06-14T20:11:54+00:00"
+        "matched_title": "Anthropogenic CO2 emissions assessment of Nile Delta using XCO2 and SIF data from OCO-2 satellite",
+        "at": "2026-08-27T04:31:28+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -407,7 +407,7 @@
       "summary": "Graph Neural Networks (GNNs) have established themselves as state-of-the-art for many machine learning applications such as the analysis of social and medical networks. Several among these datasets contain privacy-sensitive data. Machine learning with differential privacy is a promising technique to allow deriving insight from sensitive data while offering formal guarantees of privacy protection.",
       "url": "https://ieeexplore.ieee.org/abstract/document/9980390/",
       "scholar_link": "/scholar?hl=en&cites=9603293110171264030,12712994124958958466",
-      "citations": 72,
+      "citations": 74,
       "pdf_link": "https://ieeexplore.ieee.org/ielx7/34/4359286/09980390.pdf",
       "categories": [
         "gnn",
@@ -427,7 +427,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4312521712",
         "matched_title": "Differentially Private Graph Neural Networks for Whole-Graph Classification",
-        "at": "2026-06-14T20:11:55+00:00"
+        "at": "2026-08-27T04:31:30+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -449,7 +449,7 @@
       "summary": "In this work, we study the applications of differential privacy (DP) in the context of graph-structured data. We discuss the formulations of DP applicable to the publication of graphs and their associated statistics as well as machine learning on graph-based data, including graph neural networks (GNNs). The formulation of DP in the context of graph-structured data is difficult, as individual data points are interconnected (often non-linearly or sparsely).",
       "url": "https://arxiv.org/abs/2203.09205",
       "scholar_link": "/scholar?hl=en&cites=9788841028506383538",
-      "citations": 48,
+      "citations": 49,
       "pdf_link": "https://arxiv.org/pdf/2203.09205",
       "categories": [
         "gnn"
@@ -468,7 +468,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4221162549",
         "matched_title": "SoK: Differential Privacy on Graph-Structured Data",
-        "at": "2026-06-14T20:11:56+00:00"
+        "at": "2026-08-27T04:31:32+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/sok_differential_privacy_on_graph_structured_data_71aa687531.pdf",
       "thumbnail_source": "generated-card",
@@ -491,7 +491,7 @@
       "summary": "Optical coherence tomography angiography (OCTA) is a non-invasive imaging modality that can acquire high-resolution volumes of the retinal vasculature and aid the diagnosis of ocular, neurological and cardiac diseases. Segmenting the visible blood vessels is a common first step when extracting quantitative biomarkers from these images. Classical segmentation algorithms based on thresholding are strongly affected by image artifacts and limited signal-to-noise ratio.",
       "url": "https://ieeexplore.ieee.org/abstract/document/10400503/",
       "scholar_link": "/scholar?hl=en&cites=15798049750933099252,10006511146387669543",
-      "citations": 68,
+      "citations": 71,
       "pdf_link": "https://ieeexplore.ieee.org/ielx7/42/4359023/10400503.pdf",
       "categories": [
         "microscopy",
@@ -512,7 +512,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4390873129",
         "matched_title": "Synthetic Optical Coherence Tomography Angiographs for Detailed Retinal Vessel Segmentation Without Human Annotations",
-        "at": "2026-06-14T20:11:57+00:00"
+        "at": "2026-08-27T04:31:34+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/synthetic_optical_coherence_tomography_angiographs_for_detailed_retina_fd08398d70.pdf",
       "thumbnail_source": "pdf",
@@ -535,7 +535,7 @@
       "summary": "The Circle of Willis (CoW) is an important network of arteries connecting major circulations of the brain. Its vascular architecture is believed to affect the risk, severity, and clinical outcome of serious neuro-vascular diseases. However, characterizing the highly variable CoW anatomy is still a manual and time-consuming expert task.",
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10793481/",
       "scholar_link": "/scholar?hl=en&cites=4228616984879154769",
-      "citations": 90,
+      "citations": 94,
       "pdf_link": "",
       "categories": [
         "mri",
@@ -598,7 +598,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3135591322",
         "matched_title": "Geometry-Aware Neural Solver for Fast Bayesian Calibration of Brain Tumor Models",
-        "at": "2026-06-14T20:11:58+00:00"
+        "at": "2026-08-27T04:31:37+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -642,7 +642,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3042310905",
         "matched_title": "Inferring the 3D Standing Spine Posture from 2D Radiographs",
-        "at": "2026-06-14T20:11:59+00:00"
+        "at": "2026-08-27T04:31:39+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/inferring_the_3d_standing_spine_posture_from_2d_radiographs_969f7a4ac0.pdf",
       "thumbnail_source": "pdf",
@@ -665,7 +665,7 @@
       "summary": "Optical coherence tomography angiography (OCTA) can non-invasively image the eye’s circulatory system. In order to reliably characterize the retinal vasculature, there is a need to automatically extract quantitative metrics from these images. The calculation of such biomarkers requires a precise semantic segmentation of the blood vessels.",
       "url": "https://link.springer.com/chapter/10.1007/978-3-031-16452-1_32",
       "scholar_link": "/scholar?hl=en&cites=16670136572883903354",
-      "citations": 30,
+      "citations": 31,
       "pdf_link": "https://link.springer.com/content/pdf/10.1007/978-3-031-16452-1_32.pdf",
       "categories": [
         "microscopy",
@@ -684,8 +684,8 @@
         "status": "matched",
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4296120601",
-        "matched_title": "Physiology-Based Simulation of the Retinal Vasculature Enables Annotation-Free Segmentation of OCT Angiographs",
-        "at": "2026-06-14T20:12:00+00:00"
+        "matched_title": "Physiology-Based Simulation of the Retinal Vasculature Enables Annotation-Free Segmentation of OCT Angiographs",
+        "at": "2026-08-27T04:31:41+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -707,7 +707,7 @@
       "summary": "Exploiting 4D-flow magnetic resonance imaging (MRI) data to quantify hemodynamics requires an adequate spatio-temporal vector field resolution at a low noise level. To address this challenge, we provide a learned solution to super-resolve in vivo 4D-flow MRI data at a post-processing level. We propose a deep convolutional neural network (CNN) that learns the inter-scale relationship of the velocity vector map and leverages an efficient residual learning scheme to make it computationally feasible",
       "url": "https://www.frontiersin.org/articles/10.3389/frai.2022.928181/full",
       "scholar_link": "/scholar?hl=en&cites=16189589645547975257",
-      "citations": 39,
+      "citations": 40,
       "pdf_link": "https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2022.928181/pdf",
       "categories": [
         "mri",
@@ -727,7 +727,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4291165424",
         "matched_title": "SRflow: Deep learning based super-resolution of 4D-flow MRI data",
-        "at": "2026-06-14T20:12:00+00:00"
+        "at": "2026-08-27T04:31:43+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/srflow_deep_learning_based_super_resolution_of_4d_flow_mri_data_3f0e50e449.pdf",
       "thumbnail_source": "pdf",
@@ -750,7 +750,7 @@
       "summary": "Unsupervised Anomaly Detection has become a popular method to detect pathologies in medical images as it does not require supervision or labels for training. Most commonly, the anomaly detection model generates a “normal” version of an input image, and the pixel-wise -difference of the two is used to localize anomalies. However, large residuals often occur due to imperfect reconstruction of the complex anatomical structures present in most medical images.",
       "url": "https://link.springer.com/chapter/10.1007/978-3-031-33842-7_2",
       "scholar_link": "/scholar?hl=en&cites=85876104182314169",
-      "citations": 35,
+      "citations": 36,
       "pdf_link": "https://arxiv.org/pdf/2208.10992",
       "categories": [
         "reconstruction",
@@ -769,8 +769,8 @@
         "status": "matched",
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4384570216",
-        "matched_title": "Unsupervised Anomaly Localization with Structural Feature-Autoencoders",
-        "at": "2026-06-14T20:12:01+00:00"
+        "matched_title": "Unsupervised Anomaly Localization with Structural Feature-Autoencoders",
+        "at": "2026-08-27T04:31:45+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/unsupervised_anomaly_localization_with_structural_feature_autoencoders_c5f4c45202.pdf",
       "thumbnail_source": "manual-pdf-crop",
@@ -793,7 +793,7 @@
       "summary": "We propose a simple new aggregation strategy for federated learning that won the MICCAI Federated Tumor Segmentation Challenge 2021 (FETS), the first ever challenge on Federated Learning in the Machine Learning community. Our method addresses the problem of how to aggregate multiple models that were trained on different data sets. Conceptually, we propose a new way to choose the weights when averaging the different models, thereby extending the current state of the art (FedAvg).",
       "url": "https://link.springer.com/chapter/10.1007/978-3-031-09002-8_34",
       "scholar_link": "/scholar?hl=en&cites=1167965136021175306",
-      "citations": 29,
+      "citations": 30,
       "pdf_link": "https://link.springer.com/content/pdf/10.1007/978-3-031-09002-8_34.pdf",
       "categories": [
         "segmentation"
@@ -811,8 +811,8 @@
         "status": "matched",
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3213072657",
-        "matched_title": "FedCostWAvg: A New Averaging for Better Federated Learning",
-        "at": "2026-06-14T20:12:01+00:00"
+        "matched_title": "FedCostWAvg: A New Averaging for Better Federated Learning",
+        "at": "2026-08-27T04:31:47+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -853,7 +853,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3041891200",
         "matched_title": "A Distance-Based Loss for Smooth and Continuous Skin Layer Segmentation in Optoacoustic Images",
-        "at": "2026-06-14T20:12:02+00:00"
+        "at": "2026-08-27T04:31:49+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/a_distance_based_loss_for_smooth_and_continuous_skin_layer_segmentatio_a4f6590e07.pdf",
       "thumbnail_source": "pdf",
@@ -898,7 +898,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4390872777",
         "matched_title": "A skeletonization algorithm for gradient-based optimization",
-        "at": "2026-06-14T20:12:03+00:00"
+        "at": "2026-08-27T04:31:51+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/a_skeletonization_algorithm_for_gradient_based_optimization_c9d6542aa6.pdf",
       "thumbnail_source": "pdf",
@@ -942,7 +942,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3155963547",
         "matched_title": "METGAN: Generative Tumour Inpainting and Modality Synthesis in Light Sheet Microscopy",
-        "at": "2026-06-14T20:12:04+00:00"
+        "at": "2026-08-27T04:31:52+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/metgan_generative_tumour_inpainting_and_modality_synthesis_in_light_sh_340ef2e2ca.pdf",
       "thumbnail_source": "pdf",
@@ -986,7 +986,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W2944731576",
         "matched_title": "Transfer learning from synthetic data reduces need for labels to segment brain vasculature and neural pathways in 3D",
-        "at": "2026-06-14T20:12:04+00:00"
+        "at": "2026-08-27T04:31:54+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/transfer_learning_from_synthetic_data_reduces_need_for_labels_to_segme_2b9dbc0d9e.pdf",
       "thumbnail_source": "pdf",
@@ -1029,7 +1029,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4321458460",
         "matched_title": "A deep learning approach to predict collateral flow in stroke patients using radiomic features from perfusion images",
-        "at": "2026-06-14T20:12:05+00:00"
+        "at": "2026-08-27T04:31:56+00:00"
       },
       "thumbnail_source": "manual-crop"
     },
@@ -1064,7 +1064,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4394597734",
         "matched_title": "Link Prediction for Flow-Driven Spatial Networks",
-        "at": "2026-06-14T20:12:06+00:00"
+        "at": "2026-08-27T04:31:58+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/link_prediction_for_flow_driven_spatial_networks_c2f3dcddcb.pdf",
       "thumbnail_source": "pdf",
@@ -1110,7 +1110,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4200326083",
         "matched_title": "Robust, Primitive, and Unsupervised Quality Estimation for Segmentation Ensembles",
-        "at": "2026-06-14T20:12:06+00:00"
+        "at": "2026-08-27T04:32:00+00:00"
       }
     },
     {
@@ -1125,7 +1125,7 @@
       "summary": "Brain tumor segmentation from multiple Magnetic Resonance Imaging (MRI) modalities is a challenging task in medical image computation. The main challenges lie in the generalizability to a variety of scanners and imaging protocols. In this paper, we explore strategies to increase model robustness without increasing inference time.",
       "url": "https://link.springer.com/chapter/10.1007/978-3-031-09002-8_17",
       "scholar_link": "/scholar?hl=en&cites=15649403381621132226",
-      "citations": 19,
+      "citations": 22,
       "pdf_link": "https://arxiv.org/pdf/2112.13054",
       "categories": [
         "mri",
@@ -1144,8 +1144,8 @@
         "status": "matched",
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4226265266",
-        "matched_title": "Generalized Wasserstein Dice Loss, Test-Time Augmentation, and Transformers for the BraTS 2021 Challenge",
-        "at": "2026-06-14T20:12:07+00:00"
+        "matched_title": "Generalized Wasserstein Dice Loss, Test-Time Augmentation, and Transformers for the BraTS 2021 Challenge",
+        "at": "2026-08-27T04:32:02+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/generalized_wasserstein_dice_loss_test_time_augmentation_and_transform_24e4994568.pdf",
       "thumbnail_source": "manual-pdf-crop",
@@ -1168,7 +1168,7 @@
       "summary": "Gliomas are the most prevalent primary malignant brain tumors in adults. Until now an accurate and reliable method to predict patient survival time based on medical imaging and meta-information has not been developed [3]. Therefore, the survival time prediction task was introduced to the Multimodal Brain Tumor Segmentation Challenge (BraTS) to facilitate research in survival time prediction.Here we present our submissions to the BraTS survival challenge based on classical statistical models to w",
       "url": "https://link.springer.com/chapter/10.1007/978-3-030-46640-4_24",
       "scholar_link": "/scholar?hl=en&cites=112435818079113752",
-      "citations": 9,
+      "citations": 10,
       "pdf_link": "https://link.springer.com/content/pdf/10.1007/978-3-030-46640-4_24.pdf",
       "categories": [
         "segmentation",
@@ -1188,7 +1188,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3026650888",
         "matched_title": "A Baseline for Predicting Glioblastoma Patient Survival Time with Classical Statistical Models and Primitive Features Ignoring Image Information",
-        "at": "2026-06-14T20:12:08+00:00"
+        "at": "2026-08-27T04:32:04+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -1210,7 +1210,7 @@
       "summary": "Ultra-wideband raster-scan optoacoustic mesoscopy (RSOM) is a novel modality that has demonstrated unprecedented ability to visualize epidermal and dermal structures in-vivo. However, an automatic and quantitative analysis of three-dimensional RSOM datasets remains unexplored. In this work we present our framework: Deep Learning RSOM Analysis Pipeline (DeepRAP), to analyze and quantify morphological skin features recorded by RSOM and extract imaging biomarkers for disease characterization.",
       "url": "https://ieeexplore.ieee.org/abstract/document/10409213/",
       "scholar_link": "/scholar?hl=en&cites=3581592034499907356",
-      "citations": 23,
+      "citations": 25,
       "pdf_link": "https://ieeexplore.ieee.org/ielx7/42/4359023/10409213.pdf",
       "categories": [
         "segmentation"
@@ -1229,7 +1229,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4391021687",
         "matched_title": "Machine Learning Analysis of Human Skin by Optoacoustic Mesoscopy for Automated Extraction of Psoriasis and Aging Biomarkers",
-        "at": "2026-06-14T20:12:09+00:00"
+        "at": "2026-08-27T04:32:06+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/machine_learning_analysis_of_human_skin_by_optoacoustic_mesoscopy_for__49a21cceb1.pdf",
       "thumbnail_source": "generated-card",
@@ -1271,7 +1271,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3173876886",
         "matched_title": "Velocity-To-Pressure (V2P) - Net: Inferring Relative Pressures from Time-Varying 3D Fluid Flow Velocities",
-        "at": "2026-06-14T20:12:09+00:00"
+        "at": "2026-08-27T04:32:08+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -1293,7 +1293,7 @@
       "summary": "This paper presents FedPIDAvg, the winning submission to the Federated Tumor Segmentation Challenge 2022 (FETS22). Inspired by FedCostWAvg, our winning contribution to FETS21, we contribute an improved aggregation strategy for federated and collaborative learning. FedCostWAvg is a weighted averaging method that not only considers the number of training samples of each cluster but also the size of the drop of the respective cost function in the last federated round.",
       "url": "https://link.springer.com/chapter/10.1007/978-3-031-44153-0_20",
       "scholar_link": "/scholar?hl=en&cites=12394746102201168524",
-      "citations": 18,
+      "citations": 19,
       "pdf_link": "https://link.springer.com/content/pdf/10.1007/978-3-031-44153-0_20.pdf",
       "categories": [
         "segmentation"
@@ -1311,8 +1311,8 @@
         "status": "matched",
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4391524120",
-        "matched_title": "FedPIDAvg: A PID Controller Inspired Aggregation Method for Federated Learning",
-        "at": "2026-06-14T20:12:10+00:00"
+        "matched_title": "FedPIDAvg: A PID Controller Inspired Aggregation Method for Federated Learning",
+        "at": "2026-08-27T04:32:09+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/fedpidavg_a_pid_controller_inspired_aggregation_method_for_federated_l_bda70a230e.pdf",
       "thumbnail_source": "generated-card",
@@ -1355,7 +1355,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4393031632",
         "matched_title": "Retinal vasculature of different diameters and plexuses exhibit distinct vulnerability in varying severity of diabetic retinopathy",
-        "at": "2026-06-14T20:12:11+00:00"
+        "at": "2026-08-27T04:32:11+00:00"
       },
       "thumbnail_source": "page-image",
       "auto_enriched": {
@@ -1396,7 +1396,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4391733399",
         "matched_title": "Differentially Private Guarantees for Analytics and Machine Learning on Graphs: A Survey of Results",
-        "at": "2026-06-14T20:12:12+00:00"
+        "at": "2026-08-27T04:32:13+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -1438,7 +1438,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3201892197",
         "matched_title": "Segmentation of Peripancreatic Arteries in Multispectral Computed Tomography Imaging",
-        "at": "2026-06-14T20:12:12+00:00"
+        "at": "2026-08-27T04:32:15+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/segmentation_of_peripancreatic_arteries_in_multispectral_computed_tomo_af80e0bb38.pdf",
       "thumbnail_source": "pdf",
@@ -1461,7 +1461,7 @@
       "summary": "Multiple Sclerosis (MS) is a severe neurological disease characterized by inflammatory lesions in the central nervous system. Hence, predicting inflammatory disease activity is crucial for disease assessment and treatment. However, MS lesions can occur throughout the brain and vary in shape, size and total count among patients.",
       "url": "https://link.springer.com/chapter/10.1007/978-3-031-43993-3_22",
       "scholar_link": "/scholar?hl=en&cites=8492780280962319883",
-      "citations": 6,
+      "citations": 7,
       "pdf_link": "https://link.springer.com/content/pdf/10.1007/978-3-031-43993-3_22.pdf",
       "categories": [
         "mri",
@@ -1482,8 +1482,8 @@
         "status": "matched",
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4387211084",
-        "matched_title": "Self-pruning Graph Neural Network for Predicting Inflammatory Disease Activity in Multiple Sclerosis from Brain MR Images",
-        "at": "2026-06-14T20:12:13+00:00"
+        "matched_title": "Self-pruning Graph Neural Network for Predicting Inflammatory Disease Activity in Multiple Sclerosis from Brain MR Images",
+        "at": "2026-08-27T04:32:17+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/self_pruning_graph_neural_network_for_predicting_inflammatory_disease__60301f4048.pdf",
       "thumbnail_source": "pdf",
@@ -1524,7 +1524,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:12:14+00:00"
+        "at": "2026-08-27T04:32:19+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -1565,7 +1565,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:12:15+00:00"
+        "at": "2026-08-27T04:32:21+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -1614,7 +1614,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4404395996",
         "matched_title": "Topograph: An efficient Graph-Based Framework for Strictly Topology Preserving Image Segmentation",
-        "at": "2026-06-14T20:12:15+00:00"
+        "at": "2026-08-27T04:32:23+00:00"
       }
     },
     {
@@ -1648,7 +1648,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4402225424",
         "matched_title": "Generating synthetic high-resolution spinal STIR and T1w images from T2w FSE and low-resolution axial Dixon",
-        "at": "2026-06-14T20:12:16+00:00"
+        "at": "2026-08-27T04:32:25+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/generating_synthetic_high_resolution_spinal_stir_and_t1w_images_from_t_93c8a98e34.pdf",
       "thumbnail_source": "pdf",
@@ -1692,7 +1692,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:12:16+00:00"
+        "at": "2026-08-27T04:32:27+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/totalvibesegmentator_full_body_mri_segmentation_for_the_nako_and_uk_bi_82b079267d.pdf",
       "thumbnail_source": "pdf",
@@ -1715,7 +1715,7 @@
       "summary": "Recent studies suggest that early stages of diabetic retinopathy (DR) can be diagnosed by monitoring vascular changes in the deep vascular complex. In this work, we investigate a novel method for automated DR grading based on ultra-wide optical coherence tomography angiography (UW-OCTA) images. Our work combines OCTA scans with their vessel segmentations, which then serve as inputs to task specific networks for lesion segmentation, image quality assessment and DR grading.",
       "url": "https://link.springer.com/chapter/10.1007/978-3-031-33658-4_2",
       "scholar_link": "/scholar?hl=en&cites=16381223451608842331",
-      "citations": 6,
+      "citations": 7,
       "pdf_link": "https://link.springer.com/content/pdf/10.1007/978-3-031-33658-4_2.pdf",
       "categories": [
         "microscopy",
@@ -1735,8 +1735,8 @@
         "status": "matched",
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4378678468",
-        "matched_title": "Automated Analysis of Diabetic Retinopathy Using Vessel Segmentation Maps as Inductive Bias",
-        "at": "2026-06-14T20:12:17+00:00"
+        "matched_title": "Automated Analysis of Diabetic Retinopathy Using Vessel Segmentation Maps as Inductive Bias",
+        "at": "2026-08-27T04:32:29+00:00"
       },
       "merged_from": [
         "pub058",
@@ -1778,7 +1778,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:12:18+00:00"
+        "at": "2026-08-27T04:32:30+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/graflow_neural_blood_flow_solver_for_vascular_graph_76201211e7.pdf",
       "thumbnail_source": "pdf",
@@ -1820,7 +1820,7 @@
         "score": 0.992,
         "openalex_id": "https://openalex.org/W4286895595",
         "matched_title": "A Deep Learning Approach to Predicting Collateral Flow in Stroke\\n Patients Using Radiomic Features from Perfusion Images",
-        "at": "2026-06-14T20:12:18+00:00"
+        "at": "2026-08-27T04:32:32+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/a_deep_learning_approach_to_predicting_collateral_flow_in_stroke_patie_b12db25fc4.pdf",
       "thumbnail_source": "generated-card",
@@ -1863,7 +1863,7 @@
         "score": 0.973,
         "openalex_id": "https://openalex.org/W3152703085",
         "matched_title": "A$$\\nu $$-Net: Automatic Detection and Segmentation of Aneurysm",
-        "at": "2026-06-14T20:12:19+00:00"
+        "at": "2026-08-27T04:32:34+00:00"
       }
     },
     {
@@ -1903,8 +1903,8 @@
         "status": "matched",
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4403152518",
-        "matched_title": "Topologically Faithful Multi-class Segmentation in Medical Images",
-        "at": "2026-06-14T20:12:19+00:00"
+        "matched_title": "Topologically Faithful Multi-class Segmentation in Medical Images",
+        "at": "2026-08-27T04:32:36+00:00"
       }
     },
     {
@@ -1919,7 +1919,7 @@
       "summary": "Segmentation of blood vessels in murine cerebral 3D OCTA images is foundational for in vivo quantitative analysis of the effects of neurovascular disorders, such as stroke or Alzheimer’s, on the vascular network. However, to accurately segment blood vessels with state-of-the-art deep learning methods, a vast amount of voxel-level annotations is required. Since cerebral 3D OCTA images are typically plagued by artifacts and generally have a low signal-to-noise ratio, acquiring manual annotations p",
       "url": "https://link.springer.com/chapter/10.1007/978-3-031-72111-3_61",
       "scholar_link": "/scholar?hl=en&cites=5333932130420529279",
-      "citations": 12,
+      "citations": 14,
       "pdf_link": "https://link.springer.com/content/pdf/10.1007/978-3-031-72111-3_61.pdf",
       "categories": [
         "microscopy",
@@ -1939,8 +1939,8 @@
         "status": "matched",
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4403152097",
-        "matched_title": "Simulation-Based Segmentation of Blood Vessels in Cerebral 3D OCTA Images",
-        "at": "2026-06-14T20:12:20+00:00"
+        "matched_title": "Simulation-Based Segmentation of Blood Vessels in Cerebral 3D OCTA Images",
+        "at": "2026-08-27T04:32:38+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/simulation_based_segmentation_of_blood_vessels_in_cerebral_3d_octa_ima_2f47d548eb.pdf",
       "thumbnail_source": "pdf",
@@ -1963,7 +1963,7 @@
       "summary": "Blood vessel networks, represented as 3D graphs, help predict disease biomarkers, simulate blood flow, and aid in synthetic image generation, relevant in both clinical and pre-clinical settings. However, generating realistic vessel graphs that correspond to an anatomy of interest is challenging. Previous methods aimed at generating vessel trees mostly in an autoregressive style and could not be applied to vessel graphs with cycles such as capillaries or specific anatomical structures such as the",
       "url": "https://link.springer.com/chapter/10.1007/978-3-031-72120-5_1",
       "scholar_link": "/scholar?hl=en&cites=7887278537190073887",
-      "citations": 12,
+      "citations": 13,
       "pdf_link": "https://link.springer.com/content/pdf/10.1007/978-3-031-72120-5_1.pdf",
       "categories": [
         "microscopy",
@@ -1983,7 +1983,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4403069432",
         "matched_title": "3D Vessel Graph Generation Using Denoising Diffusion",
-        "at": "2026-06-14T20:12:21+00:00"
+        "at": "2026-08-27T04:32:40+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -2024,7 +2024,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:12:21+00:00"
+        "at": "2026-08-27T04:32:42+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/vesselformer_towards_complete_3d_vessel_graph_generation_from_images_44a090354e.pdf",
       "thumbnail_source": "pdf",
@@ -2146,7 +2146,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:12:23+00:00"
+        "at": "2026-08-27T04:32:48+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/on_the_pitfalls_of_deep_image_segmentation_for_lightsheet_microscopy_32edbabbb2.pdf",
       "thumbnail_source": "pdf",
@@ -2188,7 +2188,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3197663129",
         "matched_title": "Semi-Implicit Neural Solver for Time-dependent Partial Differential Equations",
-        "at": "2026-06-14T20:12:24+00:00"
+        "at": "2026-08-27T04:32:50+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/semi_implicit_neural_solver_for_time_dependent_partial_differential_eq_673aea6cd1.pdf",
       "thumbnail_source": "generated-card",
@@ -2271,7 +2271,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:12:26+00:00"
+        "at": "2026-08-27T04:32:53+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/modeling_the_acquisition_shift_between_axial_and_sagittal_mri_for_diff_5858756698.pdf",
       "thumbnail_source": "pdf",
@@ -2294,7 +2294,7 @@
       "summary": "Topological correctness, i.e., the preservation of structural integrity and specific characteristics of shape, is a fundamental requirement for medical imaging tasks, such as neuron or vessel segmentation. Despite the recent surge in topology-aware methods addressing this challenge, their real-world applicability is hindered by flawed benchmarking practices. In this paper, we identify critical pitfalls in model evaluation that include inadequate connectivity choices, overlooked topological artif",
       "url": "https://arxiv.org/abs/2412.14619",
       "scholar_link": "/scholar?hl=en&cites=18394470719825634284",
-      "citations": 11,
+      "citations": 13,
       "pdf_link": "https://arxiv.org/pdf/2412.14619",
       "categories": [
         "topology",
@@ -2315,8 +2315,8 @@
         "status": "matched",
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4412852493",
-        "matched_title": "Pitfalls of Topology-Aware Image Segmentation",
-        "at": "2026-06-14T20:12:26+00:00"
+        "matched_title": "Pitfalls of Topology-Aware Image Segmentation",
+        "at": "2026-08-27T04:32:55+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/pitfalls_of_topology_aware_image_segmentation_e38efa6f10.pdf",
       "thumbnail_source": "pdf",
@@ -2362,7 +2362,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4401687831",
         "matched_title": "Deep Learning and 3D Imaging Reveal Whole-Body Alterations in Obesity",
-        "at": "2026-06-14T20:12:27+00:00"
+        "at": "2026-08-27T04:32:57+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -2403,7 +2403,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4310823189",
         "matched_title": "A Domain-specific Perceptual Metric via Contrastive Self-supervised Representation: Applications on Natural and Medical Images",
-        "at": "2026-06-14T20:12:28+00:00"
+        "at": "2026-08-27T04:32:59+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/a_domain_specific_perceptual_metric_via_contrastive_self_supervised_re_6af9817252.pdf",
       "thumbnail_source": "pdf",
@@ -2444,7 +2444,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:12:29+00:00"
+        "at": "2026-08-27T04:33:01+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -2486,8 +2486,8 @@
         "status": "matched",
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4412852563",
-        "matched_title": "Skelite: Compact Neural Networks for Efficient Iterative Skeletonization",
-        "at": "2026-06-14T20:12:29+00:00"
+        "matched_title": "Skelite: Compact Neural Networks for Efficient Iterative Skeletonization",
+        "at": "2026-08-27T04:33:03+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/skelite_compact_neural_networks_for_efficient_iterative_skeletonizatio_f91c8980f6.pdf",
       "thumbnail_source": "pdf",
@@ -2533,7 +2533,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4414844094",
         "matched_title": "Interpretable Retinal Disease Prediction Using Biology-Informed Heterogeneous Graph Representations",
-        "at": "2026-06-14T20:12:30+00:00"
+        "at": "2026-08-27T04:33:05+00:00"
       },
       "representative": false
     },
@@ -2569,7 +2569,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4406192924",
         "matched_title": "SELMA3D challenge: Self-supervised learning for 3D light-sheet microscopy image segmentation",
-        "at": "2026-06-14T20:12:31+00:00"
+        "at": "2026-08-27T04:33:07+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/selma3d_challenge_self_supervised_learning_for_3d_light_sheet_microsco_cebce5861c.pdf",
       "thumbnail_source": "generated-card",
@@ -2611,7 +2611,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4404355316",
         "matched_title": "FedPID: An Aggregation Method for Federated Learning",
-        "at": "2026-06-14T20:12:31+00:00"
+        "at": "2026-08-27T04:33:08+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/fedpid_an_aggregation_method_for_federated_learning_8a09103ea7.pdf",
       "thumbnail_source": "pdf",
@@ -2653,9 +2653,9 @@
         "source": "openalex",
         "status": "matched",
         "score": 1.0,
-        "openalex_id": "https://openalex.org/W4403570466",
-        "matched_title": "Detecting Unforeseen Data Properties with Diffusion Autoencoder Embeddings using Spine MRI data",
-        "at": "2026-06-14T20:12:32+00:00"
+        "openalex_id": "https://openalex.org/W4406482300",
+        "matched_title": "Detecting Unforeseen Data Properties with Diffusion Autoencoder Embeddings Using Spine MRI Data",
+        "at": "2026-08-27T04:33:10+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -2741,7 +2741,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:12:33+00:00"
+        "at": "2026-08-27T04:33:14+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -2783,7 +2783,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4400435197",
         "matched_title": "Efficient Betti Matching Enables Topology-Aware 3D Segmentation via Persistent Homology",
-        "at": "2026-06-14T20:12:34+00:00"
+        "at": "2026-08-27T04:33:16+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/efficient_betti_matching_enables_topology_aware_3d_segmentation_via_pe_b352176beb.pdf",
       "thumbnail_source": "pdf",
@@ -2825,7 +2825,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4395002621",
         "matched_title": "Simplifying deep learning to enhance accessibility of large-scale 3D brain imaging analysis",
-        "at": "2026-06-14T20:12:35+00:00"
+        "at": "2026-08-27T04:33:17+00:00"
       },
       "thumbnail_source": "page-image",
       "auto_enriched": {
@@ -2847,7 +2847,7 @@
       "summary": "Direct image-to-graph transformation is a challenging task that involves solving object detection and relationship prediction in a single model. Due to this task's complexity, large training datasets are rare in many domains, making the training of deep-learning methods challenging. This data sparsity necessitates transfer learning strategies akin to the state-of-the-art in general computer vision.",
       "url": "https://arxiv.org/abs/2403.06601",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:4fKUyHm3Qg0C",
-      "citations": 2,
+      "citations": 3,
       "pdf_link": "https://arxiv.org/pdf/2403.06601",
       "categories": [
         "gnn",
@@ -2867,7 +2867,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:12:36+00:00"
+        "at": "2026-08-27T04:33:19+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/cross_domain_and_cross_dimension_learning_for_image_to_graph_transform_445ed827bf.pdf",
       "thumbnail_source": "pdf",
@@ -2890,7 +2890,7 @@
       "summary": "We propose the use of a Transformer to accurately predict normals from point clouds with noise and density variations. Previous learning-based methods utilize PointNet variants to explicitly extract multi-scale features at different input scales, then focus on a surface fitting method by which local point cloud neighborhoods are fitted to a geometric surface approximated by either a polynomial function or a multi-layer perceptron (MLP). However, fitting surfaces to fixed-order polynomial functio",
       "url": "https://arxiv.org/abs/2401.05745",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:738O_yMBCRsC",
-      "citations": 1,
+      "citations": 3,
       "pdf_link": "https://arxiv.org/pdf/2401.05745",
       "categories": [
         "generative"
@@ -2906,7 +2906,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:12:36+00:00"
+        "at": "2026-08-27T04:33:21+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/surface_normal_estimation_with_transformers_c634174228.pdf",
       "thumbnail_source": "pdf",
@@ -3030,7 +3030,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W2807222132",
         "matched_title": "Application of Space Borne CO2 and Fluorescence Measurements to Detect Urban CO2 Emissions and Anthropogenic Influence on Vegetation",
-        "at": "2026-06-14T20:12:40+00:00"
+        "at": "2026-08-27T04:33:27+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/application_of_space_borne_co2_and_fluorescence_measurements_to_detect_f9d9908948.pdf",
       "thumbnail_source": "generated-card",
@@ -3110,7 +3110,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3034572115",
         "matched_title": "Total Column Greenhouse Gas Monitoring in Central Munich: Automation and Measurements",
-        "at": "2026-06-14T20:12:41+00:00"
+        "at": "2026-08-27T04:33:30+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -3197,7 +3197,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:12:43+00:00"
+        "at": "2026-08-27T04:33:35+00:00"
       },
       "promotion_rank": 7,
       "featured_reason": "Promoted: medical VLM",
@@ -3221,7 +3221,7 @@
       "summary": "The liver tumor segmentation benchmark (lits)",
       "url": "https://doi.org/10.1016/j.media.2022.102680",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:35N4QoGY0k4C",
-      "citations": 2212,
+      "citations": 2259,
       "pdf_link": "https://linkinghub.elsevier.com/science/article/pii/S1361841522003085/pdfft?md5=42606dbee21641af7f9e50655c0fdff2&pid=1-s2.0-S1361841522003085-main.pdf",
       "categories": [
         "segmentation"
@@ -3250,7 +3250,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W2910094941",
         "matched_title": "The Liver Tumor Segmentation Benchmark (LiTS)",
-        "at": "2026-06-14T20:12:43+00:00"
+        "at": "2026-08-27T04:33:37+00:00"
       },
       "priority_note": "Kept in publications, removed from homepage promotion.",
       "thumbnail_source": "generated-card"
@@ -3267,7 +3267,7 @@
       "summary": "Vertebral labelling and segmentation are two fundamental tasks in an automated spine processing pipeline. Reliable and accurate processing of spine images is expected to beneﬁt clinical decision support systems for diagnosis, surgery planning, and population-based analysis of spine and bone health. How- ever, designing automated algorithms for spine processing is challenging predominantly due to considerable variations in anatomy and acquisition protocols and due to a severe shortage of publicly",
       "url": "https://doi.org/10.1016/j.media.2021.102166",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:9ZlFYXVOiuMC",
-      "citations": 476,
+      "citations": 492,
       "pdf_link": "https://arxiv.org/pdf/2001.09193",
       "categories": [
         "ct",
@@ -3305,7 +3305,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3112346810",
         "matched_title": "VerSe: A Vertebrae labelling and segmentation benchmark for multi-detector CT images",
-        "at": "2026-06-14T20:12:44+00:00"
+        "at": "2026-08-27T04:33:39+00:00"
       },
       "thumbnail_source": "generated-card",
       "llm_tags": [
@@ -3328,7 +3328,7 @@
       "summary": "Cellular and molecular probing of intact human organs",
       "url": "https://doi.org/10.1016/j.cell.2020.01.030",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:eQOLeE2rZwMC",
-      "citations": 350,
+      "citations": 354,
       "pdf_link": "",
       "categories": [
         "other"
@@ -3347,7 +3347,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3005867992",
         "matched_title": "Cellular and Molecular Probing of Intact Human Organs",
-        "at": "2026-06-14T20:12:45+00:00"
+        "at": "2026-08-27T04:33:41+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -3369,7 +3369,7 @@
       "summary": "Distinct molecular profiles of skull bone marrow in health and neurological disorders",
       "url": "https://doi.org/10.1016/j.cell.2023.07.009",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:_xSYboBqXhAC",
-      "citations": 198,
+      "citations": 211,
       "pdf_link": "",
       "categories": [
         "other"
@@ -3396,7 +3396,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4385697472",
         "matched_title": "Distinct molecular profiles of skull bone marrow in health and neurological disorders",
-        "at": "2026-06-14T20:12:46+00:00"
+        "at": "2026-08-27T04:33:43+00:00"
       },
       "thumbnail_source": "generated-card"
     },
@@ -3412,7 +3412,7 @@
       "summary": "Spatial proteomics in three-dimensional intact specimens",
       "url": "https://doi.org/10.1016/j.cell.2022.11.021",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:g5m5HwL7SMYC",
-      "citations": 145,
+      "citations": 154,
       "pdf_link": "",
       "categories": [
         "other"
@@ -3431,7 +3431,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4312212205",
         "matched_title": "Spatial proteomics in three-dimensional intact specimens",
-        "at": "2026-06-14T20:12:47+00:00"
+        "at": "2026-08-27T04:33:45+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -3453,7 +3453,7 @@
       "summary": "Nature Biotechnology | Volume 42 | April 2024 | 617–627 617 nature biotechnology https://doi.org/10.1038/s41587-023-01846-0 Article Whole-body cellular mapping in mouse using standard IgG antibodies Hongcheng Mai1,2,3,4,14, Jie Luo1,2,4,14, Luciano Hoeher1, Rami Al-Maskari1,5, Izabela Horvath 1,5, Ying Chen1,2,6, Florian Kofler7,8,9,10, Marie Piraud7, Johannes C. Paetzold1,11, Jennifer Modamio1, Mihail Todorov1,2,12, Markus Elsner 1, Farida Hellal1,2,12 & Ali Ertürk 1,2,4,12,13 Whole-body imagin",
       "url": "https://doi.org/10.1038/s41587-023-01846-0",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:f2IySw72cVMC",
-      "citations": 132,
+      "citations": 136,
       "pdf_link": "https://www.nature.com/articles/s41587-023-01846-0.pdf",
       "categories": [
         "other"
@@ -3472,7 +3472,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4383868313",
         "matched_title": "Whole-body cellular mapping in mouse using standard IgG antibodies",
-        "at": "2026-06-14T20:12:48+00:00"
+        "at": "2026-08-27T04:33:47+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/whole_body_cellular_mapping_in_mouse_using_standard_igg_antibodies_eabacb698e.pdf",
       "thumbnail_source": "pdf",
@@ -3495,7 +3495,7 @@
       "summary": "Metrics optimized in complex machine learning tasks are often selected in an ad-hoc man- ner. It is unknown how they align with human expert perception. We explore the cor- relations between established quantitative segmentation quality metrics and qualitative evaluations by professionally trained human raters.",
       "url": "https://doi.org/10.59275/j.melba.2023-dg1f",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:Zph67rFs4hoC",
-      "citations": 92,
+      "citations": 94,
       "pdf_link": "https://www.melba-journal.org/pdf/2023:002.pdf",
       "categories": [
         "mri",
@@ -3516,7 +3516,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3135883537",
         "matched_title": "Are we using appropriate segmentation metrics? Identifying correlates of human expert perception for CNN training beyond rolling the DICE coefficient",
-        "at": "2026-06-14T20:12:49+00:00"
+        "at": "2026-08-27T04:33:49+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/are_we_using_appropriate_segmentation_metrics_identifying_correlates_o_dce65cba01.pdf",
       "thumbnail_source": "manual-pdf-crop",
@@ -3561,7 +3561,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3198186818",
         "matched_title": "Whole Brain Vessel Graphs: A Dataset and Benchmark for Graph Learning and Neuroscience (VesselGraph)",
-        "at": "2026-06-14T20:12:49+00:00"
+        "at": "2026-08-27T04:33:51+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/whole_brain_vessel_graphs_a_dataset_and_benchmark_for_graph_learning_a_2a87bda8ae.pdf",
       "thumbnail_source": "pdf",
@@ -3584,7 +3584,7 @@
       "summary": "Cities represent a large and concentrated por- tion of global greenhouse gas emissions, including methane. Quantifying methane emissions from urban areas is difﬁcult, and inventories made using bottom-up accounting",
       "url": "https://doi.org/10.5194/acp-21-13131-2021",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:L8Ckcad2t8MC",
-      "citations": 60,
+      "citations": 61,
       "pdf_link": "https://acp.copernicus.org/articles/21/13131/2021/acp-21-13131-2021.pdf",
       "categories": [
         "spectroscopy"
@@ -3603,7 +3603,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3197298172",
         "matched_title": "Assessing urban methane emissions using column-observing portable Fourier transform infrared (FTIR) spectrometers and a novel Bayesian inversion framework",
-        "at": "2026-06-14T20:12:50+00:00"
+        "at": "2026-08-27T04:33:53+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/assessing_urban_methane_emissions_using_column_observing_portable_four_4f2f5e68a2.pdf",
       "thumbnail_source": "pdf",
@@ -3626,7 +3626,7 @@
       "summary": "Nature Biotechnology | Volume 43 | December 2025 | 2009–2022 2009 nature biotechnology https://doi.org/10.1038/s41587-024-02528-1 Article Nanocarrier imaging at single-cell resolution across entire mouse bodies with deep learning Efficient and accurate nanocarrier development for targeted drug delivery is hindered by a lack of methods to analyze its cell-level biodistribution across whole organisms. Here we present Single Cell Precision Nanocarrier Identification (SCP-Nano), an integrated experi",
       "url": "https://doi.org/10.1038/s41587-024-02528-1",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:bnK-pcrLprsC",
-      "citations": 49,
+      "citations": 57,
       "pdf_link": "https://www.nature.com/articles/s41587-024-02528-1.pdf",
       "categories": [
         "detection"
@@ -3645,7 +3645,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4406374671",
         "matched_title": "Nanocarrier imaging at single-cell resolution across entire mouse bodies with deep learning",
-        "at": "2026-06-14T20:12:51+00:00"
+        "at": "2026-08-27T04:33:55+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/nanocarrier_imaging_at_single_cell_resolution_across_entire_mouse_bodi_bd38b7f177.pdf",
       "thumbnail_source": "manual-figure-crop",
@@ -3668,7 +3668,7 @@
       "summary": "Nature Methods | Volume 21 | July 2024 | 1306–1315 1306 nature methods Article https://doi.org/10.1038/s41592-024-02245-2 Virtual reality-empowered deep-learning analysis of brain cells Doris Kaltenecker1,2,3,4,16, Rami Al-Maskari4,5,6,7,16, Moritz Negwer5,16, Luciano Hoeher5, Florian Kofler6,7,8,9, Shan Zhao4,5, Mihail Todorov 4,5, Zhouyi Rong4,5, Johannes Christian Paetzold5,7,10, Benedikt Wiestler 8, Marie Piraud 9, Daniel Rueckert 10, Julia Geppert1,2,3, Pauline Morigny1,2,3, Maria Rohm 1,2,",
       "url": "https://doi.org/10.1038/s41592-024-02245-2",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:geHnlv5EZngC",
-      "citations": 43,
+      "citations": 45,
       "pdf_link": "https://www.nature.com/articles/s41592-024-02245-2.pdf",
       "categories": [
         "microscopy",
@@ -3688,7 +3688,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4395002428",
         "matched_title": "Virtual reality-empowered deep-learning analysis of brain cells",
-        "at": "2026-06-14T20:12:52+00:00"
+        "at": "2026-08-27T04:33:57+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/virtual_reality_empowered_deep_learning_analysis_of_brain_cells_92b7c349a7.pdf",
       "thumbnail_source": "pdf",
@@ -3711,8 +3711,8 @@
       "summary": "Learn-Morph-Infer: a new way of solving the inverse problem for brain tumor modeling",
       "url": "https://doi.org/10.1016/j.media.2022.102672",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:mB3voiENLucC",
-      "citations": 41,
-      "pdf_link": "",
+      "citations": 43,
+      "pdf_link": "https://www.zora.uzh.ch/id/eprint/220106/1/2022_preprint_Learn_Morph.pdf",
       "categories": [
         "other"
       ],
@@ -3730,7 +3730,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W3212555946",
         "matched_title": "Learn-Morph-Infer: A new way of solving the inverse problem for brain tumor modeling",
-        "at": "2026-06-14T20:12:53+00:00"
+        "at": "2026-08-27T04:33:59+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -3769,7 +3769,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:12:54+00:00"
+        "at": "2026-08-27T04:34:01+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -3791,7 +3791,7 @@
       "summary": "Uncertainty in medical image segmentation tasks, especially inter-rater variability, arising from differences in interpretations and annotations by various experts, presents a significant challenge in achieving consistent and reliable image segmentation. This variability not only reflects the inherent complexity and subjec- tive nature of medical image interpretation but also directly impacts the development and evaluation of automated segmentation algorithms. Accurately modeling and quantifying",
       "url": "https://arxiv.org/abs/2405.18435",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:8AbLer7MMksC",
-      "citations": 25,
+      "citations": 29,
       "pdf_link": "https://arxiv.org/pdf/2405.18435",
       "categories": [
         "mri",
@@ -3812,7 +3812,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4399197804",
         "matched_title": "QUBIQ: Uncertainty Quantification for Biomedical Image Segmentation Challenge",
-        "at": "2026-06-14T20:12:54+00:00"
+        "at": "2026-08-27T04:34:02+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/qubiq_uncertainty_quantification_for_biomedical_image_segmentation_cha_761ea62e20.pdf",
       "thumbnail_source": "pdf",
@@ -3835,7 +3835,7 @@
       "summary": "Article https://doi.org/10.1038/s41467-025-60466-1 Towards fair decentralized benchmarking of healthcare AI algorithms with the Federated Tumor Segmentation (FeTS) challenge A list of authors and their afﬁliations appears at the end of the paper Computational competitions are the standard for benchmarking medical image analysis algorithms, but they typically use small curated test datasets acquired at a few centers, leaving a gap to the reality of diverse multicentric patient data. To this end,",
       "url": "https://doi.org/10.1038/s41467-025-60466-1",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:WqliGbK-hY8C",
-      "citations": 23,
+      "citations": 27,
       "pdf_link": "https://www.nature.com/articles/s41467-025-60466-1.pdf",
       "categories": [
         "segmentation"
@@ -3854,7 +3854,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4412078570",
         "matched_title": "Towards fair decentralized benchmarking of healthcare AI algorithms with the Federated Tumor Segmentation (FeTS) challenge",
-        "at": "2026-06-14T20:12:55+00:00"
+        "at": "2026-08-27T04:34:05+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/towards_fair_decentralized_benchmarking_of_healthcare_ai_algorithms_wi_aeac3882a9.pdf",
       "thumbnail_source": "pdf",
@@ -3897,7 +3897,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4415009197",
         "matched_title": "VIBESegmentator: full body MRI segmentation for the NAKO and UK Biobank",
-        "at": "2026-06-14T20:12:56+00:00"
+        "at": "2026-08-27T04:34:06+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/vibesegmentator_full_body_mri_segmentation_for_the_nako_and_uk_biobank_9169800a7c.pdf",
       "thumbnail_source": "pdf",
@@ -3920,7 +3920,7 @@
       "summary": "npj | digital medicine Article Published in partnership with Seoul National University Bundang Hospital https://doi.org/10.1038/s41746-025-01893-8 Specialized curricula for training vision language models in retinal image analysis Check for updates Robbie Holland1 , Thomas R. P. Taylor2, Christopher Holmes3, Sophie Riedl4,5, Julia Mai4,5, Maria Patsiamanidi2, Dimitra Mitsopoulou2, Paul Hager5, Philip Müller5, Johannes C.",
       "url": "https://doi.org/10.1038/s41746-025-01893-8",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:ye4kPcJQO24C",
-      "citations": 14,
+      "citations": 16,
       "pdf_link": "https://www.nature.com/articles/s41746-025-01893-8.pdf",
       "categories": [
         "microscopy",
@@ -3940,7 +3940,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4413308340",
         "matched_title": "Specialized curricula for training vision language models in retinal image analysis",
-        "at": "2026-06-14T20:12:57+00:00"
+        "at": "2026-08-27T04:34:08+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/specialized_curricula_for_training_vision_language_models_in_retinal_i_ab627c4ad5.pdf",
       "thumbnail_source": "pdf",
@@ -3963,7 +3963,7 @@
       "summary": "Physical models in the form of partial differential equations serve as important pri- ors for many under-constrained problems. One such application is tumor treatment planning, which relies on accurately estimating the spatial distribution of tumor cells within a patient’s anatomy. While medical imaging can detect the bulk of a tumor, it cannot capture the full extent of its spread, as low-concentration tumor cells often remain undetectable, particularly in glioblastoma, the most common pri- mar",
       "url": "https://arxiv.org/abs/2409.20409",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:BrmTIyaxlBUC",
-      "citations": 13,
+      "citations": 15,
       "pdf_link": "https://arxiv.org/pdf/2409.20409",
       "categories": [
         "detection"
@@ -3980,9 +3980,9 @@
         "source": "openalex",
         "status": "matched",
         "score": 1.0,
-        "openalex_id": "https://openalex.org/W4403853695",
+        "openalex_id": "https://openalex.org/W4415798118",
         "matched_title": "Physics-Regularized Multi-Modal Image Assimilation for Brain Tumor Localization",
-        "at": "2026-06-14T20:12:57+00:00"
+        "at": "2026-08-27T04:34:10+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/physics_regularized_multi_modal_image_assimilation_for_brain_tumor_loc_494530ea3f.pdf",
       "thumbnail_source": "pdf",
@@ -4005,7 +4005,7 @@
       "summary": "Topology optimization in medical image segmentation with fast χ euler characteristic",
       "url": "https://doi.org/10.1109/tmi.2025.3589495",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:LjlpjdlvIbIC",
-      "citations": 13,
+      "citations": 14,
       "pdf_link": "",
       "categories": [
         "topology",
@@ -4025,7 +4025,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4412727864",
         "matched_title": "Topology Optimization in Medical Image Segmentation With Fast χ Euler Characteristic",
-        "at": "2026-06-14T20:12:58+00:00"
+        "at": "2026-08-27T04:34:12+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -4047,7 +4047,7 @@
       "summary": "A myriad of algorithms for the automatic analysis of brain MR images is available to support clinicians in their decision-making. For brain tumor patients, the image acquisition time series typically starts with an already pathological scan. This poses problems, as many algorithms are designed to analyze healthy brains and provide no guarantee for images featuring lesions.",
       "url": "https://arxiv.org/abs/2305.08992",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:t6usbXjVLHcC",
-      "citations": 9,
+      "citations": 46,
       "pdf_link": "https://arxiv.org/pdf/2305.08992",
       "categories": [
         "generative",
@@ -4067,7 +4067,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4376988550",
         "matched_title": "The Brain Tumor Segmentation (BraTS) Challenge: Local Synthesis of Healthy Brain Tissue via Inpainting",
-        "at": "2026-06-14T20:12:59+00:00"
+        "at": "2026-08-27T04:34:14+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/the_brain_tumor_segmentation_brats_challenge_local_synthesis_of_health_825b2869b5.pdf",
       "thumbnail_source": "pdf",
@@ -4108,8 +4108,8 @@
         "status": "matched",
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4384570068",
-        "matched_title": "Deep Quality Estimation: Creating Surrogate Models for Human Quality Ratings",
-        "at": "2026-06-14T20:13:00+00:00"
+        "matched_title": "Deep Quality Estimation: Creating Surrogate Models for Human Quality Ratings",
+        "at": "2026-08-27T04:34:16+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -4131,7 +4131,7 @@
       "summary": "From pixels to histopathology: A graph-based framework for interpretable whole slide image analysis",
       "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:JoZmwDi-zQgC",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:JoZmwDi-zQgC",
-      "citations": 7,
+      "citations": 8,
       "pdf_link": "",
       "categories": [
         "histology",
@@ -4150,7 +4150,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:01+00:00"
+        "at": "2026-08-27T04:34:18+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -4192,7 +4192,7 @@
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4406810813",
         "matched_title": "Leonardo: A Toolset to Remove Sample-Induced Aberrations in Light Sheet Microscopy Images",
-        "at": "2026-06-14T20:13:02+00:00"
+        "at": "2026-08-27T04:34:20+00:00"
       },
       "pdf_local_path": "data/cache/pdfs/leonardo_a_toolset_to_remove_sample_induced_aberrations_in_light_sheet_e68cc57b5d.pdf",
       "thumbnail_source": "generated-card",
@@ -4233,8 +4233,8 @@
         "status": "matched",
         "score": 1.0,
         "openalex_id": "https://openalex.org/W4387211313",
-        "matched_title": "Clustering Disease Trajectories in Contrastive Feature Space for Biomarker Proposal in Age-Related Macular Degeneration",
-        "at": "2026-06-14T20:13:03+00:00"
+        "matched_title": "Clustering Disease Trajectories in Contrastive Feature Space for Biomarker Proposal in Age-Related Macular Degeneration",
+        "at": "2026-08-27T04:34:22+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -4256,7 +4256,7 @@
       "summary": "We present the design and results of the MICCAI Federated Tumor Segmentation (FeTS) Challenge 2024, focusing on federated learning (FL) for glioma sub-region segmentation in multi-parametric MRI scans, and evaluating novel weight aggregation",
       "url": "https://doi.org/10.59275/j.melba.2025-5242",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:UHK10RUVsp4C",
-      "citations": 4,
+      "citations": 5,
       "pdf_link": "https://www.melba-journal.org/pdf/2025:033.pdf",
       "categories": [
         "mri",
@@ -4299,7 +4299,7 @@
       "summary": "Age-related macular degeneration (AMD) is the leading cause of blindness in the elderly. Current grading systems based on imaging biomarkers only coarsely group disease stages into broad categories and are unable to predict future disease progression. It is widely believed that this is due to their focus on a single point in time, disregarding the dynamic nature of the disease.",
       "url": "https://arxiv.org/abs/2301.04525",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:HoB7MX3m0LUC",
-      "citations": 4,
+      "citations": 5,
       "pdf_link": "https://arxiv.org/pdf/2301.04525",
       "categories": [
         "other"
@@ -4341,7 +4341,7 @@
       "summary": "Leonardo: a toolset to correct sample-induced artifacts in light sheet microscopy images",
       "url": "https://doi.org/10.1101/2025.10.26.684661",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:hkOj_22Ku90C",
-      "citations": 3,
+      "citations": 4,
       "pdf_link": "",
       "categories": [
         "microscopy"
@@ -4442,7 +4442,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:06+00:00"
+        "at": "2026-08-27T04:34:30+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -4464,7 +4464,7 @@
       "summary": "A deep-learning framework reveals whole-body perturbations at cell level",
       "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:tzM49s52ZIMC",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:tzM49s52ZIMC",
-      "citations": 2,
+      "citations": 3,
       "pdf_link": "",
       "categories": [
         "other"
@@ -4480,7 +4480,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:07+00:00"
+        "at": "2026-08-27T04:34:31+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -4492,7 +4492,7 @@
     },
     {
       "id": "auto_74ca8cdcb0",
-      "title": "VERITAS: Verifiable Epistemic Reasoning for Image-Derived Hypothesis Testing via Agentic Systems",
+      "title": "VERITAS: A Multi-Agent Co-Scientist for Verifiable Image-Derived Hypothesis Testing",
       "authors": "L Stoffl, B Wiestler, JC Paetzold",
       "year": 2026,
       "venue": "arXiv preprint arXiv:2604.12144",
@@ -4520,7 +4520,7 @@
       "metadata_verified": {
         "source": "manual",
         "status": "matched",
-        "note": "Promoted lab paper; arXiv metadata"
+        "note": "Promoted lab paper; title/metadata from the retitled arXiv:2604.12144 record"
       },
       "promotion_rank": 2,
       "featured_reason": "Promoted: Lucas Stoffl VERITAS",
@@ -4571,7 +4571,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:09+00:00"
+        "at": "2026-08-27T04:34:34+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -4593,7 +4593,7 @@
       "summary": "Physics-informed neural networks for myocardial perfusion MRI quantification",
       "url": "https://doi.org/10.1016/j.media.2022.102399",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=CFNgI7QAAAAJ&pagesize=100&citation_for_view=CFNgI7QAAAAJ:u-x6o8ySG0sC",
-      "citations": 116,
+      "citations": 124,
       "pdf_link": "",
       "categories": [
         "mri"
@@ -4734,7 +4734,7 @@
       "summary": "Spatio-temporal physics-informed learning: A novel approach to CT perfusion analysis in acute ischemic stroke",
       "url": "https://doi.org/10.1016/j.media.2023.102971",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=CFNgI7QAAAAJ&pagesize=100&citation_for_view=CFNgI7QAAAAJ:UeHWp8X0CEIC",
-      "citations": 22,
+      "citations": 24,
       "pdf_link": "",
       "categories": [
         "ct"
@@ -4861,7 +4861,7 @@
       "summary": "Accelerating physics-informed neural fields for fast CT perfusion analysis in acute ischemic stroke",
       "url": "https://pure.amsterdamumc.nl/en/publications/83e171a8-e150-4574-82eb-695d224bdd78",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=CFNgI7QAAAAJ&pagesize=100&citation_for_view=CFNgI7QAAAAJ:Tyk-4Ss8FVUC",
-      "citations": 9,
+      "citations": 10,
       "pdf_link": "",
       "categories": [
         "ct"
@@ -4944,7 +4944,7 @@
       "summary": "Generative adversarial networks for coronary ct angiography acquisition protocol correction with explicit attenuation constraints",
       "url": "https://pure.amsterdamumc.nl/en/publications/95a10979-76b3-4dd5-af41-d5384279f607",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=CFNgI7QAAAAJ&pagesize=100&citation_for_view=CFNgI7QAAAAJ:2osOgNQ5qMEC",
-      "citations": 4,
+      "citations": 5,
       "pdf_link": "",
       "categories": [
         "ct",
@@ -4986,7 +4986,7 @@
       "summary": "REINDIR: Repeated embedding infusion for neural deformable image registration",
       "url": "https://pure.amsterdamumc.nl/en/publications/9b24d3a6-e178-467b-841d-50777cb751cd",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=CFNgI7QAAAAJ&pagesize=100&citation_for_view=CFNgI7QAAAAJ:zYLM7Y9cAGgC",
-      "citations": 2,
+      "citations": 4,
       "pdf_link": "",
       "categories": [
         "registration"
@@ -5048,7 +5048,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:18+00:00"
+        "at": "2026-08-27T04:34:52+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -5124,7 +5124,7 @@
       "summary": "GeoReg provides segmentation-free DSA-to-CTA registration for stroke interventions by optimizing biplanar views with soft geodesic consistency constraints.",
       "url": "https://proceedings.mlr.press/v315/herten26a.html",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=CFNgI7QAAAAJ&pagesize=100&citation_for_view=CFNgI7QAAAAJ:roLk4NBRz8UC",
-      "citations": 0,
+      "citations": 2,
       "pdf_link": "https://raw.githubusercontent.com/mlresearch/v315/main/assets/herten26a/herten26a.pdf",
       "categories": [
         "ct",
@@ -5191,7 +5191,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:21+00:00"
+        "at": "2026-08-27T04:34:56+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -5229,7 +5229,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:21+00:00"
+        "at": "2026-08-27T04:34:58+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -5251,7 +5251,7 @@
       "summary": "Attenuation artifact detection and severity classification in intracoronary OCT using mixed image representations",
       "url": "https://doi.org/10.1117/12.3047192",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=CFNgI7QAAAAJ&pagesize=100&citation_for_view=CFNgI7QAAAAJ:ufrVoPGSRksC",
-      "citations": 0,
+      "citations": 3,
       "pdf_link": "https://www.spiedigitallibrary.org/conference-proceedings-of-spie/13406/3047192/Attenuation-artifact-detection-and-severity-classification-in-intracoronary-OCT-using/10.1117/12.3047192.pdf",
       "categories": [
         "microscopy",
@@ -5337,7 +5337,7 @@
       "summary": "DUSt3R introduced a novel paradigm in geometric com- puter vision by proposing a model that can provide dense and unconstrained Stereo 3D Reconstruction of arbitrary image collections with no prior information about camera calibration nor viewpoint poses. Under the hood, however, DUSt3R processes image pairs, regressing local 3D recon- structions that need to be aligned in a global coordinate system. The number of pairs, growing quadratically, is an inherent limitation that becomes especially co",
       "url": "https://doi.org/10.1109/cvpr52734.2025.00106",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=phXULXIAAAAJ&pagesize=100&citation_for_view=phXULXIAAAAJ:WF5omc3nYNoC",
-      "citations": 134,
+      "citations": 140,
       "pdf_link": "https://openaccess.thecvf.com/content/CVPR2025/papers/Cabon_MUSt3R_Multi-view_Network_for_Stereo_3D_Reconstruction_CVPR_2025_paper.pdf",
       "categories": [
         "reconstruction"
@@ -5383,7 +5383,7 @@
       "summary": "Could ChatGPT get an engineering degree? Evaluating higher education vulnerability to AI assistants",
       "url": "https://doi.org/10.1073/pnas.2414955121",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=phXULXIAAAAJ&pagesize=100&citation_for_view=phXULXIAAAAJ:Y0pCki6q_DkC",
-      "citations": 72,
+      "citations": 77,
       "pdf_link": "",
       "categories": [
         "other"
@@ -5428,7 +5428,7 @@
       "summary": "POET regresses every individual's pose in one shot with a CNN plus transformer encoder-decoder, treating multi-instance pose estimation as direct set prediction and removing the usual post-processing step.",
       "url": "https://arxiv.org/abs/2103.12115",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=phXULXIAAAAJ&pagesize=100&citation_for_view=phXULXIAAAAJ:u-x6o8ySG0sC",
-      "citations": 57,
+      "citations": 58,
       "pdf_link": "https://arxiv.org/pdf/2103.12115",
       "categories": [
         "classification"
@@ -5474,7 +5474,7 @@
       "summary": "Rethinking pose estimation in crowds: overcoming the detection information-bottleneck and ambiguity",
       "url": "https://doi.org/10.1109/iccv51070.2023.01350",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=phXULXIAAAAJ&pagesize=100&citation_for_view=phXULXIAAAAJ:UeHWp8X0CEIC",
-      "citations": 50,
+      "citations": 52,
       "pdf_link": "",
       "categories": [
         "detection"
@@ -5556,7 +5556,7 @@
       "summary": "Elucidating the hierarchical nature of behavior with masked autoencoders",
       "url": "https://doi.org/10.1101/2024.08.06.606796",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=phXULXIAAAAJ&pagesize=100&citation_for_view=phXULXIAAAAJ:W7OEmFMy1HYC",
-      "citations": 21,
+      "citations": 22,
       "pdf_link": "https://www.biorxiv.org/content/biorxiv/early/2024/08/08/2024.08.06.606796.full.pdf",
       "categories": [
         "other"
@@ -5695,7 +5695,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:30+00:00"
+        "at": "2026-08-27T04:35:15+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -5813,7 +5813,6 @@
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=BFxNMooAAAAJ&pagesize=100&citation_for_view=BFxNMooAAAAJ:YsMSGLbcyi4C",
       "citations": 0,
       "pdf_link": "https://arxiv.org/pdf/2605.06903",
-      "demo_url": "https://anon-review-meld-2026-meld.static.hf.space/index.html",
       "categories": [
         "detection"
       ],
@@ -5826,6 +5825,7 @@
         "Johannes C. Paetzold"
       ],
       "source": "google_scholar",
+      "demo_url": "https://anon-review-meld-2026-meld.static.hf.space/index.html",
       "metadata_verified": {
         "source": "manual",
         "status": "matched",
@@ -5938,7 +5938,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:33+00:00"
+        "at": "2026-08-27T04:35:23+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -5978,7 +5978,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:34+00:00"
+        "at": "2026-08-27T04:35:24+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -6000,7 +6000,7 @@
       "summary": "Autophagy suppresses CCL2 to preserve appetite and prevent lethal cachexia",
       "url": "https://doi.org/10.1101/2025.02.20.638910",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=UwFsb5QAAAAJ&pagesize=100&citation_for_view=UwFsb5QAAAAJ:u-x6o8ySG0sC",
-      "citations": 5,
+      "citations": 7,
       "pdf_link": "https://www.biorxiv.org/content/biorxiv/early/2025/02/24/2025.02.20.638910.full.pdf",
       "categories": [
         "other"
@@ -6072,7 +6072,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:36+00:00"
+        "at": "2026-08-27T04:35:28+00:00"
       },
       "thumbnail_source": "pdf"
     },
@@ -6176,7 +6176,7 @@
       "summary": "Background and objectives Receiving care at patient-­ centred medical homes (PCMH) is associated with reduced emergency department (ED) visits among children. Adverse social determinants of health (SDoH), such as lower socioeconomic status and household poverty, are associated with increased ED visits in children. The objective of this study is to use machine learning techniques to understand the relative importance of each PCMH component among different populations with adverse SDoH on the outc",
       "url": "https://doi.org/10.1136/bmjopen-2023-081533",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=UwFsb5QAAAAJ&pagesize=100&citation_for_view=UwFsb5QAAAAJ:u5HHmVD_uO8C",
-      "citations": 1,
+      "citations": 2,
       "pdf_link": "https://bmjopen.bmj.com/content/bmjopen/14/11/e081533.full.pdf",
       "categories": [
         "other"
@@ -6218,7 +6218,7 @@
       "summary": "nature communications Article https://doi.org/10.1038/s41467-022-32417-7 A mid-infrared lab-on-a-chip for dynamic reaction monitoring Borislav Hinkov 1 , Florian Pilat1, Laurin Lux2, Patricia L. Souza 1,3, Mauro David 1, Andreas Schwaighofer 2, Daniela Ristanić1, Benedikt Schwarz 1, Hermann Detz 1,4, Aaron M. Andrews 1, Bernhard Lendl 2 & Gottfried Strasser 1 Mid-infrared spectroscopy is a sensitive and selective technique for probing molecules in the gas or liquid phase.",
       "url": "https://doi.org/10.1038/s41467-022-32417-7",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=5OIAaZcAAAAJ&pagesize=100&citation_for_view=5OIAaZcAAAAJ:YsMSGLbcyi4C",
-      "citations": 114,
+      "citations": 119,
       "pdf_link": "https://www.nature.com/articles/s41467-022-32417-7.pdf",
       "categories": [
         "spectroscopy"
@@ -6261,7 +6261,7 @@
       "summary": "here",
       "url": "https://doi.org/10.1177/00037028211050961",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=5OIAaZcAAAAJ&pagesize=100&citation_for_view=5OIAaZcAAAAJ:9yKSN-GCB0IC",
-      "citations": 26,
+      "citations": 28,
       "pdf_link": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10539114/pdf/nihms-1926180.pdf",
       "categories": [
         "spectroscopy"
@@ -6346,7 +6346,7 @@
       "summary": "In-line ultrasound-enhanced Raman spectroscopy allows for highly sensitive analysis with improved selectivity in suspensions",
       "url": "https://doi.org/10.1021/acs.analchem.9b01105",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=5OIAaZcAAAAJ&pagesize=100&citation_for_view=5OIAaZcAAAAJ:u-x6o8ySG0sC",
-      "citations": 25,
+      "citations": 26,
       "pdf_link": "",
       "categories": [
         "spectroscopy"
@@ -6387,7 +6387,7 @@
       "summary": "Production of Active Recombinant Hyaluronidase Inclusion Bodies from Apis mellifera in E. coli Bl21(DE3) and characterization by FT-IR Spectroscopy",
       "url": "https://doi.org/10.3390/ijms21113881",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=5OIAaZcAAAAJ&pagesize=100&citation_for_view=5OIAaZcAAAAJ:d1gkVwhDpl0C",
-      "citations": 16,
+      "citations": 17,
       "pdf_link": "",
       "categories": [
         "spectroscopy"
@@ -6527,7 +6527,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:45+00:00"
+        "at": "2026-08-27T04:35:45+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -6565,7 +6565,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:46+00:00"
+        "at": "2026-08-27T04:35:47+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -6628,7 +6628,7 @@
       "summary": "Glioblastoma, the most aggressive primary brain tumor, poses a severe clinical challenge due to its diffuse microscopic infiltration, which remains largely undetected on standard MRI. As a result, current ra- diotherapy planning employs a uniform 15 mm margin around the re- section cavity, failing to capture patient-specific tumor spread. Tumor growth modeling offers a promising approach to reveal this hidden in- filtration.",
       "url": "https://arxiv.org/abs/2412.13811",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=5OIAaZcAAAAJ&pagesize=100&citation_for_view=5OIAaZcAAAAJ:IWHjjKOFINEC",
-      "citations": 1,
+      "citations": 2,
       "pdf_link": "https://arxiv.org/pdf/2412.13811",
       "categories": [
         "mri"
@@ -6727,7 +6727,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:49+00:00"
+        "at": "2026-08-27T04:35:53+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -6765,7 +6765,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:49+00:00"
+        "at": "2026-08-27T04:35:54+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -6948,7 +6948,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:52+00:00"
+        "at": "2026-08-27T04:36:01+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -6986,7 +6986,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:53+00:00"
+        "at": "2026-08-27T04:36:02+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -7024,7 +7024,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:54+00:00"
+        "at": "2026-08-27T04:36:04+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -7062,7 +7062,7 @@
       "metadata_verified": {
         "source": "",
         "status": "unmatched",
-        "at": "2026-06-14T20:13:54+00:00"
+        "at": "2026-08-27T04:36:05+00:00"
       },
       "thumbnail_source": "generated-card",
       "auto_enriched": {
@@ -7103,6 +7103,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:07+00:00"
       }
     },
     {
@@ -7136,6 +7141,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:09+00:00"
       }
     },
     {
@@ -7150,7 +7160,7 @@
       "summary": "The MICCAI Hackathon on reproducibility, diversity, and selection of papers at the MICCAI conference",
       "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&cstart=100&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:KlAtU1dfN6UC",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&cstart=100&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:KlAtU1dfN6UC",
-      "citations": 1,
+      "citations": 2,
       "pdf_link": "",
       "categories": [
         "other"
@@ -7169,6 +7179,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:10+00:00"
       }
     },
     {
@@ -7202,6 +7217,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:12+00:00"
       }
     },
     {
@@ -7216,7 +7236,7 @@
       "summary": "TopBrain segmentation challenge for whole brain vessel anatomy",
       "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&cstart=100&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:evX43VCCuoAC",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&cstart=100&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:evX43VCCuoAC",
-      "citations": 0,
+      "citations": 1,
       "pdf_link": "",
       "categories": [
         "segmentation"
@@ -7235,6 +7255,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:13+00:00"
       }
     },
     {
@@ -7268,6 +7293,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:15+00:00"
       }
     },
     {
@@ -7301,6 +7331,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:16+00:00"
       }
     },
     {
@@ -7334,6 +7369,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:18+00:00"
       }
     },
     {
@@ -7369,6 +7409,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:19+00:00"
       }
     },
     {
@@ -7404,6 +7449,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:21+00:00"
       }
     },
     {
@@ -7418,7 +7468,7 @@
       "summary": "Rule-based Key-Point Extraction for MR-Guided Biomechanical Digital Twins of the Spine",
       "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&cstart=100&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:VL0QpB8kHFEC",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&cstart=100&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:VL0QpB8kHFEC",
-      "citations": 0,
+      "citations": 1,
       "pdf_link": "",
       "categories": [
         "other"
@@ -7437,6 +7487,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:23+00:00"
       }
     },
     {
@@ -7471,6 +7526,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:24+00:00"
       }
     },
     {
@@ -7504,6 +7564,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:26+00:00"
       }
     },
     {
@@ -7537,6 +7602,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:27+00:00"
       }
     },
     {
@@ -7572,6 +7642,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:29+00:00"
       }
     },
     {
@@ -7605,6 +7680,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:30+00:00"
       }
     },
     {
@@ -7638,6 +7718,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:32+00:00"
       }
     },
     {
@@ -7671,6 +7756,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:34+00:00"
       }
     },
     {
@@ -7704,6 +7794,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:35+00:00"
       }
     },
     {
@@ -7737,6 +7832,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:37+00:00"
       }
     },
     {
@@ -7770,6 +7870,11 @@
         "llm": false,
         "model": "",
         "pdf_downloaded": false
+      },
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:38+00:00"
       }
     },
     {
@@ -7834,7 +7939,7 @@
       "summary": "Registers coronary CT angiography with intravascular ultrasound using topology-aware feature detection and optimal transport, without requiring prior segmentation.",
       "url": "https://arxiv.org/abs/2412.17100",
       "scholar_link": "/citations?view_op=view_citation&hl=en&user=CFNgI7QAAAAJ&pagesize=100&citation_for_view=CFNgI7QAAAAJ:eQOLeE2rZwMC",
-      "citations": 1,
+      "citations": 2,
       "pdf_link": "https://arxiv.org/pdf/2412.17100",
       "categories": [
         "ct",
@@ -7870,11 +7975,205 @@
         "model": "",
         "pdf_downloaded": true
       }
+    },
+    {
+      "id": "auto_847d097888",
+      "title": "The TopCoW Challenge—Topology-Aware Circle of Willis Segmentation for CT and MR Angiography",
+      "authors": "K Yang, F Musio, Y Ma, N Juchler, JC Paetzold, R Al-Maskari, L Höher, ...",
+      "year": 2026,
+      "venue": "NEJM AI 3 (8), AIdbp2500994",
+      "venue_tag": "NEJM AI 3 (8), AIDBP2500994",
+      "doi": null,
+      "abstract": "",
+      "summary": "The TopCoW Challenge—Topology-Aware Circle of Willis Segmentation for CT and MR Angiography",
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:j8SEvjWlNXcC",
+      "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:j8SEvjWlNXcC",
+      "citations": 1,
+      "pdf_link": "",
+      "categories": [
+        "ct",
+        "topology",
+        "segmentation"
+      ],
+      "primary_category": "ct",
+      "thumbnail": "images/publications/thumbnails/auto/the_topcow_challenge_topology_aware_circle_of_willis_segmentation_for__card.jpg",
+      "featured": false,
+      "featuredOrder": 999,
+      "source_members": [
+        "Johannes C. Paetzold"
+      ],
+      "source": "google_scholar",
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:43+00:00"
+      },
+      "thumbnail_source": "generated-card",
+      "auto_enriched": {
+        "at": "2026-08-27T04:37:00+00:00",
+        "llm": false,
+        "model": "",
+        "pdf_downloaded": false
+      }
+    },
+    {
+      "id": "auto_d38237eae0",
+      "title": "GeoPose: Patient-agnostic CTA-to-DSA registration through projection-space calibration",
+      "authors": "RLM van Herten, R Graf, P Feldman, JC Paetzold",
+      "year": 2026,
+      "venue": "arXiv preprint arXiv:2608.16600",
+      "venue_tag": "ARXIV PREPRINT ARXIV:2608.16600",
+      "doi": null,
+      "abstract": "",
+      "summary": "GeoPose: Patient-agnostic CTA-to-DSA registration through projection-space calibration",
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&cstart=100&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:XD-gHx7UXLsC",
+      "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&cstart=100&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:XD-gHx7UXLsC",
+      "citations": 0,
+      "pdf_link": "",
+      "categories": [
+        "ct",
+        "registration"
+      ],
+      "primary_category": "ct",
+      "thumbnail": "images/publications/thumbnails/auto/geopose_patient_agnostic_cta_to_dsa_registration_through_projection_sp_card.jpg",
+      "featured": false,
+      "featuredOrder": 999,
+      "source_members": [
+        "Johannes C. Paetzold",
+        "Roel van Herten"
+      ],
+      "source": "google_scholar",
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:48+00:00"
+      },
+      "thumbnail_source": "generated-card",
+      "auto_enriched": {
+        "at": "2026-08-27T04:37:00+00:00",
+        "llm": false,
+        "model": "",
+        "pdf_downloaded": false
+      }
+    },
+    {
+      "id": "auto_f48c88d878",
+      "title": "Unifying Active Learning and Semi-Supervised Learning for Medical Image Segmentation",
+      "authors": "B Jafrasteh, C Wan, H Kim, JC Paetzold, Q Zhao",
+      "year": 2026,
+      "venue": "arXiv preprint arXiv:2607.25014",
+      "venue_tag": "ARXIV PREPRINT ARXIV:2607.25014",
+      "doi": null,
+      "abstract": "",
+      "summary": "Unifying Active Learning and Semi-Supervised Learning for Medical Image Segmentation",
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&cstart=100&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:z_wVstp3MssC",
+      "scholar_link": "/citations?view_op=view_citation&hl=en&user=7Bv7PmgAAAAJ&cstart=100&pagesize=100&citation_for_view=7Bv7PmgAAAAJ:z_wVstp3MssC",
+      "citations": 0,
+      "pdf_link": "",
+      "categories": [
+        "segmentation"
+      ],
+      "primary_category": "segmentation",
+      "thumbnail": "images/publications/thumbnails/auto/unifying_active_learning_and_semi_supervised_learning_for_medical_imag_card.jpg",
+      "featured": false,
+      "featuredOrder": 999,
+      "source_members": [
+        "Johannes C. Paetzold"
+      ],
+      "source": "google_scholar",
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:49+00:00"
+      },
+      "thumbnail_source": "generated-card",
+      "auto_enriched": {
+        "at": "2026-08-27T04:37:00+00:00",
+        "llm": false,
+        "model": "",
+        "pdf_downloaded": false
+      }
+    },
+    {
+      "id": "auto_35469e6f7a",
+      "title": "Prior-informed deep learning for the analysis and fusion of cardiovascular imaging modalities",
+      "authors": "RLM van Herten",
+      "year": 2025,
+      "venue": "",
+      "venue_tag": null,
+      "doi": null,
+      "abstract": "",
+      "summary": "Prior-informed deep learning for the analysis and fusion of cardiovascular imaging modalities",
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=CFNgI7QAAAAJ&pagesize=100&citation_for_view=CFNgI7QAAAAJ:0EnyYjriUFMC",
+      "scholar_link": "/citations?view_op=view_citation&hl=en&user=CFNgI7QAAAAJ&pagesize=100&citation_for_view=CFNgI7QAAAAJ:0EnyYjriUFMC",
+      "citations": 0,
+      "pdf_link": "",
+      "categories": [
+        "other"
+      ],
+      "primary_category": "other",
+      "thumbnail": "images/publications/thumbnails/auto/prior_informed_deep_learning_for_the_analysis_and_fusion_of_cardiovasc_card.jpg",
+      "featured": false,
+      "featuredOrder": 999,
+      "source_members": [
+        "Roel van Herten"
+      ],
+      "source": "google_scholar",
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:54+00:00"
+      },
+      "thumbnail_source": "generated-card",
+      "auto_enriched": {
+        "at": "2026-08-27T04:37:00+00:00",
+        "llm": false,
+        "model": "",
+        "pdf_downloaded": false
+      }
+    },
+    {
+      "id": "auto_82c4fa11ee",
+      "title": "Your Simulation Runs but Solves the Wrong Physics: PDE-Grounded Intent Verification for LLM-Generated Multiphysics Simulation Code",
+      "authors": "Z Song, Y Liu, C Wan, C Li, L Liu, Y Li, C Yuan",
+      "year": 2026,
+      "venue": "arXiv preprint arXiv:2605.09360",
+      "venue_tag": "ARXIV PREPRINT ARXIV:2605.09360",
+      "doi": null,
+      "abstract": "",
+      "summary": "Your Simulation Runs but Solves the Wrong Physics: PDE-Grounded Intent Verification for LLM-Generated Multiphysics Simulation Code",
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=BFxNMooAAAAJ&pagesize=100&citation_for_view=BFxNMooAAAAJ:eQOLeE2rZwMC",
+      "scholar_link": "/citations?view_op=view_citation&hl=en&user=BFxNMooAAAAJ&pagesize=100&citation_for_view=BFxNMooAAAAJ:eQOLeE2rZwMC",
+      "citations": 1,
+      "pdf_link": "",
+      "categories": [
+        "vlm"
+      ],
+      "primary_category": "vlm",
+      "thumbnail": "images/publications/thumbnails/auto/your_simulation_runs_but_solves_the_wrong_physics_pde_grounded_intent__card.jpg",
+      "featured": false,
+      "featuredOrder": 999,
+      "source_members": [
+        "Chenjun Li"
+      ],
+      "source": "google_scholar",
+      "metadata_verified": {
+        "source": "",
+        "status": "unmatched",
+        "at": "2026-08-27T04:36:57+00:00"
+      },
+      "thumbnail_source": "generated-card",
+      "auto_enriched": {
+        "at": "2026-08-27T04:37:00+00:00",
+        "llm": false,
+        "model": "",
+        "pdf_downloaded": false
+      }
     }
   ],
   "automation": {
     "pipeline": "scripts/research_pipeline.py",
-    "updated_at": "2026-07-17T17:24:00+00:00",
+    "updated_at": "2026-08-27T04:43:47+00:00",
     "members_config": "data/lab_members.json"
   }
 }
