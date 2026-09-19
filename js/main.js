@@ -450,7 +450,7 @@ function initializeContactForm() {
       status.textContent = "Thank you. Your message has been received.";
       form.reset();
     } catch {
-      status.textContent = "We could not confirm delivery. Your message is still here. Please try again or use the email link below.";
+      status.textContent = "We could not confirm delivery. Your message is still here. Please try again.";
     } finally {
       pending = false;
       button.disabled = false;

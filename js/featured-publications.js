@@ -273,7 +273,7 @@ function bindPaperCollageZoom(scope = document) {
 function renderHeroPublications(pubs) {
   const wrap = document.getElementById("carousel-wrapper");
   const indicators = document.getElementById("carousel-indicators");
-  if (!wrap || !indicators) return;
+  if (!wrap) return;
 
   const heroPubs = selectHeroPublications(pubs);
   if (!heroPubs.length) return;
@@ -338,7 +338,7 @@ function renderHeroPublications(pubs) {
   wrap.innerHTML = labIntroSlide + paperSlides;
 
   const indicatorLabels = ["Paetzold Lab overview", ...heroPubs.map(pub => pub.title || "paper")];
-  indicators.innerHTML = indicatorLabels
+  if (indicators) indicators.innerHTML = indicatorLabels
     .map((label, index) => `<button type="button" class="dot ${index === 0 ? "active" : ""}" aria-label="Go to slide ${index + 1}: ${escapeHTML(label)}" aria-current="${index === 0 ? "true" : "false"}"></button>`)
     .join("");
 
