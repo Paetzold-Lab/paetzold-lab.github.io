@@ -11,6 +11,7 @@
 
   <div class="footer-text">
     <p>&copy; <span id="current-year"></span> Paetzold Lab. All rights reserved.
+       <a class="legal-link" id="footer-contact" href="/contact.html">Contact</a>
        <button type="button" id="open-legal-notice" class="legal-link">Legal Notice</button>
     </p>
   </div>
@@ -54,6 +55,7 @@
   const y=new Date().getFullYear();
   document.getElementById('current-year').textContent=y;
   document.querySelectorAll('.year-span').forEach(e=>e.textContent=y);
+  document.getElementById('footer-contact').href = window.PaetzoldSite.assetPath('contact.html');
 
   document.querySelectorAll('img.footer-logo[data-file]').forEach(img=>{
     const file = img.getAttribute('data-file');
@@ -80,6 +82,7 @@
     popup.setAttribute('aria-hidden','false');
     document.body.style.overflow='hidden';
     closeBtn?.focus();
+    document.dispatchEvent(new CustomEvent('site-modal-change'));
   };
   const hide=()=>{
     popup.classList.remove('active');
@@ -87,6 +90,7 @@
     document.body.style.overflow='';
     previousFocus?.focus?.();
     popup.setAttribute('inert','');
+    document.dispatchEvent(new CustomEvent('site-modal-change'));
   };
   open.addEventListener('click',e=>{e.preventDefault();show()});
   closeBtn?.addEventListener('click',hide);

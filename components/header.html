@@ -9,6 +9,7 @@
         <li><a id="nav-research" href="research.html">Research</a></li>
         <li><a id="nav-team"    href="team.html">Team</a></li>
         <li><a id="nav-join"    href="join_us.html">Join Us</a></li>
+        <li><a id="nav-contact" href="contact.html">Contact</a></li>
       </ul>
     </nav>
 
@@ -31,7 +32,8 @@
       'research.html': 'nav-research',
       'team.html'    : 'nav-team',
       'join_us.html' : 'nav-join',
-      'pi.html'      : 'nav-team'
+      'pi.html'      : 'nav-team',
+      'contact.html' : 'nav-contact'
     };
     const activeLink = document.getElementById(isInSubdirectory ? 'nav-team' : map[file]);
     if (activeLink) {
@@ -55,7 +57,8 @@
       'nav-home': 'index.html',
       'nav-research': 'research.html',
       'nav-team': 'team.html',
-      'nav-join': 'join_us.html'
+      'nav-join': 'join_us.html',
+      'nav-contact': 'contact.html'
     };
     Object.entries(hrefs).forEach(([id, path]) => {
       const link = document.getElementById(id);
