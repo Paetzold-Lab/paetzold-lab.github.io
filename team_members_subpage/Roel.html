@@ -26,34 +26,56 @@
   <meta name="twitter:image" content="https://paetzold-lab.github.io/images/portrait/Roel.jpg" />
 
   <!-- Main CSS (reuse same style) -->
-  <link rel="stylesheet" href="../css/style.css?v=20260827b" />
-  <script src="../js/site-utils.js?v=20260827b" defer></script>
-  <script src="../js/components.js?v=20260827b" defer></script>
-  <script src="../js/main.js?v=20260827b" defer></script>
+  <link rel="stylesheet" href="../css/style.css?v=20260919b" />
+  <script src="../js/site-utils.js?v=20260919b" defer></script>
+  <script src="../js/components.js?v=20260919b" defer></script>
+  <script src="../js/main.js?v=20260919b" defer></script>
 </head>
 <body>
   <!-- Component placeholders -->
-  <div id="header-placeholder"></div>
+  <div id="header-placeholder">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" id="nav-logo" href="../index.html">Paetzold Lab</a>
+
+    <nav class="top-nav" aria-label="Primary navigation">
+      <ul>
+        <li><a id="nav-home"    href="../index.html">Home</a></li>
+        <li><a id="nav-research" href="../research.html">Research</a></li>
+        <li><a id="nav-team"    href="../team.html">Team</a></li>
+        <li><a id="nav-join"    href="../join_us.html">Join Us</a></li>
+        <li><a id="nav-contact" href="../contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <button hidden class="search-btn" aria-label="Open search"><span class="search-icon" aria-hidden="true"></span></button>
+    </div>
+  </div>
+
+</header>
+  </div>
   <div id="search-overlay-placeholder"></div>
 
-  <main class="profile-page" id="main-content">
+  <main class="profile-page" id="main-content" tabindex="-1">
     <div class="profile-container">
       <div class="profile-image">
-        <img src="../images/portrait/Roel.jpg" alt="Dr. Roel van Herten" loading="eager" fetchpriority="high" decoding="async" />
+        <img src="../images/portrait/Roel.jpg" alt="Dr. Roel van Herten" loading="eager" fetchpriority="high" decoding="async" width="1853" height="1853">
       </div>
       <div class="profile-details">
         <h1>Roel van Herten</h1>
         <p>Roel obtained his master’s degree in Medical Engineering at the Eindhoven University of Technology in 2021, with an explicit focus on medical image analysis. During his master program, Roel undertook an internship at the Chinese University of Hong Kong, where he worked on a deep learning-based approach to perform lesion-symptom mapping for stroke patients. Afterwards, he performed his master thesis at King’s College London, during which he applied physics-informed neural networks for the quantification of myocardial perfusion under the supervision of Dr. Cian M. Scannell. Roel continued his career in cardiac image analysis by joining the Cardiovascular Lab at the Amsterdam UMC, where he completed his PhD on prior-informed deep learning for the analysis and fusion of cardiovascular imaging modalities under the guidance of Prof. dr. Ivana Išgum and Prof. dr. José Henriques. He has since joined the lab of Dr. Johannes C. Paetzold at Weill Cornell Medicine in New York as a postdoctoral associate, where his research focuses on explainable methods for graph learning and language models for clinical data integration.</p>
         <div class="profile-links">
           <a href="https://scholar.google.com/citations?user=CFNgI7QAAAAJ&hl=nl" class="profile-link scholar" target="_blank" rel="noopener" aria-label="Roel Google Scholar (opens in new tab)">
-            <img src="../images/logo/Google_Scholar_logo.svg.png" alt="Google Scholar" class="profile-link-icon" />
+            <img src="../images/logo/Google_Scholar_logo.svg.png" alt="Google Scholar" class="profile-link-icon" width="1200" height="1200">
             Google Scholar
           </a>
           <a href="../research.html?member=Roel%20van%20Herten" class="profile-link publications" aria-label="View Roel van Herten publications">
             <span class="profile-link-icon publications-icon" aria-hidden="true"></span>
             Publications
           </a>
-          <!-- <a href="mailto:example@domain.com" class="profile-link email"><img src="../images/logo/email.png" alt="Email" class="profile-link-icon" />Email</a> -->
+          <!-- <a href="mailto:example@domain.com" class="profile-link email"><img src="../images/logo/email.png" alt="Email" class="profile-link-icon" width="512" height="512">Email</a> -->
           <a href="https://www.linkedin.com/in/roel-van-herten-a54a60185/?originalSubdomain=hk" class="profile-link linkedin" target="_blank" rel="noopener" aria-label="Roel LinkedIn (opens in new tab)">
             <span class="profile-link-icon linkedin-icon" aria-hidden="true"></span>
             LinkedIn
