@@ -243,6 +243,7 @@ function openPaperZoom(src, title) {
   modal.setAttribute("aria-hidden", "false");
   document.body.classList.add("paper-zoom-open");
   modal.querySelector(".paper-zoom-close")?.focus();
+  document.dispatchEvent(new CustomEvent("site-modal-change"));
 }
 
 function closePaperZoom() {
@@ -253,6 +254,7 @@ function closePaperZoom() {
   document.body.classList.remove("paper-zoom-open");
   modal.previousFocus?.focus?.();
   modal.setAttribute("inert", "");
+  document.dispatchEvent(new CustomEvent("site-modal-change"));
 }
 
 function bindPaperCollageZoom(scope = document) {
@@ -291,7 +293,7 @@ function renderHeroPublications(pubs) {
           </figure>
         </div>
         <div class="slide-content paper-slide-content lab-intro-content">
-          <h1>${escapeHTML(LAB_INTRO_SLIDE.title)}</h1>
+          <h2>${escapeHTML(LAB_INTRO_SLIDE.title)}</h2>
           <p class="hero-paper-summary">${escapeHTML(LAB_INTRO_SLIDE.summary)}</p>
           <div class="lab-intro-actions">
             <a href="research.html" class="hero-btn">Explore research</a>
@@ -312,7 +314,7 @@ function renderHeroPublications(pubs) {
           <div class="paper-collage" data-paper-id="${escapeHTML(pub.id || "")}" data-image-count="${collageItems.length}" aria-label="Featured research image collage for ${escapeHTML(pub.title || "paper")}">
             ${collageItems.map((item, imageIndex) => `
               <button type="button" class="paper-collage-frame ${item.className}" style="--paper-image-position:${escapeHTML(item.position)}" data-zoom-src="${escapeHTML(item.src)}" data-zoom-title="${escapeHTML(item.title)}" aria-label="Preview ${escapeHTML(item.ariaLabel)}">
-                <img src="${escapeHTML(item.src)}" alt="" ${heroImageAttrs(index, imageIndex)} onerror="this.onerror=null;this.src='${DEFAULT_PUBLICATION_IMAGE}';">
+                <img src="${escapeHTML(item.src)}" alt="" ${heroImageAttrs(index + 1, imageIndex)} onerror="this.onerror=null;this.src='${DEFAULT_PUBLICATION_IMAGE}';">
               </button>`).join("")}
           </div>
         </div>
@@ -345,22 +347,7 @@ function renderHeroPublications(pubs) {
 }
 
 function scrollSetup(c, l, r) {
-  if (!c || !l || !r) return;
-  const dx = 400;
-  l.addEventListener("click", () => c.scrollBy({ left: -dx, behavior: "smooth" }));
-  r.addEventListener("click", () => c.scrollBy({ left: dx, behavior: "smooth" }));
-
-  const sync = () => {
-    const canScrollLeft = c.scrollLeft > 8;
-    const canScrollRight = c.scrollLeft < c.scrollWidth - c.clientWidth - 10;
-    l.disabled = !canScrollLeft;
-    r.disabled = !canScrollRight;
-    l.classList.toggle("is-disabled", !canScrollLeft);
-    r.classList.toggle("is-disabled", !canScrollRight);
-  };
-  c.addEventListener("scroll", sync);
-  c.scrollLeft = 0;
-  sync();
+  initializeHorizontalScroller(c, l, r);
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -374,11 +361,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     pubs = await getFeaturedPublications();
   } catch {
-    wrap.textContent = "Unable to load publications.";
+    wrap.innerHTML = '<p class="no-results" role="status">Featured publications could not load. <a class="link-emphasis" href="research.html">Open the publication list to try again.</a></p>';
+    if (left) left.hidden = true;
+    if (right) right.hidden = true;
     return;
   }
   if (!pubs.length) {
     wrap.textContent = "No publications found.";
+    if (left) left.hidden = true;
+    if (right) right.hidden = true;
     return;
   }
 
@@ -387,7 +378,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   wrap.innerHTML = pubs
     .map(p => {
       const url = safeURL(p.url) || safeURL(scholarURL(p.scholar_link)) || safeURL(p.pdf_link) || "#";
-      const thumbnail = publicationImage(p);
+      const thumbnail = versionedImage(publicationImage(p));
       const members = displayMembers(p, 3);
       const venue = formatVenue(p.venue);
       return `

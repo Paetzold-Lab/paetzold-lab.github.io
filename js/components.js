@@ -26,7 +26,7 @@ function loadComponent(name, target) {
     })
     .catch(error => {
       target.dataset.componentError = name;
-      target.innerHTML = "";
+      // Keep the static navigation available if the component request fails.
       console.warn(`Unable to load ${name} component`, error);
     })
     .finally(() => document.dispatchEvent(new CustomEvent(`${name}-loaded`)));

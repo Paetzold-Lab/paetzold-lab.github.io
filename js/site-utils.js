@@ -2,7 +2,7 @@
    Loaded first (classic script, defer) so components.js, main.js,
    featured-publications.js and the publications module can all reuse them. */
 
-const SITE_VERSION = "20260827b";
+const SITE_VERSION = "20260919b";
 
 const SITE_SCRIPT_URL = document.currentScript?.src
   ? new URL(document.currentScript.src, document.baseURI)
@@ -141,18 +141,39 @@ function categoryLabel(id) {
     .join(" ");
 }
 
-/* Single fetch point for publications.json; also registers category labels. */
-async function loadPublicationData() {
-  const response = await fetch(versionedAssetURL("data/publications.json"));
-  if (!response.ok) throw new Error(response.status);
-  const data = await response.json();
-  if (data.categories) Object.assign(CATEGORY_LABELS, data.categories);
-  return {
-    publications: data.publications || [],
-    categories: data.categories || {},
-    lastUpdated: data.last_updated || "",
-    automation: data.automation || null
-  };
+async function fetchJSONWithTimeout(url, options = {}, timeout = 15000) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeout);
+  try {
+    const response = await fetch(url, { ...options, signal: controller.signal });
+    if (!response.ok) throw new Error(`Request failed (${response.status})`);
+    return await response.json();
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+/* Share the in-flight request with site search; failed requests remain retryable. */
+let publicationDataPromise = null;
+function loadPublicationData() {
+  if (!publicationDataPromise) {
+    publicationDataPromise = fetchJSONWithTimeout(versionedAssetURL("data/publications.json"))
+      .then(data => {
+        if (!Array.isArray(data.publications)) throw new Error("Invalid publication data");
+        if (data.categories) Object.assign(CATEGORY_LABELS, data.categories);
+        return {
+          publications: data.publications,
+          categories: data.categories || {},
+          lastUpdated: data.last_updated || "",
+          automation: data.automation || null
+        };
+      })
+      .catch(error => {
+        publicationDataPromise = null;
+        throw error;
+      });
+  }
+  return publicationDataPromise;
 }
 
 function publicationImage(pub) {
