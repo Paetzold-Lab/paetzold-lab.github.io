@@ -55,6 +55,27 @@ Static assets are referenced as `?v=<token>`. When shipping CSS/JS changes, bump
 
 ## Development
 
+### Local preview and checks
+
+Serve the repository root over HTTP so shared components and publication data load:
+
+```bash
+python3 -m http.server 8000 --bind 127.0.0.1
+```
+
+Open `http://127.0.0.1:8000/`. Before publishing, run these dependency-free checks
+(Node.js 18+ and Python 3):
+
+```bash
+node --test scripts/site-regression.test.cjs
+python3 scripts/check-site.py
+```
+
+The regression tests mock network requests; they never send contact messages.
+Also check the homepage, research filters, search, and profile pages at mobile and
+desktop widths. The contact form only confirms receipt after an acknowledged JSON
+response from the Apps Script endpoint; failures retain the entered message.
+
 ### Adding Pages
 
 Create new HTML files based on existing templates, including component placeholders and necessary CSS/JS references.

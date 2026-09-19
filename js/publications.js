@@ -44,27 +44,68 @@ let activeFilter = "all";
 let activeMember = "";
 let searchQuery = "";
 
+let publicationsLoaded = false;
+
 async function fetchPublications() {
-  try {
-    const data = await loadPublicationData();
-    publicationMeta = { lastUpdated: data.lastUpdated, automation: data.automation };
-    if (Object.keys(data.categories).length) {
-      categories = data.categories;
-      updateFilterButtons(Object.keys(categories));
+  const data = await loadPublicationData();
+  publicationMeta = { lastUpdated: data.lastUpdated, automation: data.automation };
+  categories = data.categories;
+  updateFilterButtons(Object.keys(categories));
+  return data.publications.map(p => ({
+    ...p,
+    thumbnail: publicationImage(p),
+    links: {
+      pdf: safeURL(p.pdf_link),
+      scholar: safeURL(p.url) || safeURL(scholarURL(p.scholar_link)),
+      doi: safeURL(doiURL(p.doi)),
+      demo: safeURL(p.demo_url)
     }
-    return data.publications.map(p => ({
-      ...p,
-      thumbnail: publicationImage(p),
-      links: {
-        pdf: safeURL(p.pdf_link),
-        scholar: safeURL(p.url) || safeURL(scholarURL(p.scholar_link)),
-        doi: safeURL(doiURL(p.doi)),
-        demo: safeURL(p.demo_url)
-      }
-    }));
+  }));
+}
+
+async function loadAndRenderPublications() {
+  const container = document.getElementById("publications-container");
+  if (!container) return;
+  publicationsLoaded = false;
+  container.setAttribute("aria-busy", "true");
+  container.innerHTML = '<p class="loading" role="status">Loading publications…</p>';
+  try {
+    publications = await fetchPublications();
+    const params = new URLSearchParams(window.location.search);
+    const topic = params.get("filter");
+    activeFilter = categories[topic] ? topic : "all";
+    const member = params.get("member") || "";
+    activeMember = LAB_MEMBERS.includes(member) ? member : "";
+    const query = (params.get("q") || params.get("search") || "").trim();
+    searchQuery = query.toLowerCase();
+    const input = document.querySelector(".pub-search input");
+    if (input) input.value = query;
+    updateMemberButtons(publications);
+    publicationsLoaded = true;
+    applyFiltersAndRender();
   } catch {
-    return [];
+    container.innerHTML = '<div class="no-results" role="alert"><p>Publications could not be loaded. Please check your connection.</p><button type="button" class="action-button retry-publications">Try again</button></div>';
+    const meta = document.getElementById("pub-update-meta");
+    if (meta) meta.textContent = "Publication list unavailable.";
+    const pages = document.querySelector(".page-numbers");
+    if (pages) pages.innerHTML = "";
+    document.querySelectorAll(".pagination-btn").forEach(button => { button.disabled = true; });
+  } finally {
+    container.removeAttribute("aria-busy");
   }
+}
+
+function clearPublicationFilters() {
+  activeFilter = "all";
+  activeMember = "";
+  searchQuery = "";
+  currentPage = 1;
+  const input = document.querySelector(".pub-search input");
+  if (input) input.value = "";
+  const url = new URL(window.location);
+  ["q", "search", "filter", "member"].forEach(key => url.searchParams.delete(key));
+  window.history.replaceState({}, "", url);
+  applyFiltersAndRender();
 }
 
 function updateFilterButtons(ids) {
@@ -85,38 +126,23 @@ document.addEventListener("DOMContentLoaded", async () => {
   const sortSel = document.getElementById("sort-select");
   const sortDir = document.getElementById("sort-direction");
 
-  container && (container.innerHTML = '<div class="loading">Loading publications...</div>');
-  publications = await fetchPublications();
-  updateMemberButtons(publications);
-  updatePublicationMeta();
-
-  const params = new URLSearchParams(window.location.search);
-  const param = params.get("filter");
-  if (param && (param === "all" || categories[param])) {
-    activeFilter = param;
-    document.querySelectorAll(".pub-filters button").forEach(b => b.classList.toggle("active", b.dataset.filter === activeFilter));
-  }
-  const memberParam = params.get("member");
-  if (memberParam) {
-    activeMember = memberParam;
-    document.querySelectorAll(".pub-member-filters button").forEach(b => b.classList.toggle("active", b.dataset.member === activeMember));
-  }
-  const queryParam = params.get("q") || params.get("search");
-  if (queryParam) {
-    searchQuery = queryParam.toLowerCase();
-    if (searchInput) searchInput.value = queryParam;
-  }
-  applyFiltersAndRender();
+  await loadAndRenderPublications();
+  container?.addEventListener("click", event => {
+    if (event.target.closest(".retry-publications")) loadAndRenderPublications();
+    if (event.target.closest("[data-reset-filters]")) clearPublicationFilters();
+  });
+  document.getElementById("clear-pub-filters")?.addEventListener("click", clearPublicationFilters);
 
   let to;
   searchInput?.addEventListener("input", e => {
     clearTimeout(to);
     to = setTimeout(() => {
-      searchQuery = e.target.value.toLowerCase();
+      searchQuery = e.target.value.trim().toLowerCase();
       currentPage = 1;
       applyFiltersAndRender();
       const url = new URL(window.location);
       const value = e.target.value.trim();
+      url.searchParams.delete("search");
       value ? url.searchParams.set("q", value) : url.searchParams.delete("q");
       window.history.replaceState({}, "", url);
     }, 300);
@@ -127,7 +153,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (pageButton) {
       currentPage = +pageButton.dataset.page;
       applyFiltersAndRender();
-      window.scrollTo({ top: document.querySelector(".publications").offsetTop - 100, behavior: "smooth" });
+      window.scrollTo({ top: document.querySelector(".publications").offsetTop - 100, behavior: isReducedMotion() ? "instant" : "smooth" });
     }
   });
 
@@ -135,7 +161,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (currentPage > 1) {
       currentPage--;
       applyFiltersAndRender();
-      window.scrollTo({ top: document.querySelector(".publications").offsetTop - 100, behavior: "smooth" });
+      window.scrollTo({ top: document.querySelector(".publications").offsetTop - 100, behavior: isReducedMotion() ? "instant" : "smooth" });
     }
   });
 
@@ -144,7 +170,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (currentPage < total) {
       currentPage++;
       applyFiltersAndRender();
-      window.scrollTo({ top: document.querySelector(".publications").offsetTop - 100, behavior: "smooth" });
+      window.scrollTo({ top: document.querySelector(".publications").offsetTop - 100, behavior: isReducedMotion() ? "instant" : "smooth" });
     }
   });
 
@@ -216,6 +242,19 @@ function attachMemberFilterListeners() {
 }
 
 function applyFiltersAndRender() {
+  if (!publicationsLoaded) return;
+  document.querySelectorAll(".pub-filters button").forEach(button => {
+    const selected = button.dataset.filter === activeFilter;
+    button.classList.toggle("active", selected);
+    button.setAttribute("aria-pressed", String(selected));
+  });
+  document.querySelectorAll(".pub-member-filters button").forEach(button => {
+    const selected = button.dataset.member === activeMember;
+    button.classList.toggle("active", selected);
+    button.setAttribute("aria-pressed", String(selected));
+  });
+  const clear = document.getElementById("clear-pub-filters");
+  if (clear) clear.disabled = activeFilter === "all" && !activeMember && !searchQuery;
   const filtered = getFilteredPublications();
   const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
   currentPage = Math.min(currentPage, totalPages);
@@ -244,7 +283,7 @@ function getFilteredPublications() {
     activeFilter === "all" ? publications : publications.filter(p => p.categories?.includes(activeFilter));
 
   if (searchQuery) {
-    const q = searchQuery;
+    const q = searchQuery.trim();
     filtered = filtered.filter(
       p =>
         String(p.title || "").toLowerCase().includes(q) ||
@@ -253,6 +292,7 @@ function getFilteredPublications() {
         String(p.authors || "").toLowerCase().includes(q) ||
         String(p.venue || "").toLowerCase().includes(q) ||
         String(p.doi || "").toLowerCase().includes(q) ||
+        String(p.year || "").includes(q) ||
         (p.source_members || []).join(" ").toLowerCase().includes(q) ||
         (p.categories || []).map(categoryLabel).join(" ").toLowerCase().includes(q) ||
         (p.llm_tags || []).join(" ").toLowerCase().includes(q)
@@ -264,8 +304,8 @@ function getFilteredPublications() {
     filtered = filtered.filter(p => {
       const members = (p.source_members || []).map(normalizeAuthorName);
       if (members.includes(target)) return true;
-      const authorText = normalizeAuthorName(String(p.authors || ""));
-      return aliases.some(alias => authorText.includes(alias));
+      const authors = String(p.authors || "").split(/[,;]|\band\b/i).map(normalizeAuthorName);
+      return aliases.some(alias => authors.includes(alias));
     });
   }
   return sortPublications(filtered);
@@ -323,8 +363,8 @@ function formatAuthors(raw) {
 function sortPublications(arr) {
   return [...arr].sort((a, b) => {
     if (sortConfig.field === "priority") {
-      const pa = Number.isFinite(+a.promotion_rank) ? +a.promotion_rank : 9999;
-      const pb = Number.isFinite(+b.promotion_rank) ? +b.promotion_rank : 9999;
+      const pa = a.promotion_rank != null && Number.isFinite(+a.promotion_rank) ? +a.promotion_rank : 9999;
+      const pb = b.promotion_rank != null && Number.isFinite(+b.promotion_rank) ? +b.promotion_rank : 9999;
       if (pa !== pb) return sortConfig.ascending ? pa - pb : pb - pa;
       const yearDiff = (+b.year || 0) - (+a.year || 0);
       if (yearDiff) return yearDiff;
@@ -371,7 +411,7 @@ function renderPublication(p, index = 0) {
   const title = escapeHTML(p.title);
   const venue = escapeHTML(formatVenue(p.venue));
   const fullVenue = escapeHTML(p.venue || formatVenue(p.venue));
-  const thumbnail = escapeHTML(publicationImage(p).trim());
+  const thumbnail = escapeHTML(versionedImage(publicationImage(p)));
   const imageLoading = index === 0 ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
   const doi = p.links.doi && p.links.doi !== p.links.scholar ? p.links.doi : "";
   const citationLabel = p.citations ? `${p.citations} citation${+p.citations === 1 ? "" : "s"}` : "";
@@ -409,7 +449,7 @@ function renderPublications(list) {
   if (!box) return;
 
   if (!list.length) {
-    box.innerHTML = '<div class="no-results">No publications found. Try changing your search criteria.</div>';
+    box.innerHTML = '<div class="no-results">No publications match these filters. <button type="button" class="action-button" data-reset-filters>Clear filters</button></div>';
     const pages = document.querySelector(".page-numbers");
     if (pages) pages.innerHTML = "";
     document.querySelector(".pagination-btn.prev")?.setAttribute("disabled", "");

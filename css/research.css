@@ -818,6 +818,9 @@
   }
   .page-numbers {
     flex: 1 1 100%;
+    flex-wrap: wrap;
+    min-width: 0;
+    gap: 0.5rem;
     justify-content: center;
     order: 2;
   }

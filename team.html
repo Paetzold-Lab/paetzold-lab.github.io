@@ -25,25 +25,47 @@
   <meta name="twitter:description" content="Meet the researchers and collaborators of Paetzold Lab at Weill Cornell Medicine and Cornell Tech." />
   <meta name="twitter:image" content="https://paetzold-lab.github.io/images/team/paetzold-lab-group-2026.jpg" />
 
-  <link rel="stylesheet" href="css/style.css?v=20260827b" />
-  <link rel="stylesheet" href="css/research.css?v=20260827b">
-  <script src="js/site-utils.js?v=20260827b" defer></script>
-  <script src="js/components.js?v=20260827b" defer></script>
-  <script src="js/main.js?v=20260827b" defer></script>
+  <link rel="stylesheet" href="css/style.css?v=20260919b" />
+  <link rel="stylesheet" href="css/research.css?v=20260919b">
+  <script src="js/site-utils.js?v=20260919b" defer></script>
+  <script src="js/components.js?v=20260919b" defer></script>
+  <script src="js/main.js?v=20260919b" defer></script>
 </head>
 <body>
   <!-- Component placeholders -->
-  <div id="header-placeholder"></div>
+  <div id="header-placeholder">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" id="nav-logo" href="index.html">Paetzold Lab</a>
+
+    <nav class="top-nav" aria-label="Primary navigation">
+      <ul>
+        <li><a id="nav-home"    href="index.html">Home</a></li>
+        <li><a id="nav-research" href="research.html">Research</a></li>
+        <li><a id="nav-team"    href="team.html">Team</a></li>
+        <li><a id="nav-join"    href="join_us.html">Join Us</a></li>
+        <li><a id="nav-contact" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <button hidden class="search-btn" aria-label="Open search"><span class="search-icon" aria-hidden="true"></span></button>
+    </div>
+  </div>
+
+</header>
+  </div>
   <div id="search-overlay-placeholder"></div>
   
-  <main class="team-page" id="main-content">
+  <main class="team-page" id="main-content" tabindex="-1">
     <h1 class="visually-hidden">Paetzold Lab Team</h1>
     <section class="team-hero" aria-label="Paetzold Lab group photo">
       <picture>
         <source
           srcset="images/team/paetzold-lab-group-2026.jpg 1200w, images/team/paetzold-lab-group-2026@2x.jpg 2400w"
           sizes="(max-width: 1240px) calc(100vw - 4rem), 1200px">
-        <img src="images/team/paetzold-lab-group-2026.jpg" alt="Paetzold Lab group photo at Cornell Tech" loading="eager" fetchpriority="high" decoding="async">
+        <img src="images/team/paetzold-lab-group-2026.jpg" alt="Paetzold Lab group photo at Cornell Tech" loading="eager" fetchpriority="high" decoding="async" width="1200" height="675">
       </picture>
     </section>
 
@@ -52,7 +74,7 @@
       <h2>Principal Investigator</h2>
       <div class="team-grid">
         <a href="pi.html" class="team-card">
-          <img src="images/portrait/Johannes.png" alt="Johannes C. Paetzold" loading="lazy" decoding="async" />
+          <img src="images/portrait/Johannes-2026.jpg" alt="Johannes C. Paetzold" loading="lazy" decoding="async" width="900" height="1206">
           <h3>Johannes C. Paetzold</h3>
         </a>
       </div>
@@ -64,12 +86,12 @@
       <div class="team-grid">
 
         <a href="team_members_subpage/Lucas.html" class="team-card">
-          <img src="images/portrait/Lucas.jpg" alt="Lucas Stoffl" loading="lazy" decoding="async" />
+          <img src="images/portrait/Lucas.jpg" alt="Lucas Stoffl" loading="lazy" decoding="async" width="1200" height="1200">
           <h3>Lucas Stoffl</h3>
         </a>
 
         <a href="team_members_subpage/Roel.html" class="team-card">
-          <img src="images/portrait/Roel.jpg" alt="Roel van Herten" loading="lazy" decoding="async" />
+          <img src="images/portrait/Roel.jpg" alt="Roel van Herten" loading="lazy" decoding="async" width="1853" height="1853">
           <h3>Roel van Herten</h3>
         </a>
 
@@ -82,22 +104,22 @@
       <div class="team-grid">
 
         <a href="team_members_subpage/Adina.html" class="team-card">
-          <img src="images/portrait/Adina.jpeg" alt="Adina Scheinfeld" loading="lazy" decoding="async" />
+          <img src="images/portrait/Adina.jpeg" alt="Adina Scheinfeld" loading="lazy" decoding="async" width="746" height="746">
           <h3>Adina Scheinfeld</h3>
         </a>
 
         <a href="research.html?member=Alexander%20Berger" class="team-card" aria-label="View Alexander Berger publications">
-          <img src="images/portrait/Alex.png" alt="Alexander Berger" loading="lazy" decoding="async" />
+          <img src="images/portrait/Alex.png" alt="Alexander Berger" loading="lazy" decoding="async" width="270" height="270">
           <h3>Alexander Berger</h3>
         </a>
 
         <a href="team_members_subpage/Matt.html" class="team-card">
-          <img src="images/portrait/Matt.jpeg" alt="Chenjun Li" loading="lazy" decoding="async" />
+          <img src="images/portrait/Matt.jpeg" alt="Chenjun Li" loading="lazy" decoding="async" width="320" height="320">
           <h3>Chenjun Li</h3>
         </a>
 
         <a href="team_members_subpage/Laurin.html" class="team-card" aria-label="View Laurin Lux profile">
-          <img src="images/portrait/Laurin.jpg" alt="Laurin Lux" loading="lazy" decoding="async" />
+          <img src="images/portrait/Laurin.jpg" alt="Laurin Lux" loading="lazy" decoding="async" width="270" height="270">
           <h3>Laurin Lux</h3>
         </a>
         
@@ -123,7 +145,7 @@
       <div class="collab-container">
         <div class="collab-grid">
           <a href="https://aim-lab.io/" class="collab-item" target="_blank" rel="noopener">
-              <img src="images/collaborators/tum-logo.png" alt="Lab for AI in Medicine" loading="lazy" decoding="async">
+              <img src="images/collaborators/tum-logo.png" alt="Lab for AI in Medicine" loading="lazy" decoding="async" width="500" height="500">
               <div class="collab-info">
                   <h3>Lab for AI in Medicine</h3>
                   <p>Technical University of Munich</p>
@@ -131,7 +153,7 @@
           </a>
 
           <a href="https://sabuncu.engineering.cornell.edu/" class="collab-item" target="_blank" rel="noopener">
-              <img src="images/collaborators/cornell-bnw.png" alt="Sabuncu Lab" loading="lazy" decoding="async">
+              <img src="images/collaborators/cornell-bnw.png" alt="Sabuncu Lab" loading="lazy" decoding="async" width="225" height="225">
               <div class="collab-info">
                   <h3>Sabuncu Lab</h3>
                   <p>Cornell University</p>
@@ -139,14 +161,14 @@
           </a>
 
           <a href="https://mini-cornell.github.io/" class="collab-item" target="_blank" rel="noopener">
-              <img src="images/collaborators/qingyulab_logo.png" alt="MINI Lab" loading="lazy" decoding="async">
+              <img src="images/collaborators/qingyulab_logo.png" alt="MINI Lab" loading="lazy" decoding="async" width="678" height="582">
               <div class="collab-info">
                   <h3>MINI Lab</h3>
                   <p>Weill Cornell Medicine</p>
               </div>
           </a>
           <a href="https://dqbm.uzh.ch/en/research/menze.html" class="collab-item" target="_blank" rel="noopener">
-            <img src="images/collaborators/UZH.png" alt="Menze Group" loading="lazy" decoding="async">
+            <img src="images/collaborators/UZH.png" alt="Menze Group" loading="lazy" decoding="async" width="864" height="842">
             <div class="collab-info">
                 <h3>Menze Group</h3>
                 <p>University of Zurich</p>
@@ -154,7 +176,7 @@
           </a>
 
           <a href="https://martinmenten.github.io/" class="collab-item" target="_blank" rel="noopener">
-            <img src="images/collaborators/tum-logo.png" alt="Menten Group" loading="lazy" decoding="async">
+            <img src="images/collaborators/tum-logo.png" alt="Menten Group" loading="lazy" decoding="async" width="500" height="500">
             <div class="collab-info">
                 <h3>Menten Group</h3>
                 <p>Technical University of Munich</p>
