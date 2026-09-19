@@ -25,35 +25,59 @@
   <meta name="twitter:description" content="Contact Paetzold Lab at Weill Cornell Medicine and Cornell Tech." />
   <meta name="twitter:image" content="https://paetzold-lab.github.io/images/team/paetzold-lab-group-2026.jpg" />
 
-  <link rel="stylesheet" href="css/style.css?v=20260827b">
-  <link rel="stylesheet" href="css/contact.css?v=20260827b">
-  <script src="js/site-utils.js?v=20260827b" defer></script>
-  <script src="js/components.js?v=20260827b" defer></script>
-  <script src="js/main.js?v=20260827b" defer></script>
+  <link rel="stylesheet" href="css/style.css?v=20260919b">
+  <link rel="stylesheet" href="css/contact.css?v=20260919b">
+  <script src="js/site-utils.js?v=20260919b" defer></script>
+  <script src="js/components.js?v=20260919b" defer></script>
+  <script src="js/main.js?v=20260919b" defer></script>
 </head>
 <body>
-  <div id="header-placeholder"></div>
+  <div id="header-placeholder">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" id="nav-logo" href="index.html">Paetzold Lab</a>
+
+    <nav class="top-nav" aria-label="Primary navigation">
+      <ul>
+        <li><a id="nav-home"    href="index.html">Home</a></li>
+        <li><a id="nav-research" href="research.html">Research</a></li>
+        <li><a id="nav-team"    href="team.html">Team</a></li>
+        <li><a id="nav-join"    href="join_us.html">Join Us</a></li>
+        <li><a id="nav-contact" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <button hidden class="search-btn" aria-label="Open search"><span class="search-icon" aria-hidden="true"></span></button>
+    </div>
+  </div>
+
+</header>
+  </div>
   <div id="search-overlay-placeholder"></div>
 
-  <main class="contact-page" id="main-content">
+  <main class="contact-page" id="main-content" tabindex="-1">
     <div class="contact-container">
       <section class="contact-form-section">
         <h1 class="typing-title">Send us a message</h1>
         <form id="contact-form" class="contact-form">
           <div class="form-group">
-            <input id="name" name="name" type="text" placeholder=" " required>
+            <input id="name" name="name" type="text" placeholder=" " required autocomplete="name" maxlength="120">
             <label for="name">Your Name</label><span class="focus-border"></span>
           </div>
           <div class="form-group">
-            <input id="email" name="email" type="email" placeholder=" " required>
+            <input id="email" name="email" type="email" placeholder=" " required autocomplete="email" maxlength="200">
             <label for="email">Your Email</label><span class="focus-border"></span>
           </div>
           <div class="form-group">
-            <textarea id="message" name="message" placeholder=" " required></textarea>
+            <textarea id="message" name="message" placeholder=" " required minlength="10" maxlength="4000"></textarea>
             <label for="message">Your Message</label><span class="focus-border"></span>
           </div>
           <button type="submit" class="submit-btn">Send<span class="btn-hover"></span></button>
         </form>
+        <p class="contact-alternative">Prefer email? <a href="mailto:jop4027@med.cornell.edu">jop4027@med.cornell.edu</a></p>
+        <noscript><p>Please use the email link to contact us; the form requires JavaScript.</p></noscript>
       </section>
 
       <section class="map-section">

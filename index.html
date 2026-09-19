@@ -19,11 +19,11 @@
   <meta property="og:description" content="Paetzold Lab develops machine learning methods for computer vision, medical imaging, topology, graph learning, and generative AI at Weill Cornell Medicine and Cornell Tech." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://paetzold-lab.github.io/" />
-  <meta property="og:image" content="https://paetzold-lab.github.io/images/team/paetzold-lab-group-2026.jpg" />
+  <meta property="og:image" content="https://paetzold-lab.github.io/images/team/paetzold-lab-group-2026.jpg?v=20260919b" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Paetzold Lab" />
   <meta name="twitter:description" content="Paetzold Lab develops machine learning methods for computer vision, medical imaging, topology, graph learning, and generative AI at Weill Cornell Medicine and Cornell Tech." />
-  <meta name="twitter:image" content="https://paetzold-lab.github.io/images/team/paetzold-lab-group-2026.jpg" />
+  <meta name="twitter:image" content="https://paetzold-lab.github.io/images/team/paetzold-lab-group-2026.jpg?v=20260919b" />
   <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"WebSite","name":"Paetzold Lab","alternateName":["Paetzold Laboratory","Paetzold Lab at Weill Cornell Medicine","paetzold-lab.github.io"],"url":"https://paetzold-lab.github.io/"}
   </script>
@@ -31,30 +31,73 @@
     {"@context":"https://schema.org","@type":"Organization","name":"Paetzold Lab","url":"https://paetzold-lab.github.io/","logo":"https://paetzold-lab.github.io/images/web_logo.png","description":"Paetzold Lab develops machine learning methods for computer vision, medical imaging, topology, graph learning, and generative AI at Weill Cornell Medicine and Cornell Tech.","parentOrganization":[{"@type":"CollegeOrUniversity","name":"Weill Cornell Medicine"},{"@type":"CollegeOrUniversity","name":"Cornell Tech"}]}
   </script>
 
-  <link rel="stylesheet" href="css/style.css?v=20260827b" />
-  <link rel="stylesheet" href="css/contact.css?v=20260827b" />
-  <link rel="stylesheet" href="css/research_show.css?v=20260827b" />
-  <script src="js/site-utils.js?v=20260827b" defer></script>
-  <script src="js/components.js?v=20260827b" defer></script>
-  <script src="js/main.js?v=20260827b" defer></script>
-  <script src="js/featured-publications.js?v=20260827b" defer></script>
+  <link rel="stylesheet" href="css/style.css?v=20260919b" />
+  <link rel="stylesheet" href="css/contact.css?v=20260919b" />
+  <link rel="stylesheet" href="css/research_show.css?v=20260919b" />
+  <script src="js/site-utils.js?v=20260919b" defer></script>
+  <script src="js/components.js?v=20260919b" defer></script>
+  <script src="js/main.js?v=20260919b" defer></script>
+  <script src="js/featured-publications.js?v=20260919b" defer></script>
 </head>
 <body>
   <!-- Component placeholders -->
-  <div id="header-placeholder"></div>
+  <div id="header-placeholder">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" id="nav-logo" href="index.html">Paetzold Lab</a>
+
+    <nav class="top-nav" aria-label="Primary navigation">
+      <ul>
+        <li><a id="nav-home"    href="index.html">Home</a></li>
+        <li><a id="nav-research" href="research.html">Research</a></li>
+        <li><a id="nav-team"    href="team.html">Team</a></li>
+        <li><a id="nav-join"    href="join_us.html">Join Us</a></li>
+        <li><a id="nav-contact" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <button hidden class="search-btn" aria-label="Open search"><span class="search-icon" aria-hidden="true"></span></button>
+    </div>
+  </div>
+
+</header>
+  </div>
   <div id="search-overlay-placeholder"></div>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
+  <h1 class="visually-hidden">Paetzold Lab</h1>
 
   <!-- ========== HERO CAROUSEL (Featured Paper Slides) ========== -->
-  <section class="hero-carousel paper-hero" aria-label="Featured research">
-    <div class="carousel-wrapper" id="carousel-wrapper" aria-live="polite"></div>
+  <section class="hero-carousel paper-hero" aria-label="Featured research" aria-roledescription="carousel">
+    <div class="carousel-wrapper" id="carousel-wrapper" aria-live="off">
+      <div class="carousel-slide paper-slide lab-intro-slide active" aria-hidden="false">
+        <div class="paper-bg lab-intro-bg">
+          <figure class="lab-intro-photo">
+            <img src="images/team/paetzold-lab-group-2026.jpg?v=20260919b"
+              srcset="images/team/paetzold-lab-group-2026.jpg?v=20260919b 1200w, images/team/paetzold-lab-group-2026@2x.jpg?v=20260919b 2400w"
+              sizes="(max-width: 768px) 92vw, 720px" alt="Paetzold Lab group photo"
+              loading="eager" fetchpriority="high" decoding="async" width="1200" height="675">
+          </figure>
+        </div>
+        <div class="slide-content paper-slide-content lab-intro-content">
+          <h2>Machine learning for medical imaging, biology, and explainable AI.</h2>
+          <p class="hero-paper-summary">The Paetzold Lab builds interpretable AI systems that connect geometric learning, generative models, multimodal data, and clinical translation.</p>
+          <div class="lab-intro-actions">
+            <a href="research.html" class="hero-btn">Explore research</a>
+            <a href="team.html" class="hero-btn secondary">Meet the team</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <button type="button" class="carousel-pause" id="carousel-pause" hidden>Pause slideshow</button>
     <!-- Carousel indicators -->
     <div class="carousel-indicators" id="carousel-indicators"></div>
     <!-- Carousel arrows -->
-    <button class="carousel-arrow left" id="carousel-prev" aria-label="Previous slide"><span>&lt;</span></button>
-    <button class="carousel-arrow right" id="carousel-next" aria-label="Next slide"><span>&gt;</span></button>
+    <button class="carousel-arrow left" id="carousel-prev" hidden aria-label="Previous slide"><span>&lt;</span></button>
+    <button class="carousel-arrow right" id="carousel-next" hidden aria-label="Next slide"><span>&gt;</span></button>
   </section>
 
   <!-- Research Showcase Section -->
@@ -69,9 +112,9 @@
 
   <!-- ========== Featured Publications Section ========== -->
   <section class="publications-showcase">
-    <!-- <div class="section-header">
+    <div class="section-header">
       <h2>Featured Publications</h2>
-    </div> -->
+    </div>
     
     <div class="pub-featured-wrapper">
       <button class="pub-scroll-btn left" id="pub-left" aria-label="Previous featured publications">←</button>
@@ -94,62 +137,66 @@
 <!-- ========== GALLERY CARDS ========== -->
 <section class="small-cards-row auto-scroll-gallery">
   <div class="section-header">
-    <h2>Gallery</h2>
+    <h2 id="gallery-title">Gallery</h2>
+    <div class="gallery-controls">
+      <button type="button" class="action-button" id="gallery-prev" aria-label="Previous gallery photos">←</button>
+      <button type="button" class="action-button" id="gallery-next" aria-label="Next gallery photos">→</button>
+    </div>
   </div>
   <div class="gallery-overflow-container">
-    <div class="cards-scroll-wrapper infinite-scroll">
+    <div class="cards-scroll-wrapper infinite-scroll is-static" tabindex="0" role="region" aria-labelledby="gallery-title">
       <!-- Original cards -->
       <div class="small-card featured-group-photo">
         <div class="small-card-image">
           <img
-            src="images/team/paetzold-lab-group-2026.jpg"
-            srcset="images/team/paetzold-lab-group-2026.jpg 1200w, images/team/paetzold-lab-group-2026@2x.jpg 2400w"
+            src="images/team/paetzold-lab-group-2026.jpg?v=20260919b"
+            srcset="images/team/paetzold-lab-group-2026.jpg?v=20260919b 1200w, images/team/paetzold-lab-group-2026@2x.jpg?v=20260919b 2400w"
             sizes="(max-width: 768px) 80vw, 420px"
             alt="Paetzold Lab group photo at Cornell Tech"
             loading="lazy"
-            decoding="async" />
+            decoding="async" width="1200" height="675">
         </div>
         <div class="card-year">Paetzold Lab 2026</div>
       </div>
       <div class="small-card">
         <div class="small-card-image">
-          <img src="images/team/wacv_0.jpg" alt="Lab members at WACV 2025" loading="lazy" decoding="async" />
+          <img src="images/team/wacv_0.jpg" alt="Lab members at WACV 2025" loading="lazy" decoding="async" width="1350" height="1800">
         </div>
         <div class="card-year">WACV 2025</div>
       </div>
       <div class="small-card">
         <div class="small-card-image">
-          <img src="images/team/wacv_1.jpeg" alt="Lab members presenting at WACV 2025" loading="lazy" decoding="async" />
+          <img src="images/team/wacv_1.jpeg" alt="Lab members presenting at WACV 2025" loading="lazy" decoding="async" width="1468" height="1214">
         </div>
         <div class="card-year">WACV 2025</div>
       </div>
       <div class="small-card">
         <div class="small-card-image">
-          <img src="images/team/wacv_2.png" alt="Poster session at WACV 2025" loading="lazy" decoding="async" />
+          <img src="images/team/wacv_2.png" alt="Poster session at WACV 2025" loading="lazy" decoding="async" width="1176" height="670">
         </div>
         <div class="card-year">WACV 2025</div>
       </div>
       <div class="small-card">
         <div class="small-card-image">
-          <img src="images/team/2024_01.jpg" alt="Lab members at MICCAI 2024" loading="lazy" decoding="async" />
+          <img src="images/team/2024_01.jpg" alt="Lab members at MICCAI 2024" loading="lazy" decoding="async" width="1290" height="1366">
         </div>
         <div class="card-year">MICCAI 2024</div>
       </div>
       <div class="small-card">
         <div class="small-card-image">
-          <img src="images/team/MICCAI.jpeg" alt="Lab members at MICCAI 2024" loading="lazy" decoding="async" />
+          <img src="images/team/MICCAI.jpeg" alt="Lab members at MICCAI 2024" loading="lazy" decoding="async" width="1169" height="1800">
         </div>
         <div class="card-year">MICCAI 2024</div>
       </div>
       <div class="small-card">
         <div class="small-card-image">
-          <img src="images/team/campus.jpeg" alt="Cornell Tech campus on Roosevelt Island" loading="lazy" decoding="async" />
+          <img src="images/team/campus.jpeg" alt="Cornell Tech campus on Roosevelt Island" loading="lazy" decoding="async" width="1800" height="1350">
         </div>
         <div class="card-year">The Tech campus</div>
       </div>
       <div class="small-card">
         <div class="small-card-image">
-          <img src="images/team/Cornell-Tech.jpg" alt="Cornell Tech" loading="lazy" decoding="async" />
+          <img src="images/team/Cornell-Tech.jpg" alt="Cornell Tech" loading="lazy" decoding="async" width="1000" height="667">
         </div>
         <div class="card-year">The Tech campus</div>
       </div>
@@ -164,19 +211,19 @@
         <h2 class="typing-title">Send us a message</h2>
         <form class="contact-form" id="contact-form">
           <div class="form-group">
-            <input type="text" id="name" name="name" placeholder=" " required>
+            <input type="text" id="name" name="name" placeholder=" " required autocomplete="name" maxlength="120">
             <label for="name">Your Name</label>
             <span class="focus-border"></span>
           </div>
           
           <div class="form-group">
-            <input type="email" id="email" name="email" placeholder=" " required>
+            <input type="email" id="email" name="email" placeholder=" " required autocomplete="email" maxlength="200">
             <label for="email">Your Email</label>
             <span class="focus-border"></span>
           </div>
           
           <div class="form-group">
-            <textarea id="message" name="message" placeholder=" " required></textarea>
+            <textarea id="message" name="message" placeholder=" " required minlength="10" maxlength="4000"></textarea>
             <label for="message">Your Message</label>
             <span class="focus-border"></span>
           </div>
@@ -186,6 +233,8 @@
             <span class="btn-hover"></span>
           </button>
         </form>
+        <p class="contact-alternative">Prefer email? <a href="mailto:jop4027@med.cornell.edu">jop4027@med.cornell.edu</a></p>
+        <noscript><p>Please use the email link to contact us; the form requires JavaScript.</p></noscript>
       </section>
 
       <section class="map-section">

@@ -25,19 +25,41 @@
   <meta name="twitter:description" content="Recent and representative publications from Paetzold Lab in medical imaging, topology, graph learning, generative AI, and vision-language models." />
   <meta name="twitter:image" content="https://paetzold-lab.github.io/images/team/paetzold-lab-group-2026.jpg" />
 
-  <link rel="stylesheet" href="css/style.css?v=20260827b">
-  <link rel="stylesheet" href="css/research.css?v=20260827b">
-  <script src="js/site-utils.js?v=20260827b" defer></script>
-  <script src="js/components.js?v=20260827b" defer></script>
-  <script src="js/main.js?v=20260827b" defer></script>
-  <script type="module" src="js/publications.js?v=20260827b" defer></script>
+  <link rel="stylesheet" href="css/style.css?v=20260919b">
+  <link rel="stylesheet" href="css/research.css?v=20260919b">
+  <script src="js/site-utils.js?v=20260919b" defer></script>
+  <script src="js/components.js?v=20260919b" defer></script>
+  <script src="js/main.js?v=20260919b" defer></script>
+  <script type="module" src="js/publications.js?v=20260919b" defer></script>
 </head>
 <body>
   <!-- Component placeholders -->
-  <div id="header-placeholder"></div>
+  <div id="header-placeholder">
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" id="nav-logo" href="index.html">Paetzold Lab</a>
+
+    <nav class="top-nav" aria-label="Primary navigation">
+      <ul>
+        <li><a id="nav-home"    href="index.html">Home</a></li>
+        <li><a id="nav-research" href="research.html">Research</a></li>
+        <li><a id="nav-team"    href="team.html">Team</a></li>
+        <li><a id="nav-join"    href="join_us.html">Join Us</a></li>
+        <li><a id="nav-contact" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <button hidden class="search-btn" aria-label="Open search"><span class="search-icon" aria-hidden="true"></span></button>
+    </div>
+  </div>
+
+</header>
+  </div>
   <div id="search-overlay-placeholder"></div>
       
-  <main class="research-page" id="main-content">
+  <main class="research-page" id="main-content" tabindex="-1">
     <section class="publications" id="publications">
       <header class="publications-head">
         <p class="section-kicker">Research</p>
@@ -64,7 +86,7 @@
         </div>
         
         <!-- Bottom row: Filter buttons -->
-        <div class="pub-filters">
+        <div class="pub-filters" role="group" aria-label="Filter publications by topic">
           <button class="active" data-filter="all">All</button>
           <button data-filter="mri">MRI</button>
           <button data-filter="ct">CT</button>
@@ -77,12 +99,13 @@
           <button data-filter="topology">Topology</button>
           <button data-filter="uncertainty">Uncertainty</button>
         </div>
-        <div class="pub-member-filters" aria-label="Filter publications by lab member"></div>
+        <div class="pub-member-filters" role="group" aria-label="Filter publications by lab member"></div>
+        <button type="button" class="action-button" id="clear-pub-filters" disabled>Clear filters</button>
         <div class="pub-update-meta" id="pub-update-meta" aria-live="polite"></div>
       </div>
 
       <div class="pub-grid" id="publications-container">
-        <!-- Publications will be dynamically inserted here -->
+        <noscript><p>The publication filters require JavaScript. You can also <a class="link-emphasis" href="https://scholar.google.de/citations?user=7Bv7PmgAAAAJ">browse publications on Google Scholar</a>.</p></noscript>
       </div>
 
       <div class="pagination">
@@ -108,7 +131,7 @@
         <div class="collab-container">
           <div class="collab-grid">
             <a href="https://aim-lab.io/" class="collab-item" target="_blank" rel="noopener">
-                <img src="images/collaborators/tum-logo.png" alt="Lab for AI in Medicine" loading="lazy" decoding="async">
+                <img src="images/collaborators/tum-logo.png" alt="Lab for AI in Medicine" loading="lazy" decoding="async" width="500" height="500">
                 <div class="collab-info">
                     <h3>Lab for AI in Medicine</h3>
                     <p>Technical University of Munich</p>
@@ -116,7 +139,7 @@
             </a>
 
             <a href="https://sabuncu.engineering.cornell.edu/" class="collab-item" target="_blank" rel="noopener">
-                <img src="images/collaborators/cornell-bnw.png" alt="Sabuncu Lab" loading="lazy" decoding="async">
+                <img src="images/collaborators/cornell-bnw.png" alt="Sabuncu Lab" loading="lazy" decoding="async" width="225" height="225">
                 <div class="collab-info">
                     <h3>Sabuncu Lab</h3>
                     <p>Cornell University</p>
@@ -124,7 +147,7 @@
             </a>
 
             <a href="https://mini-cornell.github.io/" class="collab-item" target="_blank" rel="noopener">
-                <img src="images/collaborators/qingyulab_logo.png" alt="MINI Lab" loading="lazy" decoding="async">
+                <img src="images/collaborators/qingyulab_logo.png" alt="MINI Lab" loading="lazy" decoding="async" width="678" height="582">
                 <div class="collab-info">
                     <h3>MINI Lab</h3>
                     <p>Weill Cornell Medicine</p>
@@ -132,7 +155,7 @@
             </a>
 
             <a href="https://dqbm.uzh.ch/en/research/menze.html" class="collab-item" target="_blank" rel="noopener">
-              <img src="images/collaborators/UZH.png" alt="Menze Group" loading="lazy" decoding="async">
+              <img src="images/collaborators/UZH.png" alt="Menze Group" loading="lazy" decoding="async" width="864" height="842">
               <div class="collab-info">
                   <h3>Menze Group</h3>
                   <p>University of Zurich</p>
@@ -140,7 +163,7 @@
             </a>
 
             <a href="https://martinmenten.github.io/" class="collab-item" target="_blank" rel="noopener">
-              <img src="images/collaborators/tum-logo.png" alt="Menten Group" loading="lazy" decoding="async">
+              <img src="images/collaborators/tum-logo.png" alt="Menten Group" loading="lazy" decoding="async" width="500" height="500">
               <div class="collab-info">
                   <h3>Menten Group</h3>
                   <p>Technical University of Munich</p>
