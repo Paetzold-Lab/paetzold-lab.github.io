@@ -13,10 +13,11 @@ jobs:
     timeout-minutes: 15
     env:
       PYTHONDONTWRITEBYTECODE: "1"
-      TMPDIR: ${{ runner.temp }}
-      NODE_PATH: ${{ runner.temp }}/site-browser/node_modules
-      PLAYWRIGHT_BROWSERS_PATH: ${{ runner.temp }}/site-browsers
     steps:
+      - name: Configure temporary paths
+        run: |
+          printf 'TMPDIR=%s\nNODE_PATH=%s/site-browser/node_modules\nPLAYWRIGHT_BROWSERS_PATH=%s/site-browsers\n' \
+            "$RUNNER_TEMP" "$RUNNER_TEMP" "$RUNNER_TEMP" >> "$GITHUB_ENV"
       - uses: actions/checkout@v7
         with:
           persist-credentials: false
