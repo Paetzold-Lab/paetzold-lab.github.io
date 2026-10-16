@@ -38,7 +38,7 @@ test('safe relative, HTTPS and email links are retained', () => {
 });
 test('publication requests are shared by concurrent consumers', async () => {
   let calls = 0;
-  const ctx = context({ fetch: async () => { calls++; return json({ publications: [{ id: 'a', title: 'Paper' }] }); } });
+  const ctx = context({ fetch: async () => { calls++; return json({ publications: [{ id: 'a' }] }); } });
   const [a, b] = await Promise.all([ctx.loadPublicationData(), ctx.loadPublicationData()]);
   assert.equal(calls, 1); assert.equal(a, b);
 });

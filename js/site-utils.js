@@ -2,7 +2,7 @@
    Loaded first (classic script, defer) so components.js, main.js,
    featured-publications.js and the publications module can all reuse them. */
 
-const SITE_VERSION = "20261015a";
+const SITE_VERSION = "20261016a";
 
 const SITE_SCRIPT_URL = document.currentScript?.src
   ? new URL(document.currentScript.src, document.baseURI)
@@ -78,13 +78,16 @@ function safeURL(value) {
   // Browsers strip tabs, newlines and control characters before resolving a URL, so
   // the scheme must be read from the stripped form or "java<TAB>script:" slips through.
   const probe = link.replace(/[\u0000-\u0020\u007f]+/g, "");
-  // Resolve every URL, including relative paths and browser backslash forms.
-  try {
-    const { protocol } = new URL(probe, window.location.href);
-    return ["http:", "https:", "mailto:"].includes(protocol) ? link : null;
-  } catch {
-    return null;
+  if (/^[a-z][a-z0-9+.-]*:/i.test(probe) || probe.startsWith("//")) {
+    // Allowlist rather than blocklist, so anything exotic fails closed.
+    try {
+      const { protocol } = new URL(probe, window.location.href);
+      return ["http:", "https:", "mailto:"].includes(protocol) ? link : null;
+    } catch {
+      return null;
+    }
   }
+  return link; // relative path within the site
 }
 
 /* Scholar records are stored as site-relative paths ("/citations?..."). */
@@ -129,7 +132,7 @@ const CATEGORY_LABELS = {
 };
 
 function categoryLabel(id) {
-  if (Object.hasOwn(CATEGORY_LABELS, id)) return CATEGORY_LABELS[id];
+  if (CATEGORY_LABELS[id]) return CATEGORY_LABELS[id];
   // Short all-lowercase ids are acronyms (mri -> MRI).
   if (/^[a-z]{2,4}$/.test(id)) return id.toUpperCase();
   return String(id)
@@ -156,18 +159,11 @@ function loadPublicationData() {
   if (!publicationDataPromise) {
     publicationDataPromise = fetchJSONWithTimeout(versionedAssetURL("data/publications.json"))
       .then(data => {
-        if (!data || !Array.isArray(data.publications) || data.publications.some(pub =>
-          !pub || typeof pub !== "object" || Array.isArray(pub) || typeof pub.title !== "string"
-        )) throw new Error("Invalid publication data");
-        const categories = data.categories || {};
-        if (typeof categories !== "object" || Array.isArray(categories) ||
-            Object.values(categories).some(label => typeof label !== "string")) {
-          throw new Error("Invalid publication categories");
-        }
-        Object.assign(CATEGORY_LABELS, categories);
+        if (!Array.isArray(data.publications)) throw new Error("Invalid publication data");
+        if (data.categories) Object.assign(CATEGORY_LABELS, data.categories);
         return {
           publications: data.publications,
-          categories,
+          categories: data.categories || {},
           lastUpdated: data.last_updated || "",
           automation: data.automation || null
         };
@@ -183,17 +179,6 @@ function loadPublicationData() {
 function publicationImage(pub) {
   return safeURL(pub?.thumbnail) || DEFAULT_PUBLICATION_IMAGE;
 }
-
-// Capture failures from dynamically rendered images without inline handlers.
-document.addEventListener("error", event => {
-  const img = event.target;
-  if (!(img instanceof HTMLImageElement) || img.dataset.fallbackApplied || !img.matches(
-    ".pub-thumb img, .pub-card-image img, .paper-collage-frame img, .paper-zoom-image-wrap img"
-  )) return;
-  img.dataset.fallbackApplied = "true";
-  img.removeAttribute("srcset");
-  img.src = versionedAssetURL(DEFAULT_PUBLICATION_IMAGE);
-}, true);
 
 /* Primary category first, deduplicated, capped at `limit`. */
 function visibleCategories(pub, limit) {

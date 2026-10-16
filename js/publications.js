@@ -363,8 +363,8 @@ function formatAuthors(raw) {
 function sortPublications(arr) {
   return [...arr].sort((a, b) => {
     if (sortConfig.field === "priority") {
-      const pa = a.promotion_rank != null && a.promotion_rank !== "" && Number.isFinite(+a.promotion_rank) ? +a.promotion_rank : 9999;
-      const pb = b.promotion_rank != null && b.promotion_rank !== "" && Number.isFinite(+b.promotion_rank) ? +b.promotion_rank : 9999;
+      const pa = a.promotion_rank != null && Number.isFinite(+a.promotion_rank) ? +a.promotion_rank : 9999;
+      const pb = b.promotion_rank != null && Number.isFinite(+b.promotion_rank) ? +b.promotion_rank : 9999;
       if (pa !== pb) return sortConfig.ascending ? pa - pb : pb - pa;
       const yearDiff = (+b.year || 0) - (+a.year || 0);
       if (yearDiff) return yearDiff;
@@ -417,7 +417,7 @@ function renderPublication(p, index = 0) {
   const citationLabel = p.citations ? `${p.citations} citation${+p.citations === 1 ? "" : "s"}` : "";
   return `
     <article class="pub-item" data-categories="${escapeHTML(p.categories?.join(" ") || "other")}">
-      <div class="pub-thumb"><img src="${thumbnail}" alt="${title}" ${imageLoading} decoding="async"></div>
+      <div class="pub-thumb"><img src="${thumbnail}" alt="${title}" ${imageLoading} decoding="async" onerror="this.onerror=null;this.src='${DEFAULT_PUBLICATION_IMAGE}';"></div>
       <div class="pub-content">
         <div class="pub-topline">
           <div class="pub-categories">${badges(visibleCategories(p, 3))}</div>

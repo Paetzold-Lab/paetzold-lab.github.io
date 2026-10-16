@@ -47,12 +47,6 @@
    `site-utils.js` owns `SITE_VERSION`, path/version helpers, and the shared
    publication helpers (`loadPublicationData`, `formatVenue`, `categoryLabel`, ...).
 
-Component fragments contain markup only. Their initialization lives in
-`js/components.js`, and image fallbacks use the shared error listener in
-`js/site-utils.js`. Keep executable scripts and event handlers out of HTML
-fragments: the Content Security Policy permits scripts from this origin and
-blocks inline execution. JSON-LD metadata can remain in the page as inert data.
-
 ### Cache busting
 
 Static assets are referenced as `?v=<token>`. When shipping CSS/JS changes, bump
@@ -191,7 +185,7 @@ PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_*.py' -
 
 These checks run offline with mocked backend services. They cover contact
 validation, spreadsheet formula injection, email budgets, concurrent/failed file
-writes, interrupted PDF downloads, asset links, metadata, CSP, and publication data.
+writes, interrupted PDF downloads, asset links, metadata, and publication data.
 
 For real-browser checks on the cluster, install the isolated tools under the
 exported `$TMPDIR` and remove them afterward:
@@ -208,10 +202,14 @@ unset PLAYWRIGHT_BROWSERS_PATH
 
 The browser check serves the repo on loopback, checks all pages at desktop and
 mobile widths, and tests search, dialogs, publication controls, failure handling,
-and contact submission. External requests are intercepted, so no test email is
-sent. `.github/workflows/checks.yml` runs these checks on pushes and pull requests;
+and contact submission. Autoplay checks separately verify all six research slides
+and the lab introduction complete a full cycle at desktop and mobile widths.
+External requests are intercepted, so no test email is sent. `.github/workflows/checks.yml` runs these checks on pushes and pull requests;
 it does not deploy the site or refresh publication data.
 
 ## Credits
 
 - Matt Li
+
+Backend maintenance preserves the existing frontend. See `AGENTS.md` for the
+required scope and homepage carousel regression checks.

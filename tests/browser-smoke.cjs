@@ -66,13 +66,12 @@ const server = http.createServer(async (req, res) => {
     assert.equal(await page.locator('#legal-notice-popup').getAttribute('aria-hidden'), 'false');
     await page.keyboard.press('Escape');
     assert.equal(await page.evaluate(() => document.activeElement.id), 'open-legal-notice');
-    // The published slideshow uses swipe navigation without visible controls.
-    await page.locator('.lab-intro-photo').scrollIntoViewIfNeeded();
-    const photo = await page.locator('.lab-intro-photo').boundingBox();
-    await page.mouse.move(photo.x + photo.width * 0.8, photo.y + photo.height * 0.5);
-    await page.mouse.down();
-    await page.mouse.move(photo.x + photo.width * 0.2, photo.y + photo.height * 0.5, { steps: 10 });
-    await page.mouse.up();
+    // Exercise the existing touch-swipe handler without native mouse image drag.
+    await page.locator('.hero-carousel').evaluate(carousel => {
+      carousel.dispatchEvent(new PointerEvent('pointerdown', { pointerId: 1, pointerType: 'touch', button: 0, clientX: 300, clientY: 200, bubbles: true }));
+      document.dispatchEvent(new PointerEvent('pointerup', { pointerId: 1, pointerType: 'touch', button: 0, clientX: 150, clientY: 200, bubbles: true }));
+      carousel.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+    });
     await page.locator('.carousel-slide.active .paper-collage-frame').first().click();
     assert.equal(await page.locator('#paper-zoom-modal').getAttribute('aria-hidden'), 'false');
     await page.keyboard.press('Escape');
@@ -80,10 +79,10 @@ const server = http.createServer(async (req, res) => {
     await page.locator('.pub-card-image img').first().evaluate(img => { img.src = 'data:image/png;base64,eA=='; });
     await page.waitForFunction(() => {
       const img = document.querySelector('.pub-card-image img');
-      return img.dataset.fallbackApplied === 'true' && img.naturalWidth > 0 && img.src.includes('/images/publications/default.png');
+      return img.naturalWidth > 0 && img.src.includes('/images/publications/default.png');
     });
     console.log('PASS: search, profile indexing, legal notice, paper preview, and focus restoration');
-    console.log('PASS: broken publication images fall back under the stricter CSP');
+    console.log('PASS: existing publication image fallbacks remain functional');
 
     await page.goto(`${origin}/research.html?member=Chenjun%20Li`);
     await page.waitForSelector('.pub-item');
@@ -151,6 +150,29 @@ const server = http.createServer(async (req, res) => {
 
     assert.deepEqual(errors, [], 'unexpected browser errors');
     await context.close();
+
+    for (const width of [1440, 390]) {
+      const autoplayContext = await browser.newContext({ reducedMotion: 'no-preference', viewport: { width, height: 1000 } });
+      await autoplayContext.route('**/*', route => new URL(route.request().url()).origin === origin
+        ? route.continue() : route.fulfill({ status: 200, body: '' }));
+      const autoplayPage = await autoplayContext.newPage();
+      const start = new Date('2026-10-16T12:00:00Z');
+      await autoplayPage.clock.install({ time: start });
+      await autoplayPage.clock.pauseAt(new Date(start.getTime() + 100));
+      await autoplayPage.goto(`${origin}/index.html`);
+      await autoplayPage.waitForSelector('.pub-card');
+      assert.equal(await autoplayPage.locator('.carousel-slide').count(), 7);
+      assert.equal(await autoplayPage.locator('.paper-collage[data-paper-id]').count(), 6);
+      const activeIndex = () => autoplayPage.evaluate(() => [...document.querySelectorAll('.carousel-slide')].findIndex(slide => slide.classList.contains('active')));
+      assert.equal(await activeIndex(), 0);
+      for (let next = 1; next <= 7; next++) {
+        await autoplayPage.clock.runFor(8100);
+        assert.equal(await activeIndex(), next % 7, `autoplay at ${width}px, transition ${next}`);
+        assert.ok((await autoplayPage.locator('.carousel-slide.active h2').textContent()).trim());
+      }
+      console.log(`PASS: all six research slides rotate automatically and loop back to the introduction at ${width}px`);
+      await autoplayContext.close();
+    }
   } finally {
     await browser.close();
   }

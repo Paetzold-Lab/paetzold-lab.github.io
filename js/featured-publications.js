@@ -250,9 +250,9 @@ function closePaperZoom() {
   const modal = document.getElementById("paper-zoom-modal");
   if (!modal) return;
   modal.classList.remove("is-open");
+  modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("paper-zoom-open");
   modal.previousFocus?.focus?.();
-  modal.setAttribute("aria-hidden", "true");
   modal.setAttribute("inert", "");
   document.dispatchEvent(new CustomEvent("site-modal-change"));
 }
@@ -314,7 +314,7 @@ function renderHeroPublications(pubs) {
           <div class="paper-collage" data-paper-id="${escapeHTML(pub.id || "")}" data-image-count="${collageItems.length}" aria-label="Featured research image collage for ${escapeHTML(pub.title || "paper")}">
             ${collageItems.map((item, imageIndex) => `
               <button type="button" class="paper-collage-frame ${item.className}" style="--paper-image-position:${escapeHTML(item.position)}" data-zoom-src="${escapeHTML(item.src)}" data-zoom-title="${escapeHTML(item.title)}" aria-label="Preview ${escapeHTML(item.ariaLabel)}">
-                <img src="${escapeHTML(item.src)}" alt="" ${heroImageAttrs(index + 1, imageIndex)}>
+                <img src="${escapeHTML(item.src)}" alt="" ${heroImageAttrs(index + 1, imageIndex)} onerror="this.onerror=null;this.src='${DEFAULT_PUBLICATION_IMAGE}';">
               </button>`).join("")}
           </div>
         </div>
@@ -385,7 +385,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         <article class="pub-card">
           <a href="${escapeHTML(url)}" target="_blank" rel="noopener" class="pub-card-link">
               <div class="pub-card-image">
-              <img src="${escapeHTML(thumbnail)}" alt="${escapeHTML(p.title)}" loading="lazy" decoding="async">
+              <img src="${escapeHTML(thumbnail)}" alt="${escapeHTML(p.title)}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='${DEFAULT_PUBLICATION_IMAGE}';">
             </div>
             <div class="pub-card-content">
               <div class="pub-card-meta">

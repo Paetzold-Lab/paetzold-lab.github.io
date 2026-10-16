@@ -49,3 +49,62 @@
     </div>
   </div>
 </footer>
+
+<script>
+(()=>{
+  const y=new Date().getFullYear();
+  document.getElementById('current-year').textContent=y;
+  document.querySelectorAll('.year-span').forEach(e=>e.textContent=y);
+  document.getElementById('footer-contact').href = window.PaetzoldSite.assetPath('contact.html');
+
+  document.querySelectorAll('img.footer-logo[data-file]').forEach(img=>{
+    const file = img.getAttribute('data-file');
+    if (!file) return;
+    const desired = window.PaetzoldSite?.assetPath
+      ? window.PaetzoldSite.assetPath('images/logo/' + file)
+      : './images/logo/' + file;
+    if (img.getAttribute('src') !== desired) img.setAttribute('src', desired);
+    img.loading = 'lazy';
+    img.decoding = 'async';
+  });
+
+  // Legal notice popup logic
+  const open=document.getElementById('open-legal-notice');
+  const popup=document.getElementById('legal-notice-popup');
+  if (!open || !popup) return;
+  const closeBtn=popup.querySelector('.legal-popup-close');
+  const backdrop=popup.querySelector('.legal-popup-backdrop');
+  let previousFocus=null;
+  const show=()=>{
+    previousFocus=document.activeElement;
+    popup.removeAttribute('inert');
+    popup.classList.add('active');
+    popup.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    closeBtn?.focus();
+    document.dispatchEvent(new CustomEvent('site-modal-change'));
+  };
+  const hide=()=>{
+    popup.classList.remove('active');
+    popup.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+    previousFocus?.focus?.();
+    popup.setAttribute('inert','');
+    document.dispatchEvent(new CustomEvent('site-modal-change'));
+  };
+  open.addEventListener('click',e=>{e.preventDefault();show()});
+  closeBtn?.addEventListener('click',hide);
+  backdrop?.addEventListener('click',hide);
+  document.addEventListener('keydown',e=>{
+    if(!popup.classList.contains('active')) return;
+    if(e.key==='Escape') { hide(); return; }
+    if(e.key!=='Tab') return;
+    const focusable=[...popup.querySelectorAll('a[href],button:not([disabled])')].filter(element=>element.tabIndex>=0&&element.offsetParent!==null);
+    if(!focusable.length) return;
+    const first=focusable[0];
+    const last=focusable[focusable.length-1];
+    if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+  });
+})();
+</script>

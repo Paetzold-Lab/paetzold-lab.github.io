@@ -65,9 +65,9 @@ function openOverlay(overlay) {
 function closeOverlay(overlay) {
   if (!overlay) return;
   overlay.classList.remove("active");
+  overlay.setAttribute("aria-hidden", "true");
   document.body.classList.remove("overlay-open");
   overlay.previousFocus?.focus?.();
-  overlay.setAttribute("aria-hidden", "true");
   overlay.setAttribute("inert", "");
   document.dispatchEvent(new CustomEvent("site-modal-change"));
 }
@@ -336,10 +336,6 @@ function initializeCarousel() {
     event.preventDefault();
     goTo(idx + (event.key === "ArrowRight" ? 1 : -1));
   }, { signal });
-  // Native image dragging consumes pointerup and prevents mouse swipes.
-  carousel.addEventListener("dragstart", event => {
-    if (event.target.tagName === "IMG") event.preventDefault();
-  }, { signal });
   carousel.addEventListener("pointerdown", event => {
     if (event.button !== 0 || (event.pointerType === "mouse" && event.target.closest("a, button"))) return;
     suppressClick = false;
@@ -377,11 +373,11 @@ function validateContactData(data) {
     if (!data[field]) return { field, message: "Please complete this field." };
     if (data[field].length > limit) return { field, message: `Please use ${limit} characters or fewer.` };
   }
-  if (!/^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$/i.test(data.email)) {
+  if (!/^[^@\s]+@[^@\s.]+\.[^@\s]+$/.test(data.email)) {
     return { field: "email", message: "Please enter a valid email address." };
   }
   if (data.message.length < 10) return { field: "message", message: "Please write at least 10 characters." };
-  if ((data.message.match(/https?:\/\//gi) || []).length > 4) {
+  if ((data.message.match(/https?:\/\//g) || []).length > 4) {
     return { field: "message", message: "Please include no more than four links." };
   }
   return null;
