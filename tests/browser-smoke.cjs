@@ -66,12 +66,19 @@ const server = http.createServer(async (req, res) => {
     assert.equal(await page.locator('#legal-notice-popup').getAttribute('aria-hidden'), 'false');
     await page.keyboard.press('Escape');
     assert.equal(await page.evaluate(() => document.activeElement.id), 'open-legal-notice');
-    // Exercise the existing touch-swipe handler without native mouse image drag.
-    await page.locator('.hero-carousel').evaluate(carousel => {
-      carousel.dispatchEvent(new PointerEvent('pointerdown', { pointerId: 1, pointerType: 'touch', button: 0, clientX: 300, clientY: 200, bubbles: true }));
-      document.dispatchEvent(new PointerEvent('pointerup', { pointerId: 1, pointerType: 'touch', button: 0, clientX: 150, clientY: 200, bubbles: true }));
-      carousel.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
-    });
+    assert.equal(await page.locator('#carousel-indicators .dot').count(), 7);
+    for (const index of [1, 2, 3, 4, 5, 6, 0]) {
+      await page.locator('#carousel-indicators .dot').nth(index).click();
+      assert.equal(await page.locator('#carousel-indicators .dot[aria-current="true"]').getAttribute('aria-label'),
+        await page.locator('#carousel-indicators .dot').nth(index).getAttribute('aria-label'));
+      await page.waitForFunction(() => {
+        const hero = document.querySelector('.hero-carousel').getBoundingClientRect();
+        const active = document.querySelector('.carousel-slide.active').getBoundingClientRect();
+        const title = document.querySelector('.carousel-slide.active h2').getBoundingClientRect();
+        return Math.abs(active.left - hero.left) < 1 && title.left >= hero.left && title.right <= hero.right + 1;
+      });
+    }
+    await page.locator('#carousel-indicators .dot').nth(1).click();
     await page.locator('.carousel-slide.active .paper-collage-frame').first().click();
     assert.equal(await page.locator('#paper-zoom-modal').getAttribute('aria-hidden'), 'false');
     await page.keyboard.press('Escape');
@@ -168,9 +175,19 @@ const server = http.createServer(async (req, res) => {
       for (let next = 1; next <= 7; next++) {
         await autoplayPage.clock.runFor(8100);
         assert.equal(await activeIndex(), next % 7, `autoplay at ${width}px, transition ${next}`);
+        // CSS transitions run on the compositor's real timeline, separately
+        // from the mocked JavaScript clock. Check the actual settled position.
+        await new Promise(resolve => setTimeout(resolve, 750));
+        const position = await autoplayPage.evaluate(() => {
+          const hero = document.querySelector('.hero-carousel').getBoundingClientRect();
+          const active = document.querySelector('.carousel-slide.active').getBoundingClientRect();
+          const title = document.querySelector('.carousel-slide.active h2').getBoundingClientRect();
+          return { aligned: Math.abs(active.left - hero.left) < 1, titleVisible: title.left >= hero.left && title.right <= hero.right + 1 };
+        });
+        assert.ok(position.aligned && position.titleVisible, `paper must be visible at ${width}px, transition ${next}`);
         assert.ok((await autoplayPage.locator('.carousel-slide.active h2').textContent()).trim());
       }
-      console.log(`PASS: all six research slides rotate automatically and loop back to the introduction at ${width}px`);
+      console.log(`PASS: all six research slides visibly rotate and loop back to the introduction at ${width}px`);
       await autoplayContext.close();
     }
   } finally {

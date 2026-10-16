@@ -102,6 +102,10 @@ class SiteTests(unittest.TestCase):
             for image in re.findall(r'"(?:\./)?(images/[^"${}]+\.(?:jpg|jpeg|png))"', source.read_text()):
                 self.assertTrue((ROOT / image).is_file(), image)
 
+    def test_homepage_keeps_original_research_carousel_controls(self):
+        ids = {attrs.get("id") for _, attrs in Markup((ROOT / "index.html").read_text()).elements}
+        self.assertTrue({"carousel-wrapper", "carousel-indicators", "carousel-prev", "carousel-next"} <= ids)
+
     def test_forms_match_backend_limits(self):
         for page in PAGES:
             elements = Markup(page.read_text()).elements
