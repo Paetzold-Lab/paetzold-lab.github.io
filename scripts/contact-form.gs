@@ -31,7 +31,7 @@
 
 const SHEET_NAME = 'Responses';     // tab to append to; created on first use
 const MIN_FILL_MS = 2500;           // a human does not fill and submit faster than this
-const MAX_EMAILS_PER_HOUR = 25;     // guards the daily MailApp quota during a spam burst
+const MAX_EMAIL_RECIPIENTS_PER_HOUR = 25;     // recipient budget during a spam burst
 const LIMITS = { name: 120, email: 200, message: 4000, page: 500 };
 
 function doPost(e) {
@@ -53,7 +53,13 @@ function doPost(e) {
     };
 
     const location = appendRow_(entry);
-    notify_(entry, location);
+    // A mail failure must not report a saved submission as failed and invite
+    // duplicate submissions. The sheet remains the source of truth.
+    try {
+      notify_(entry, location);
+    } catch (err) {
+      console.error('notification failed after saving submission: ' + err);
+    }
     return reply_({ ok: true });
   } catch (err) {
     console.error(err);
@@ -69,8 +75,8 @@ function doGet() {
 /* ---------- request handling ---------- */
 
 function parseBody_(e) {
-  // The form uses fetch(mode:"no-cors"), so the Content-Type header is stripped and
-  // the JSON arrives as text. Fall back to form-encoded parameters just in case.
+  // The form sends JSON as text/plain to avoid a CORS preflight.
+  // Fall back to form-encoded parameters for older clients.
   const raw = e && e.postData && e.postData.contents;
   if (raw) {
     try {
@@ -83,10 +89,15 @@ function parseBody_(e) {
 }
 
 function screen_(body) {
+  if (!body || typeof body !== 'object' || Array.isArray(body)) return 'invalid body';
+  for (const field of ['name', 'email', 'message']) {
+    if (typeof body[field] !== 'string') return 'invalid field';
+    if (body[field].trim().length > LIMITS[field]) return 'field too long';
+  }
   if (clip_(body.website, 200)) return 'honeypot filled';
 
   const elapsed = Number(body.elapsed);
-  if (isFinite(elapsed) && elapsed >= 0 && elapsed < MIN_FILL_MS) return 'submitted too fast';
+  if (!isFinite(elapsed) || elapsed < MIN_FILL_MS) return 'invalid fill time';
 
   const name = clip_(body.name, LIMITS.name);
   const email = clip_(body.email, LIMITS.email);
@@ -96,7 +107,7 @@ function screen_(body) {
   if (!isAddress_(email)) return 'invalid email';
   if (message.length < 10) return 'message too short';
   // Link-stuffed bodies are the usual signature of SEO spam.
-  if ((message.match(/https?:\/\//g) || []).length > 4) return 'too many links';
+  if ((message.match(/https?:\/\//gi) || []).length > 4) return 'too many links';
 
   return null;
 }
@@ -106,26 +117,41 @@ function clip_(value, max) {
 }
 
 function isAddress_(value) {
-  return /^[^@\s]+@[^@\s.]+\.[^@\s]+$/.test(value);
+  return /^[a-z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$/i.test(value);
 }
 
 /* ---------- storage ---------- */
 
 function appendRow_(entry) {
-  const sheet = getSheet_();
-  sheet.appendRow([entry.timestamp, entry.name, entry.email, entry.message, entry.page]);
-  const row = sheet.getLastRow();
-  const base = SpreadsheetApp.getActiveSpreadsheet().getUrl().replace(/\/edit.*$/, '');
-  return {
-    row: row,
-    sheetUrl: base + '/edit',
-    rowUrl: base + '/edit#gid=' + sheet.getSheetId() + '&range=A' + row
-  };
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000);
+  try {
+    const sheet = getSheet_();
+    sheet.appendRow([entry.timestamp].concat(
+      [entry.name, entry.email, entry.message, entry.page].map(sheetText_)));
+    SpreadsheetApp.flush();
+    const row = sheet.getLastRow();
+    const base = SpreadsheetApp.getActiveSpreadsheet().getUrl().replace(/\/edit.*$/, '');
+    return {
+      row: row,
+      sheetUrl: base + '/edit',
+      rowUrl: base + '/edit#gid=' + sheet.getSheetId() + '&range=A' + row
+    };
+  } finally {
+    lock.releaseLock();
+  }
+}
+
+// Sheets interprets a leading '=' as a formula. Keep visitor input literal,
+// including the other common formula prefixes.
+function sheetText_(value) {
+  const text = String(value == null ? '' : value);
+  return /^[\s\u0000-\u001f]*[=+@-]/.test(text) ? "'" + text : text;
 }
 
 function getSheet_() {
   const book = SpreadsheetApp.getActiveSpreadsheet();
-  let sheet = book.getSheetByName(SHEET_NAME) || book.getSheets()[0];
+  let sheet = book.getSheetByName(SHEET_NAME);
   if (!sheet) sheet = book.insertSheet(SHEET_NAME);
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(['Timestamp', 'Name', 'Email', 'Message', 'Submitted from']);
@@ -140,8 +166,9 @@ function getSheet_() {
 function notify_(entry, location) {
   const recipients = notifyRecipients_();
   if (!recipients.to) return;
-  if (!withinEmailBudget_()) {
-    console.warn('hourly email cap reached; row saved but no notification sent');
+  const recipientCount = (recipients.to + ',' + recipients.cc).split(',').filter(Boolean).length;
+  if (!withinEmailBudget_(recipientCount)) {
+    console.warn('email budget reached; row saved but no notification sent');
     return;
   }
 
@@ -192,10 +219,11 @@ function pad_(value, width) {
 /* The submitted message is attacker-controlled, so everything interpolated into
    the HTML body is escaped and every URL is checked before it becomes an href. */
 function htmlBody_(entry, facts, location) {
+  const replyHref = 'mailto:' + encodeURIComponent(entry.email);
   const rows = facts.map(function (fact) {
     let value = esc_(fact[1]);
     if (fact[0] === 'Email') {
-      value = '<a href="mailto:' + esc_(entry.email) + '">' + value + '</a>';
+      value = '<a href="' + esc_(replyHref) + '">' + value + '</a>';
     }
     if (fact[0] === 'Submitted from') {
       const href = httpURL_(entry.page);
@@ -223,7 +251,7 @@ function htmlBody_(entry, facts, location) {
         'background:#fafafa;white-space:pre-wrap;word-break:break-word">' +
         esc_(entry.message) + '</div>' +
       '<p style="margin:20px 0 0">' +
-        '<a href="mailto:' + esc_(entry.email) + '" style="' + button +
+        '<a href="' + esc_(replyHref) + '" style="' + button +
           ';background:#111;color:#ffffff">Reply to ' + esc_(entry.name) + '</a>' +
         '&nbsp;&nbsp;' +
         '<a href="' + esc_(location.rowUrl) + '" style="' + button +
@@ -269,13 +297,23 @@ function addressList_(raw) {
     .join(',');
 }
 
-function withinEmailBudget_() {
-  const cache = CacheService.getScriptCache();
-  const key = 'contact_emails_' + Utilities.formatDate(new Date(), 'UTC', 'yyyyMMddHH');
-  const sent = Number(cache.get(key) || 0);
-  if (sent >= MAX_EMAILS_PER_HOUR) return false;
-  cache.put(key, String(sent + 1), 3900); // just over an hour
-  return true;
+function withinEmailBudget_(recipientCount) {
+  const lock = LockService.getScriptLock();
+  lock.waitLock(10000);
+  try {
+    // Script properties persist through cache eviction and serialize concurrent
+    // requests. Count recipients, which is what MailApp charges against quota.
+    const props = PropertiesService.getScriptProperties();
+    const hour = Utilities.formatDate(new Date(), 'UTC', 'yyyyMMddHH');
+    const sameHour = props.getProperty('CONTACT_EMAIL_HOUR') === hour;
+    const sent = sameHour ? Number(props.getProperty('CONTACT_EMAIL_COUNT') || 0) : 0;
+    if (sent + recipientCount > MAX_EMAIL_RECIPIENTS_PER_HOUR ||
+        MailApp.getRemainingDailyQuota() < recipientCount) return false;
+    props.setProperties({ CONTACT_EMAIL_HOUR: hour, CONTACT_EMAIL_COUNT: String(sent + recipientCount) });
+    return true;
+  } finally {
+    lock.releaseLock();
+  }
 }
 
 /* ---------- helpers ---------- */

@@ -8,3 +8,5 @@ data/tmp_pdfs/
 data/publications.preview.json
 images/team/source/
 tmp/
+.venv/
+node_modules/

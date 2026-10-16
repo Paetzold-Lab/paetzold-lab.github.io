@@ -25,6 +25,7 @@ import math
 import os
 import re
 import sys
+import tempfile
 import time
 import unicodedata
 from dataclasses import dataclass
@@ -693,11 +694,20 @@ def load_json(path: Path) -> Dict[str, Any]:
 
 def write_json_atomic(path: Path, data: Dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_suffix(path.suffix + ".tmp")
-    with tmp.open("w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-        f.write("\n")
-    tmp.replace(path)
+    # Each run needs its own sibling file: a shared .tmp name lets concurrent
+    # runs replace or truncate one another's output.
+    fd, name = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=path.parent)
+    tmp = Path(name)
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2, ensure_ascii=False, allow_nan=False)
+            f.write("\n")
+            f.flush()
+            os.fsync(f.fileno())
+        os.chmod(tmp, (path.stat().st_mode & 0o777) if path.exists() else 0o644)
+        tmp.replace(path)
+    finally:
+        tmp.unlink(missing_ok=True)
 
 
 def normalize_title(title: str) -> str:
@@ -1505,10 +1515,7 @@ def audit_publications(
     for pub in publications:
         key = canonical_duplicate_key(trim(pub.get("title")))
         duplicate_keys.setdefault(key, []).append(trim(pub.get("title")))
-    duplicates = [
-        titles for titles in duplicate_keys.values()
-        if len(set(titles)) > 1
-    ]
+    duplicates = [titles for titles in duplicate_keys.values() if len(titles) > 1]
     summary["duplicate_title_groups"] = len(duplicates)
 
     return {
@@ -1894,38 +1901,49 @@ def create_publication_card_thumbnail(pub: Dict[str, Any], categories: Dict[str,
     return ""
 
 
+def valid_cached_pdf(path: Path) -> bool:
+    if not path.is_file() or not 5 < path.stat().st_size <= MAX_PDF_BYTES:
+        return False
+    with path.open("rb") as f:
+        if f.read(5) != b"%PDF-":
+            return False
+        f.seek(max(0, path.stat().st_size - 1024))
+        return b"%%EOF" in f.read()
+
+
 def download_pdf(url: str, path: Path) -> bool:
     if not url:
         return False
     path.parent.mkdir(parents=True, exist_ok=True)
-    if path.exists() and path.stat().st_size > 0:
+    if valid_cached_pdf(path):
         return True
+    tmp = None
     try:
-        with requests.get(url, headers=REQUEST_HEADERS, timeout=45, stream=True) as response:
+        fd, name = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".part", dir=path.parent)
+        tmp = Path(name)
+        # Never expose a partial file as a reusable PDF cache entry.
+        with os.fdopen(fd, "wb") as f, requests.get(
+            url, headers=REQUEST_HEADERS, timeout=45, stream=True
+        ) as response:
             response.raise_for_status()
             total = 0
-            with path.open("wb") as f:
-                for chunk in response.iter_content(chunk_size=8192):
-                    if not chunk:
-                        continue
-                    total += len(chunk)
-                    if total > MAX_PDF_BYTES:
-                        raise RuntimeError(f"PDF exceeds max size: {url}")
-                    f.write(chunk)
-        if path.stat().st_size <= 0:
-            return False
-        with path.open("rb") as f:
-            if f.read(5) != b"%PDF-":
-                raise RuntimeError(f"downloaded content is not a PDF: {url}")
+            for chunk in response.iter_content(chunk_size=8192):
+                if not chunk:
+                    continue
+                total += len(chunk)
+                if total > MAX_PDF_BYTES:
+                    raise RuntimeError(f"PDF exceeds max size: {url}")
+                f.write(chunk)
+        if not valid_cached_pdf(tmp):
+            raise RuntimeError(f"downloaded content is not a PDF: {url}")
+        tmp.replace(path)
         return True
     except Exception as exc:
         print(f"warn: failed to download PDF {url}: {exc}", file=sys.stderr)
-        try:
-            if path.exists():
-                path.unlink()
-        except OSError:
-            pass
         return False
+    finally:
+        if tmp is not None:
+            tmp.unlink(missing_ok=True)
 
 
 def pdf_cache_path(pub: Dict[str, Any]) -> Path:
@@ -1938,10 +1956,10 @@ def extract_pdf_text(path: Path, max_pages: int = 6) -> str:
     if fitz is None or not path.exists():
         return ""
     try:
-        doc = fitz.open(path)
-        pages = []
-        for index in range(min(max_pages, doc.page_count)):
-            pages.append(doc.load_page(index).get_text("text"))
+        with fitz.open(path) as doc:
+            pages = []
+            for index in range(min(max_pages, doc.page_count)):
+                pages.append(doc.load_page(index).get_text("text"))
         return re.sub(r"\s+", " ", " ".join(pages)).strip()
     except Exception as exc:
         print(f"warn: failed to extract text from {path}: {exc}", file=sys.stderr)
@@ -1973,23 +1991,23 @@ def extract_representative_image(pdf_path: Path, pub: Dict[str, Any]) -> str:
     best: Tuple[int, Optional[Any]] = (0, None)
 
     try:
-        doc = fitz.open(pdf_path)
-        for page_index in range(min(5, doc.page_count)):
-            page = doc.load_page(page_index)
-            for image in page.get_images(full=True):
-                try:
-                    xref = image[0]
-                    pix = fitz.Pixmap(doc, xref)
-                    if pix.alpha or pix.n >= 5:
-                        pix = fitz.Pixmap(fitz.csRGB, pix)
-                    candidate = pixmap_to_image(pix)
-                    if candidate is None:
+        with fitz.open(pdf_path) as doc:
+            for page_index in range(min(5, doc.page_count)):
+                page = doc.load_page(page_index)
+                for image in page.get_images(full=True):
+                    try:
+                        xref = image[0]
+                        pix = fitz.Pixmap(doc, xref)
+                        if pix.alpha or pix.n >= 5:
+                            pix = fitz.Pixmap(fitz.csRGB, pix)
+                        candidate = pixmap_to_image(pix)
+                        if candidate is None:
+                            continue
+                        score = image_quality_score(candidate)
+                        if score > best[0]:
+                            best = (score, candidate)
+                    except Exception:
                         continue
-                    score = image_quality_score(candidate)
-                    if score > best[0]:
-                        best = (score, candidate)
-                except Exception:
-                    continue
 
         if best[1] is not None and best[0] >= PDF_IMAGE_MIN_SCORE:
             out_path = AUTO_THUMB_DIR / f"{slug}_image.jpg"
@@ -2338,9 +2356,13 @@ def build_output(
     publications: List[Dict[str, Any]],
     *,
     config: Dict[str, Any],
+    scholar_refreshed: bool = False,
 ) -> Dict[str, Any]:
     output = dict(source)
-    output["last_updated"] = utc_now()
+    # This field is displayed as the Scholar citation refresh date. Local audits
+    # and thumbnail work must not claim that Scholar was contacted.
+    if scholar_refreshed:
+        output["last_updated"] = utc_now()
     output["categories"] = config.get("categories") or source.get("categories") or {}
     output["publications"] = publications
     output["automation"] = {
@@ -2379,7 +2401,22 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--page-size", type=int, default=100)
     parser.add_argument("--request-delay", type=float, default=REQUEST_DELAY_SECONDS)
     parser.add_argument("--openai-model", default=os.getenv("OPENAI_MODEL", "gpt-4o-mini"))
-    return parser.parse_args()
+    args = parser.parse_args()
+    if args.limit < 0 or args.max_pages < 1 or not 1 <= args.page_size <= 100:
+        parser.error("--limit must be nonnegative, --max-pages positive, and --page-size between 1 and 100")
+    if not math.isfinite(args.request_delay) or args.request_delay < 0:
+        parser.error("--request-delay must be finite and nonnegative")
+    if any([args.download_pdfs, args.page_images, args.fallback_thumbnails, args.llm,
+            args.only_representative, args.only_missing_thumbnails, args.refresh_auto_thumbnails]) and not args.enrich:
+        parser.error("enrichment options require --enrich")
+    target = (args.output if args.write else args.preview_output).resolve()
+    if not args.write and target in {args.input.resolve(), args.output.resolve(), DEFAULT_OUTPUT.resolve()}:
+        parser.error("overwriting publication data requires --write; choose a separate --preview-output")
+    if target == args.config.resolve():
+        parser.error("output must not overwrite the lab member configuration")
+    if args.audit and args.audit_output.resolve() in {target, args.input.resolve(), args.output.resolve(), args.config.resolve(), DEFAULT_OUTPUT.resolve()}:
+        parser.error("--audit-output must be separate from publication data and configuration")
+    return args
 
 
 def main() -> int:
@@ -2403,6 +2440,7 @@ def main() -> int:
         print("Nothing to do. Use --collect-scholar, --normalize, --verify-openalex, --audit, --enrich, and/or --representative.")
         return 2
 
+    scholar_refreshed = False
     if args.collect_scholar:
         incoming = collect_from_scholar(
             members,
@@ -2412,6 +2450,7 @@ def main() -> int:
             member_filter=args.member or None,
         )
         before = len(publications)
+        scholar_refreshed = bool(incoming)
         publications = merge_publications(publications, incoming, overwrite=args.overwrite)
         print(f"merge: {before} existing + {len(incoming)} collected -> {len(publications)} total")
 
@@ -2452,7 +2491,7 @@ def main() -> int:
                 dedupe=True,
             )
 
-    output = build_output(source, publications, config=config)
+    output = build_output(source, publications, config=config, scholar_refreshed=scholar_refreshed)
     target = args.output if args.write else args.preview_output
     write_json_atomic(target, output)
     print(f"wrote: {target.relative_to(ROOT) if target.is_relative_to(ROOT) else target}")

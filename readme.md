@@ -47,6 +47,12 @@
    `site-utils.js` owns `SITE_VERSION`, path/version helpers, and the shared
    publication helpers (`loadPublicationData`, `formatVenue`, `categoryLabel`, ...).
 
+Component fragments contain markup only. Their initialization lives in
+`js/components.js`, and image fallbacks use the shared error listener in
+`js/site-utils.js`. Keep executable scripts and event handlers out of HTML
+fragments: the Content Security Policy permits scripts from this origin and
+blocks inline execution. JSON-LD metadata can remain in the page as inert data.
+
 ### Cache busting
 
 Static assets are referenced as `?v=<token>`. When shipping CSS/JS changes, bump
@@ -82,6 +88,15 @@ Create new HTML files based on existing templates, including component placehold
 
 ### Publication Management
 
+The pipeline requires Python 3.10+ and the core dependencies below. Image and PDF
+enrichment additionally needs `Pillow` and `PyMuPDF`.
+
+```bash
+python3 -m pip install -r scripts/requirements.txt
+# Optional, for PDF extraction and thumbnail generation:
+python3 -m pip install Pillow PyMuPDF
+```
+
 Update `data/publications.json` manually, or use the automated research pipeline:
 
 ```bash
@@ -108,6 +123,13 @@ python3 scripts/research_pipeline.py --input data/publications.json --output dat
 ```
 
 Configuration lives in `data/lab_members.json`. Add or update a member's `scholar_id` there to include them in Scholar collection. The script is dry-run by default and writes `data/publications.preview.json`; use `--write` only after reviewing the preview.
+
+Enrichment options such as `--download-pdfs`, `--page-images`, and `--llm` require
+`--enrich`. Preview and audit paths must be separate from the publication data and
+member configuration. JSON output and downloaded PDFs use unique temporary files
+beside their targets, then replace the targets atomically. The Scholar refresh
+timestamp changes only when collection returns records; local audits and thumbnail
+updates preserve it.
 
 The pipeline can:
 - collect publications from configured Google Scholar profile IDs
@@ -136,6 +158,59 @@ The homepage hero renders it as a "Live demo" button; the research list renders 
 
 Served by GitHub Pages from `main` at https://paetzold-lab.github.io/.
 Push to `main` and Pages rebuilds; `web/index.html` keeps the legacy `/web/` URL redirecting to the root.
+
+### Contact backend
+
+`scripts/contact-form.gs` is the source for the separately deployed Google Apps
+Script endpoint. Changing this repo does **not** update that deployment. Copy the
+script into its existing Apps Script project and deploy a new version of the
+**existing deployment**, following the setup comment at the top of the file.
+
+Responses go into the `Responses` tab, which is created if absent; other tabs are
+left untouched. Visitor input is stored as text, writes use a script lock, and
+notification failures leave the saved submission intact. Notifications have a
+persistent hourly budget of 25 recipients, including CC, and respect MailApp's
+remaining daily recipient quota. The sheet retains submissions when mail is capped.
+
+The static form sends a `text/plain` JSON POST with `mode: "cors"` to avoid a
+preflight. It confirms receipt only after reading a positive `{ "ok": true }`
+response; network errors and rejected responses preserve the entered message.
+Keep both Google script hosts in the CSP's `connect-src` directive. A live
+end-to-end delivery check also requires verifying the saved row and notification
+in the owner's account.
+
+## Checks
+
+With Python dependencies installed and Node.js 22+ available:
+
+```bash
+node --test scripts/site-regression.test.cjs tests/*.test.cjs
+python3 scripts/check-site.py
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -p 'test_*.py' -v
+```
+
+These checks run offline with mocked backend services. They cover contact
+validation, spreadsheet formula injection, email budgets, concurrent/failed file
+writes, interrupted PDF downloads, asset links, metadata, CSP, and publication data.
+
+For real-browser checks on the cluster, install the isolated tools under the
+exported `$TMPDIR` and remove them afterward:
+
+```bash
+check_dir=$(mktemp -d "$TMPDIR/lab-web-check.XXXXXX")
+npm_config_cache="$check_dir/npm-cache" npm install --prefix "$check_dir/tools" --no-audit --no-fund playwright@1.64.1
+export PLAYWRIGHT_BROWSERS_PATH="$check_dir/browsers"
+"$check_dir/tools/node_modules/.bin/playwright" install chromium
+NODE_PATH="$check_dir/tools/node_modules" node tests/browser-smoke.cjs
+rm -rf -- "$check_dir"
+unset PLAYWRIGHT_BROWSERS_PATH
+```
+
+The browser check serves the repo on loopback, checks all pages at desktop and
+mobile widths, and tests search, dialogs, publication controls, failure handling,
+and contact submission. External requests are intercepted, so no test email is
+sent. `.github/workflows/checks.yml` runs these checks on pushes and pull requests;
+it does not deploy the site or refresh publication data.
 
 ## Credits
 
