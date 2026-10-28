@@ -792,20 +792,26 @@
   .pub-links { justify-content: flex-start; flex-wrap: wrap; }
   .btn-link { width: auto; text-align: center; padding: 0.8rem 1rem; }
   .collab-wrapper { padding: 0 40px; }
+  /* Keep one whole collaborator card between the arrows: where the card and the
+     2rem gutters no longer fit, shrink the gutters to center it, then the card. */
+  .collab-container {
+    container-type: inline-size;
+    padding-inline: clamp(0px, calc((100% - 332px) / 2), 2rem);
+  }
+  .collab-item { width: min(300px, calc(100cqi - 2rem)); min-width: 0; }
   .section-header h2 { font-size: 2rem; }
 }
 
-@media (max-width: 480px) {
-  .publications { padding: 3rem 1rem; }
-  .publications-head h1 { font-size: 2.05rem; }
-  .pub-filters button,
-  .pub-member-filters button {
-    flex: 0 0 auto;
-    white-space: nowrap;
-  }
-  .pub-thumb { min-height: 0; }
+/* A pinned filter panel taller than a short (landscape phone) viewport hides
+   the whole publication list, so it scrolls with the page there. */
+@media (max-height: 600px) {
+  .pub-controls { position: static; }
+}
+
+/* The one-row pager needs up to ~690px (prev, 1 … 3-7 … last, next); below that
+   it pushed the arrows off-screen, so narrower screens stack it instead. */
+@media (max-width: 700px) {
   .pagination {
-    margin-top: 2rem;
     gap: 0.5rem;
     flex-wrap: wrap;
     padding: 0 0.25rem;
@@ -826,7 +832,20 @@
   }
   .page-numbers button,
   .page-numbers span { width: 44px; height: 44px; font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+  .publications { padding: 3rem 1rem; }
+  .publications-head h1 { font-size: 2.05rem; }
+  .pub-filters button,
+  .pub-member-filters button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+  .pub-thumb { min-height: 0; }
+  .pagination { margin-top: 2rem; }
   .collab-wrapper { padding: 0 48px; }
+  .collab-container { padding-inline: clamp(0px, calc((100% - 292px) / 2), 2rem); }
   .scroll-btn { width: 44px; height: 44px; padding: 0.65rem; }
-  .collab-item { width: 260px; padding: 1.5rem; min-width: 260px; }
+  .collab-item { width: 260px; width: min(260px, calc(100cqi - 2rem)); padding: 1.5rem; min-width: 0; }
 }
