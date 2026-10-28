@@ -17,6 +17,7 @@ const SEARCH_PAGES = [
   "contact.html",
   "pi.html",
   "team_members_subpage/Adina.html",
+  "team_members_subpage/Jana.html",
   "team_members_subpage/Laurin.html",
   "team_members_subpage/Lucas.html",
   "team_members_subpage/Matt.html",

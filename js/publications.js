@@ -3,6 +3,7 @@ const LAB_MEMBERS = [
   "Adina Scheinfeld",
   "Alexander Berger",
   "Chenjun Li",
+  "Jana Armouti",
   "Johannes C. Paetzold",
   "Laurin Lux",
   "Lucas Stoffl",
@@ -14,6 +15,7 @@ const LAB_MEMBERS = [
 const LAB_MEMBER_ALIASES = {
   "Johannes C. Paetzold": ["Johannes Paetzold", "J Paetzold", "J C Paetzold", "Johannes C Paetzold", "JC Paetzold"],
   "Chenjun Li": ["Matt Li", "C Li", "C. Li"],
+  "Jana Armouti": ["J Armouti"],
   "Laurin Lux": ["L Lux"],
   "Alexander Berger": ["A Berger", "A H Berger", "A. Berger", "A. H. Berger"],
   "Adina Scheinfeld": ["A Scheinfeld"],

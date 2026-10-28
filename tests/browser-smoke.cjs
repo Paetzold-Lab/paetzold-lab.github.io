@@ -34,7 +34,7 @@ const server = http.createServer(async (req, res) => {
     page.on('pageerror', error => errors.push(error.message));
     page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
     const pages = ['index.html', 'research.html', 'team.html', 'join_us.html', 'contact.html', 'pi.html',
-      ...['Adina', 'Laurin', 'Lucas', 'Matt', 'Robert', 'Roel'].map(name => `team_members_subpage/${name}.html`)];
+      ...['Adina', 'Jana', 'Laurin', 'Lucas', 'Matt', 'Robert', 'Roel'].map(name => `team_members_subpage/${name}.html`)];
 
     for (const width of [1440, 390]) {
       await page.setViewportSize({ width, height: 1000 });
@@ -51,7 +51,7 @@ const server = http.createServer(async (req, res) => {
         assert.deepEqual(errors.splice(0), [], `${name} at ${width}px: browser errors`);
       }
     }
-    console.log('PASS: all 12 pages at desktop and mobile widths, nested navigation, CSP, and console checks');
+    console.log('PASS: all 13 pages at desktop and mobile widths, nested navigation, CSP, and console checks');
 
     await page.goto(`${origin}/index.html`);
     await page.waitForSelector('.pub-card');
