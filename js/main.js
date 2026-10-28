@@ -20,6 +20,7 @@ const SEARCH_PAGES = [
   "team_members_subpage/Laurin.html",
   "team_members_subpage/Lucas.html",
   "team_members_subpage/Matt.html",
+  "team_members_subpage/Robert.html",
   "team_members_subpage/Roel.html"
 ];
 const MAX_SEARCH_RESULTS = 12;

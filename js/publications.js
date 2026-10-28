@@ -6,6 +6,7 @@ const LAB_MEMBERS = [
   "Johannes C. Paetzold",
   "Laurin Lux",
   "Lucas Stoffl",
+  "Robert Graf",
   "Roel van Herten"
 ];
 
@@ -17,7 +18,8 @@ const LAB_MEMBER_ALIASES = {
   "Alexander Berger": ["A Berger", "A H Berger", "A. Berger", "A. H. Berger"],
   "Adina Scheinfeld": ["A Scheinfeld"],
   "Roel van Herten": ["Rudolf van Herten", "R van Herten", "R. van Herten", "R v Herten", "RLM van Herten"],
-  "Lucas Stoffl": ["L Stoffl"]
+  "Lucas Stoffl": ["L Stoffl"],
+  "Robert Graf": ["R Graf"]
 };
 
 function normalizeAuthorName(str) {
