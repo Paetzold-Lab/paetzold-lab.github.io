@@ -2602,3 +2602,33 @@ button:disabled { cursor: default; opacity: 0.45; }
   .paper-hero .carousel-indicators { max-width: 100%; }
   .profile-page { padding-left: 1rem; padding-right: 1rem; }
 }
+
+/* Subtle depth motion (js/motion.js). Decorative only: the banner field sits
+   above the slides but below the arrows and indicators, and never takes clicks. */
+.hero-field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 50%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.8s ease;
+}
+
+.hero-field.is-visible { opacity: 1; }
+
+.motion-tilt {
+  transform: perspective(var(--tilt-depth, 900px)) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@media (max-width: 768px) {
+  .hero-field { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-field { display: none; }
+  .motion-tilt { transform: none; }
+}
